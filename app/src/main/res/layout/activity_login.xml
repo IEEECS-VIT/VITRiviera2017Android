@@ -10,35 +10,36 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.ieeecsvit.riviera17android.LoginActivity"
     android:background="@drawable/newloginback"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="112dp"
+        android:layout_width="wrap_content"
+        android:layout_height="174dp"
         android:id="@+id/riviera"
-        android:src="@drawable/newlogo"
+        android:src="@drawable/riviera"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp" />
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:id="@+id/eventapp"
-        android:foregroundGravity="center"
-        android:src="@drawable/eventapp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        />
-
+    <!-- <ImageView
+         android:layout_width="200dp"
+         android:layout_height="50dp"
+         android:id="@+id/eventapp"
+         android:foregroundGravity="center"
+         android:src="@drawable/eventapp"
+         android:layout_gravity="center"
+         android:layout_marginTop="20dp"
+         />
+ -->
 
     <EditText
         android:id="@+id/regno"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="40dp"
         android:ellipsize="start"
         android:hint="\tREGISTRATION NUMBER"
         android:inputType="text"
-        android:textColor=""
+        android:paddingLeft="5dp"
         android:typeface="serif"
         android:textSize="20dp"
         android:background="@drawable/roundshape"
@@ -47,8 +48,9 @@
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="40dp"
         android:ellipsize="start"
+        android:paddingLeft="5dp"
         android:hint="\tPASSWORD"
         android:textSize="20dp"
         android:inputType="textPassword"
@@ -64,7 +66,7 @@
     android:id="@+id/loginbutton"
     android:background="@drawable/roundbutton"
     android:textColor="#ffffff"
-        android:layout_marginTop="40dp"
+    android:layout_marginTop="40dp"
     android:textSize="25dp"
     android:gravity="center"
     android:layout_above="@+id/viewevents" />
