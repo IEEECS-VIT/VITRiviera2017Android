@@ -89,5 +89,4 @@ public class Event {
     @SerializedName("timestamp")
     @Expose
     public String timestamp;
-
 }

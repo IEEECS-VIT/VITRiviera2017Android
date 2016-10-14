@@ -20,6 +20,7 @@ public class ApiClient {
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         if (retrofit==null) {
             OkHttpClient ok=new OkHttpClient.Builder()
+
                     .addInterceptor(interceptor)
                     .build();
             retrofit = new Retrofit.Builder()
