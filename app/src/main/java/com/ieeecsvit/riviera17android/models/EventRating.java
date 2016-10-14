@@ -3,7 +3,9 @@ package com.ieeecsvit.riviera17android.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class EventRating {
+import io.realm.RealmObject;
+
+public class EventRating extends RealmObject{
 
     @SerializedName("username")
     @Expose

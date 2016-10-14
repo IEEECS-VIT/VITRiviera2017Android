@@ -6,7 +6,9 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Event {
+import io.realm.RealmObject;
+
+public class Event extends RealmObject{
 
     @SerializedName("_id")
     @Expose
