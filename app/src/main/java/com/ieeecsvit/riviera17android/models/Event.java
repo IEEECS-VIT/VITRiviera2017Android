@@ -80,9 +80,6 @@ public class Event {
     @SerializedName("event_coordinators")
     @Expose
     public List<EventCoordinator> eventCoordinators = new ArrayList<EventCoordinator>();
-    @SerializedName("event_rating")
-    @Expose
-    public List<EventRating> eventRating = new ArrayList<EventRating>();
     @SerializedName("event_overall")
     @Expose
     public String eventOverall;
