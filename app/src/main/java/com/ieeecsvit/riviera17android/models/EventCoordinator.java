@@ -1,4 +1,4 @@
-package com.ieeevit.vitriviera17.models;
+package com.ieeecsvit.riviera17android.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
