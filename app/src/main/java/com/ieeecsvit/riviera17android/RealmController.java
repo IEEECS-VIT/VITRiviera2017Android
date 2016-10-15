@@ -1,6 +1,5 @@
 package com.ieeecsvit.riviera17android;
 
-
 import android.app.Activity;
 import android.app.Application;
 import android.support.v4.app.Fragment;
@@ -27,7 +26,6 @@ public class RealmController {
         }
         return instance;
     }
-
     public static RealmController with(Activity activity) {
 
         if (instance == null) {

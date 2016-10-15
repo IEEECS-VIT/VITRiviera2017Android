@@ -16,7 +16,7 @@ import retrofit2.Response;
  * Created by Karishnu Poddar on 15/10/2016.
  */
 public class Data {
-    public static void updateEvents(final Activity activity){
+    public static void updateEvents(final Activity activity, final UpdateCallback updateCallback){
 
         ApiInterface apiInterface = new ApiClient().getClient(activity).create(ApiInterface.class);
         Call<Events> getEvents = apiInterface.events();
@@ -31,6 +31,8 @@ public class Data {
                     realm.copyToRealm(e);
                     realm.commitTransaction();
                 }
+
+                updateCallback.onUpdate();
             }
 
             @Override
@@ -38,5 +40,9 @@ public class Data {
 
             }
         });
+    }
+
+    public interface UpdateCallback{
+        public void onUpdate();
     }
 }

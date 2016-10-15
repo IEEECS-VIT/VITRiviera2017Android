@@ -42,6 +42,6 @@ public class Auth {
 
     public static String getToken(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Consts.PREF_NAME, Context.MODE_PRIVATE);
-        return prefs.getString(Consts.TOKEN_PREF,null);
+        return prefs.getString(Consts.TOKEN_PREF,"notfound");
     }
 }
