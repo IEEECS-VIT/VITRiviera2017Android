@@ -1,6 +1,7 @@
 package com.ieeecsvit.riviera17android.rest;
 
 import android.app.Activity;
+import android.util.Log;
 
 import com.ieeecsvit.riviera17android.RealmController;
 import com.ieeecsvit.riviera17android.models.Event;

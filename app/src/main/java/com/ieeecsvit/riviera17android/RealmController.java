@@ -7,11 +7,8 @@ import android.support.v4.app.Fragment;
 
 import com.ieeecsvit.riviera17android.models.Event;
 
-import java.util.List;
-
 import io.realm.Realm;
 import io.realm.RealmResults;
-
 
 public class RealmController {
 
@@ -19,6 +16,7 @@ public class RealmController {
     private final Realm realm;
 
     public RealmController(Application application) {
+        Realm.init(application);
         realm = Realm.getDefaultInstance();
     }
 
