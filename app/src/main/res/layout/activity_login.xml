@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.ieeecsvit.riviera17android.LoginActivity"
+    android:background="@drawable/newloginback"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="174dp"
+        android:id="@+id/riviera"
+        android:src="@drawable/riviera"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <!-- <ImageView
+         android:layout_width="200dp"
+         android:layout_height="50dp"
+         android:id="@+id/eventapp"
+         android:foregroundGravity="center"
+         android:src="@drawable/eventapp"
+         android:layout_gravity="center"
+         android:layout_marginTop="20dp"
+         />
+ -->
+
+    <EditText
+        android:id="@+id/regno"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:ellipsize="start"
+        android:hint="\tREGISTRATION NUMBER"
+        android:inputType="text"
+        android:paddingLeft="5dp"
+        android:typeface="serif"
+        android:textSize="20dp"
+        android:background="@drawable/roundshape"
+        android:layout_marginTop="45dp"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:ellipsize="start"
+        android:paddingLeft="5dp"
+        android:hint="\tPASSWORD"
+        android:textSize="20dp"
+        android:inputType="textPassword"
+        android:typeface="serif"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/roundshape"/>
+
+
+    <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="LOGIN"
+    android:id="@+id/loginbutton"
+    android:background="@drawable/roundbutton"
+    android:textColor="#ffffff"
+    android:layout_marginTop="40dp"
+    android:textSize="25dp"
+    android:gravity="center"
+    android:layout_above="@+id/viewevents" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VIEW EVENTS"
+        android:layout_marginTop="20dp"
+        android:id="@+id/viewevents"
+        android:background="@drawable/roundbutton"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        android:gravity="center" />
+
+
+</LinearLayout>
