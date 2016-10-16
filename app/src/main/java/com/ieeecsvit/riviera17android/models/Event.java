@@ -83,9 +83,9 @@ public class Event extends RealmObject{
     @SerializedName("event_coordinators")
     @Expose
     public RealmList<EventCoordinator> eventCoordinators = new RealmList<>();
-/*    @SerializedName("event_rating")
+    @SerializedName("event_rating")
     @Expose
-    public List<EventRating> eventRating = new ArrayList<EventRating>();*/
+    public List<EventRating> eventRating = new ArrayList<EventRating>();
     @SerializedName("event_overall")
     @Expose
     public String eventOverall;
