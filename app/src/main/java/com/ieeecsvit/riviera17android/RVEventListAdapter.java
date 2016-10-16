@@ -5,6 +5,7 @@ package com.ieeecsvit.riviera17android;
  */
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,7 @@ import java.util.List;
     @Override
     public void onBindViewHolder(EventItemViewHolder holder, int position) {
         holder.eventListItem.setValues(eventsList.get(position).checked, eventsList.get(position).eventName, eventsList.get(position).eventChapterName);
+        Log.d("DATA: ",eventsList.get(position).eventChapterName);
     }
 
     @Override

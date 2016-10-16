@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ieeecsvit.riviera17android.R;
@@ -12,7 +14,7 @@ import com.ieeecsvit.riviera17android.R;
 /**
  * Created by Karishnu Poddar on 16/10/2016.
  */
-public class EventListItem extends RecyclerView {
+public class EventListItem extends LinearLayout {
 
     ImageView checkbox;
     TextView event_name, event_chap_name;
@@ -27,7 +29,7 @@ public class EventListItem extends RecyclerView {
     }
 
     public void setValues(Boolean checked, String event_name_string, String event_chap_name_string){
-        setCheck(checked);
+        // setCheck(checked);
         event_name.setText(event_name_string);
         event_chap_name.setText(event_chap_name_string);
     }
