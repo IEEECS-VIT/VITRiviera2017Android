@@ -28,17 +28,20 @@ public class EventListItem extends LinearLayout {
         event_chap_name = (TextView) findViewById(R.id.tv_event_chap_name);
     }
 
-    public void setValues(Boolean checked, String event_name_string, String event_chap_name_string){
-        // setCheck(checked);
+    public void setValues(Boolean checked, String event_name_string, String event_chap_name_string) {
+        setCheck(checked);
         event_name.setText(event_name_string);
         event_chap_name.setText(event_chap_name_string);
     }
 
-    private void setCheck(Boolean checked){
-        if(checked){
-            checkbox.setImageResource(R.drawable.event_check);
-        }
-        else{
+    private void setCheck(Boolean checked) {
+        if (checked != null) {
+            if (checked) {
+                checkbox.setImageResource(R.drawable.event_check);
+            } else {
+                checkbox.setImageResource(R.drawable.event_uncheck);
+            }
+        } else {
             checkbox.setImageResource(R.drawable.event_uncheck);
         }
     }

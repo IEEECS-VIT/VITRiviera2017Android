@@ -26,6 +26,8 @@ public class RealmController {
         }
         return instance;
     }
+
+
     public static RealmController with(Activity activity) {
 
         if (instance == null) {
@@ -67,9 +69,9 @@ public class RealmController {
     }
 
     //find all objects in the Book.class
-    public RealmResults<Event> getEvents() {
+    public RealmResults<Event> getEvents(String category) {
 
-        return realm.where(Event.class).findAll();
+        return realm.where(Event.class).equalTo("event_category",category).findAll();
     }
 
 /*    //query a single item with the given id
