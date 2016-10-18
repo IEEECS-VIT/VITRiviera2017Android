@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     TextView pre,work,formal,informal,cyber;
-  //  CardView prec,workc,formalc,informc,cyberc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,34 +41,6 @@ public class MainActivity extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-/*        prec=(CardView)findViewById(R.id.preriviera);
-        workc=(CardView)findViewById(R.id.workshop);
-        formalc=(CardView)findViewById(R.id.formal);
-        informc=(CardView)findViewById(R.id.informal);
-        cyberc=(CardView)findViewById(R.id.cyber);
-*/
-
-/*        Point point =new Point();
-        Display display=getWindowManager().getDefaultDisplay();
-        display.getSize(point);
-
-        int hieght=point.y;
-        int width=point.x;
-
-        int newhieght= (int) convertPixelsToDp(hieght,this);
-
-
-      //  AppBarLayout appbar=(AppBarLayout)findViewById(R.id.appbarlaayout);
-        //appbar.setLayoutParams(new CoordinatorLayout.LayoutParams(width,hieght));
-
-        //prec.setLayoutParams(new WindowManager.LayoutParams(width,60));
-        //workc.setLayoutParams(new ViewGroup.LayoutParams(width,60));
-        //formalc.setLayoutParams(new ViewGroup.LayoutParams(width,60));
-        //informc.setLayoutParams(new ViewGroup.LayoutParams(width,60));
-        //cyberc.setLayoutParams(new ViewGroup.LayoutParams(width,60));
-
-*/
 
         toolbar.setBackgroundColor(Color.parseColor("#302236"));
 
@@ -88,8 +59,6 @@ public class MainActivity extends AppCompatActivity
         formal.setTypeface(typeface);
         informal.setTypeface(typeface);
         cyber.setTypeface(typeface);
-
-
 
 
         /*
@@ -151,17 +120,23 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.wishlist) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.messageb) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.requestb) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.register) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.feedback) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.licences) {
+
+        }
+        else if (id == R.id.contact) {
+
+        }
+        else if (id == R.id.about) {
 
         }
 
@@ -171,23 +146,23 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void preriviera(View view){
-        Toast.makeText(this, "pre", Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, "pre", Toast.LENGTH_SHORT).show();
     }
 
     public void workshop(View view){
-        Toast.makeText(this, "work", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "work", Toast.LENGTH_SHORT).show();
 
     }
     public void formal(View view){
-        Toast.makeText(this, "formal", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "formal", Toast.LENGTH_SHORT).show();
 
     }
     public void informal(View view){
-        Toast.makeText(this, "informal", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "informal", Toast.LENGTH_SHORT).show();
 
     }
     public void cyber(View view){
-        Toast.makeText(this, "cyber", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "cyber", Toast.LENGTH_SHORT).show();
 
     }
 
