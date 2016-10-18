@@ -3,7 +3,9 @@ package com.ieeecsvit.riviera17android.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class EventCoordinator {
+import io.realm.RealmObject;
+
+public class EventCoordinator extends RealmObject{
 
     @SerializedName("name")
     @Expose
