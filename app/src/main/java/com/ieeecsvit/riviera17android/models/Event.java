@@ -6,7 +6,10 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Event {
+import io.realm.RealmList;
+import io.realm.RealmObject;
+
+public class Event extends RealmObject{
 
     @SerializedName("_id")
     @Expose
@@ -79,15 +82,17 @@ public class Event {
     public String eventPreference;
     @SerializedName("event_coordinators")
     @Expose
-    public List<EventCoordinator> eventCoordinators = new ArrayList<EventCoordinator>();
+    public RealmList<EventCoordinator> eventCoordinators = new RealmList<>();
     @SerializedName("event_rating")
     @Expose
-    public List<EventRating> eventRating = new ArrayList<EventRating>();
+    public RealmList<EventRating> eventRating = new RealmList<>();
     @SerializedName("event_overall")
     @Expose
     public String eventOverall;
     @SerializedName("timestamp")
     @Expose
     public String timestamp;
-
+    @SerializedName("checked")
+    @Expose
+    public Boolean checked;
 }
