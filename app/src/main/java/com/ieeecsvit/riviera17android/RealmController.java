@@ -3,9 +3,7 @@ package com.ieeecsvit.riviera17android;
 import android.app.Activity;
 import android.app.Application;
 import android.support.v4.app.Fragment;
-
 import com.ieeecsvit.riviera17android.models.Event;
-
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -56,7 +54,6 @@ public class RealmController {
 
     //Refresh the realm istance
     public void refresh() {
-
         realm.waitForChange();
     }
 
@@ -70,11 +67,10 @@ public class RealmController {
 
     //find all objects in the Book.class
     public RealmResults<Event> getEvents(String category) {
-
-        return realm.where(Event.class).equalTo("event_category",category).findAll();
+        return realm.where(Event.class).equalTo("eventCategory",category).findAll();
     }
 
-/*    //query a single item with the given id
+    /*    //query a single item with the given id
     public Event getEvent(String id) {
 
         return realm.where(Event.class).equalTo("id", id).findFirst();
@@ -82,12 +78,18 @@ public class RealmController {
 
     //check if Book.class is empty
     public boolean hasEvents() {
-
         return !realm.where(Event.class).findAll().isEmpty();
     }
 
+    public void setFavourite(String eventId, Boolean favourite){
+        Event event = realm.where(Event.class).equalTo("id",eventId).findFirst();
+        realm.beginTransaction();
+        event.checked = favourite;
+        realm.commitTransaction();
+    }
+
     //query example
-/*    public RealmResults<Event> queryedBooks() {
+    /*    public RealmResults<Event> queryedBooks() {
 
         return realm.where(Event.class)
                 .contains("author", "Author 0")
