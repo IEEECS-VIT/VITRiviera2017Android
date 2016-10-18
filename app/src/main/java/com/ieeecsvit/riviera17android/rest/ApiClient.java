@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
 
-    public static final String BASE_URL = "riviera-2017-api.herokuapp.com/api/v1/users";
+    public static final String BASE_URL = "http://riviera-2017-api.herokuapp.com/api/v1/";
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient(final Context context) {
@@ -23,15 +23,13 @@ public class ApiClient {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
-
         if (retrofit == null) {
             OkHttpClient ok = new OkHttpClient.Builder()
                     .addInterceptor(interceptor)
                     .addInterceptor(new Interceptor() {
                         @Override
                         public Response intercept(Chain chain) throws IOException {
-                            Request request = chain.request().newBuilder().addHeader("Authorization", "Bearer " //+ token
-                            ).build();
+                            Request request = chain.request().newBuilder().addHeader("Authorization", Auth.getToken(context)).build();
                             return chain.proceed(request);
                         }
                     })

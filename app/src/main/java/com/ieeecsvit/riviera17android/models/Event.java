@@ -82,15 +82,17 @@ public class Event extends RealmObject{
     public String eventPreference;
     @SerializedName("event_coordinators")
     @Expose
-    public RealmList<EventCoordinator> eventCoordinators = new RealmList<EventCoordinator>();
+    public RealmList<EventCoordinator> eventCoordinators = new RealmList<>();
     @SerializedName("event_rating")
     @Expose
-    public RealmList<EventRating> eventRating = new RealmList<EventRating>();
+    public RealmList<EventRating> eventRating = new RealmList<>();
     @SerializedName("event_overall")
     @Expose
     public String eventOverall;
     @SerializedName("timestamp")
     @Expose
     public String timestamp;
-
+    @SerializedName("checked")
+    @Expose
+    public Boolean checked;
 }
