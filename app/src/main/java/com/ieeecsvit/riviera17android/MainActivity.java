@@ -1,6 +1,7 @@
 package com.ieeecsvit.riviera17android;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Point;
@@ -43,34 +44,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-/*        prec=(CardView)findViewById(R.id.preriviera);
-        workc=(CardView)findViewById(R.id.workshop);
-        formalc=(CardView)findViewById(R.id.formal);
-        informc=(CardView)findViewById(R.id.informal);
-        cyberc=(CardView)findViewById(R.id.cyber);
-*/
-
-/*        Point point =new Point();
-        Display display=getWindowManager().getDefaultDisplay();
-        display.getSize(point);
-
-        int hieght=point.y;
-        int width=point.x;
-
-        int newhieght= (int) convertPixelsToDp(hieght,this);
-
-
-      //  AppBarLayout appbar=(AppBarLayout)findViewById(R.id.appbarlaayout);
-        //appbar.setLayoutParams(new CoordinatorLayout.LayoutParams(width,hieght));
-
-        //prec.setLayoutParams(new WindowManager.LayoutParams(width,60));
-        //workc.setLayoutParams(new ViewGroup.LayoutParams(width,60));
-        //formalc.setLayoutParams(new ViewGroup.LayoutParams(width,60));
-        //informc.setLayoutParams(new ViewGroup.LayoutParams(width,60));
-        //cyberc.setLayoutParams(new ViewGroup.LayoutParams(width,60));
-
-*/
-
         toolbar.setBackgroundColor(Color.parseColor("#302236"));
 
         getSupportActionBar().setTitle("Riviera '17");
@@ -88,9 +61,6 @@ public class MainActivity extends AppCompatActivity
         formal.setTypeface(typeface);
         informal.setTypeface(typeface);
         cyber.setTypeface(typeface);
-
-
-
 
         /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -170,27 +140,38 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    //TODO: Change all to single function and check button id
+
     public void preriviera(View view){
         Toast.makeText(this, "pre", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, CategoryActivity.class);
+        intent.putExtra("category","Pre-Riviera");
+        startActivity(intent);
     }
 
     public void workshop(View view){
         Toast.makeText(this, "work", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, CategoryActivity.class);
+        intent.putExtra("category","Workshop");
+        startActivity(intent);
 
     }
     public void formal(View view){
         Toast.makeText(this, "formal", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, CategoryActivity.class);
+        intent.putExtra("category","Formal");
+        startActivity(intent);
 
     }
     public void informal(View view){
         Toast.makeText(this, "informal", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, CategoryActivity.class);
+        intent.putExtra("category","Informal");
+        startActivity(intent);
 
     }
     public void cyber(View view){
         Toast.makeText(this, "cyber", Toast.LENGTH_SHORT).show();
 
     }
-
-
-
 }
