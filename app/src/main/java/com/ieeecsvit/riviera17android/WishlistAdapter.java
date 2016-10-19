@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by Akanshi on 10/18/2016.
  */
-public class Wishlist_Adapter extends RecyclerView.Adapter<Wishlist_Adapter.VH> {
+public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.VH> {
     private Context context;
     private List<Event> events;
 
@@ -31,7 +31,7 @@ public class Wishlist_Adapter extends RecyclerView.Adapter<Wishlist_Adapter.VH> 
         }
     }
 
-    public Wishlist_Adapter(List<Event> events, Context context) {
+    public WishlistAdapter(List<Event> events, Context context) {
         this.context = context;
         this.events = events;
     }

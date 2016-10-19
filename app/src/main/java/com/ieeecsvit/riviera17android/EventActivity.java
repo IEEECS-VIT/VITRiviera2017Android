@@ -31,15 +31,13 @@ public class EventActivity extends AppCompatActivity implements TabLayout.OnTabS
         viewPager = (ViewPager) findViewById(R.id.pager);
 
         //Creating our pager adapter
-        Pager adapter = new Pager(getSupportFragmentManager(), tabLayout.getTabCount());
+        EventPagerAdapter adapter = new EventPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
 
         //Adding adapter to pager
         viewPager.setAdapter(adapter);
 
         //Adding onTabSelectedListener to swipe views
         tabLayout.setOnTabSelectedListener(this);
-
-
     }
 
     @Override
@@ -49,12 +47,9 @@ public class EventActivity extends AppCompatActivity implements TabLayout.OnTabS
 
     @Override
     public void onTabUnselected(TabLayout.Tab tab) {
-
     }
 
     @Override
     public void onTabReselected(TabLayout.Tab tab) {
-
     }
-
 }
