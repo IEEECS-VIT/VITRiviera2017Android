@@ -5,24 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.ieeecsvit.riviera17android.MainActivity">
+    tools:context="com.ieeecsvit.riviera17android.MainActivity"
+    android:background="#302236">
 
-
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/appbarlaayout"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        android:backgroundTint="#302236"
-        >
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:backgroundTint="#302236"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:layout_height="56dp"
+            android:theme="@style/AppTheme.AppBarOverlay"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <include layout="@layout/content_main" />
+
         <ImageView
             android:layout_width="290dp"
             android:layout_height="214dp"
@@ -30,13 +30,11 @@
             android:paddingRight="32dp"
             android:id="@+id/rivieralogo"
             android:src="@drawable/homeriviera"
-            android:layout_gravity="center"></ImageView>
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="57dp"></ImageView>
 
-    </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_main" />
-
-
+    </RelativeLayout>
     <!--
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
