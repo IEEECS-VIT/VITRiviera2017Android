@@ -34,4 +34,5 @@ dependencies {
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
     compile 'com.github.thorbenprimke:realm-recyclerview:0.9.23'
     compile 'com.android.support:support-v4:24.2.1'
+    compile 'com.dynamitechetan.flowinggradient:flowinggradient:1.1'
 }
