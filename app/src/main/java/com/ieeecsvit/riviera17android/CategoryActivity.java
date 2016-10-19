@@ -30,6 +30,6 @@ public class CategoryActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_events);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new RVEventListAdapter(RealmController.with(this).getEvents(getIntent().getStringExtra("category"))));
+        recyclerView.setAdapter(new RVEventListAdapter(RealmController.with(this).getEvents(getIntent().getStringExtra("category")), this));
     }
 }

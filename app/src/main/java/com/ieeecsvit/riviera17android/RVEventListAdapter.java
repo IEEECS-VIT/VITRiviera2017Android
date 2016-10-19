@@ -4,6 +4,8 @@ package com.ieeecsvit.riviera17android;
  * Created by Karishnu Poddar on 16/10/2016.
  */
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,9 +17,10 @@ import com.ieeecsvit.riviera17android.models.Event;
 
 import java.util.List;
 
-    public class RVEventListAdapter extends RecyclerView.Adapter<RVEventListAdapter.EventItemViewHolder> {
+public class RVEventListAdapter extends RecyclerView.Adapter<RVEventListAdapter.EventItemViewHolder> {
 
     private List<Event> eventsList;
+    private Context context;
 
     public class EventItemViewHolder extends RecyclerView.ViewHolder {
         public EventListItem eventListItem;
@@ -29,8 +32,9 @@ import java.util.List;
     }
 
 
-    public RVEventListAdapter(List<Event> eventsList) {
+    public RVEventListAdapter(List<Event> eventsList, Context context) {
         this.eventsList = eventsList;
+        this.context = context;
     }
 
     @Override
@@ -42,9 +46,16 @@ import java.util.List;
     }
 
     @Override
-    public void onBindViewHolder(EventItemViewHolder holder, int position) {
+    public void onBindViewHolder(EventItemViewHolder holder, final int position) {
         holder.eventListItem.setValues(eventsList.get(position).checked, eventsList.get(position).eventName, eventsList.get(position).eventChapterName);
-        Log.d("DATA: ",eventsList.get(position).eventChapterName);
+        holder.eventListItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, EventActivity.class);
+                intent.putExtra("eventId", eventsList.get(position).id);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
