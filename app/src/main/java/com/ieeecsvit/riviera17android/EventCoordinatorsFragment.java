@@ -7,19 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
 import com.ieeecsvit.riviera17android.models.Event;
 import com.ieeecsvit.riviera17android.models.EventCoordinator;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link EventCoordinatorsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class EventCoordinatorsFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -38,8 +30,6 @@ public class EventCoordinatorsFragment extends Fragment {
         EventCoordinatorsFragment fragment = new EventCoordinatorsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, eventId);
-        //args.putString(ARG_PARAM2, new Gson().toJson(event.eventCoordinators.get(1)));
-        //this.eventCoordinator1 = RealmController.with(activity).getEvent(eventId).eventCoordinators.get(0);
         fragment.setArguments(args);
         return fragment;
     }
@@ -49,6 +39,11 @@ public class EventCoordinatorsFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             this.eventId = getArguments().getString(ARG_PARAM1);
+
+            Event event =  RealmController.with(getActivity()).getEvent(eventId);
+
+            this.eventCoordinator1 = event.eventCoordinators.get(0);
+            this.eventCoordinator2 = event.eventCoordinators.get(1);
         }
     }
 
@@ -57,11 +52,6 @@ public class EventCoordinatorsFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_event_coordinators, container, false);
-
-        Event event =  RealmController.with(getActivity()).getEvent(eventId);
-
-        this.eventCoordinator1 = event.eventCoordinators.get(0);
-        this.eventCoordinator2 = event.eventCoordinators.get(1);
 
         tvCoordName1 = (TextView) v.findViewById(R.id.tv_coordinator_1_name);
         tvCoordName2 = (TextView) v.findViewById(R.id.tv_coordinator_2_name);
