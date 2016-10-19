@@ -4,6 +4,7 @@ package com.ieeecsvit.riviera17android;
  * Created by Karishnu Poddar on 16/10/2016.
  */
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -20,7 +21,7 @@ import java.util.List;
 public class RVEventListAdapter extends RecyclerView.Adapter<RVEventListAdapter.EventItemViewHolder> {
 
     private List<Event> eventsList;
-    private Context context;
+    private Activity context;
 
     public class EventItemViewHolder extends RecyclerView.ViewHolder {
         public EventListItem eventListItem;
@@ -32,7 +33,7 @@ public class RVEventListAdapter extends RecyclerView.Adapter<RVEventListAdapter.
     }
 
 
-    public RVEventListAdapter(List<Event> eventsList, Context context) {
+    public RVEventListAdapter(List<Event> eventsList, Activity context) {
         this.eventsList = eventsList;
         this.context = context;
     }
@@ -54,6 +55,7 @@ public class RVEventListAdapter extends RecyclerView.Adapter<RVEventListAdapter.
                 Intent intent = new Intent(context, EventActivity.class);
                 intent.putExtra("eventId", eventsList.get(position).id);
                 context.startActivity(intent);
+                context.finish();
             }
         });
     }

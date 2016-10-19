@@ -30,7 +30,6 @@ public class EventDetailsFragment extends Fragment {
 
     private TextView tvEventDesc, tvEventRules;
 
-
     public EventDetailsFragment() {
         // Required empty public constructor
     }
