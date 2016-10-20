@@ -43,7 +43,8 @@ import java.util.List;
 
     @Override
     public void onBindViewHolder(EventItemViewHolder holder, int position) {
-        holder.eventListItem.setValues(eventsList.get(position).checked, eventsList.get(position).eventName, eventsList.get(position).eventChapterName);
+        holder.eventListItem.setValues(eventsList.get(position).checked,
+                eventsList.get(position).eventName, eventsList.get(position).eventChapterName);
         Log.d("DATA: ",eventsList.get(position).eventChapterName);
     }
 
