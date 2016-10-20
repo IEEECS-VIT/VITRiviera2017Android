@@ -22,6 +22,9 @@
         android:layout_height="60dp"
         android:id="@+id/preriviera"
         android:elevation="8dp"
+        android:clickable="true"
+        app:cardPreventCornerOverlap="false"
+        android:stateListAnimator="@anim/lift"
         android:onClick="preriviera"
         >
 
@@ -43,7 +46,6 @@
                 android:text="Pre Riviera"
                 android:textColor="#ffffff"
                 android:textSize="30dp"
-
                 android:id="@+id/pretext"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true" />
@@ -55,6 +57,9 @@
         android:layout_height="60dp"
         android:id="@+id/workshop"
         android:onClick="workshop"
+        android:clickable="true"
+        app:cardPreventCornerOverlap="false"
+        android:stateListAnimator="@anim/lift"
         >
         <RelativeLayout
             android:layout_width="match_parent"
@@ -87,6 +92,9 @@
         android:layout_height="60dp"
         android:id="@+id/formal"
         android:onClick="formal"
+        android:clickable="true"
+        app:cardPreventCornerOverlap="false"
+        android:stateListAnimator="@anim/lift"
         >
         <RelativeLayout
             android:layout_width="match_parent"
@@ -120,6 +128,9 @@
         android:id="@+id/informal"
         android:onClick="informal"
         android:layout_above="@+id/cyberlayout"
+        android:clickable="true"
+        app:cardPreventCornerOverlap="false"
+        android:stateListAnimator="@anim/lift"
         >
         <RelativeLayout
             android:layout_width="match_parent"
@@ -144,6 +155,9 @@
         android:layout_height="60dp"
         android:id="@+id/cyber"
         android:onClick="cyber"
+        android:clickable="true"
+        app:cardPreventCornerOverlap="false"
+        android:stateListAnimator="@anim/lift"
         >
 
         <RelativeLayout

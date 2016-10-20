@@ -1,11 +1,15 @@
 package com.ieeecsvit.riviera17android;
 
+import android.animation.AnimatorInflater;
+import android.animation.StateListAnimator;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -34,6 +38,8 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     TextView pre,work,formal,informal,cyber;
+    CardView prec,workc,formalc,informalc,cyberc;
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +67,22 @@ public class MainActivity extends AppCompatActivity
         cyber.setTypeface(typeface);
 
 
+
+        prec=(CardView)findViewById(R.id.preriviera);
+        workc=(CardView)findViewById(R.id.workshop);
+        formalc=(CardView)findViewById(R.id.formal);
+        informalc=(CardView)findViewById(R.id.informal);
+        cyberc=(CardView)findViewById(R.id.cyber);
+
+
+       /* if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            StateListAnimator stateListAnimator = AnimatorInflater.loadStateListAnimator(this, R.anim.lift);
+            prec.setStateListAnimator(stateListAnimator);
+            workc.setStateListAnimator(stateListAnimator);
+           // formalc.setStateListAnimator(stateListAnimator);
+           // informalc.setStateListAnimator(stateListAnimator);
+           // cyberc.setStateListAnimator(stateListAnimator);
+        }*/
         /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
