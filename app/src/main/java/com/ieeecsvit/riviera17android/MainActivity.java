@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     TextView pre,work,formal,informal,cyber;
-  //  CardView prec,workc,formalc,informc,cyberc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,17 +109,23 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.wishlist) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.messageb) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.requestb) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.register) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.feedback) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.licences) {
+
+        }
+        else if (id == R.id.contact) {
+
+        }
+        else if (id == R.id.about) {
 
         }
 
@@ -158,9 +163,10 @@ public class MainActivity extends AppCompatActivity
         intent.putExtra("category","Informal");
         startActivity(intent);
 
+
     }
     public void cyber(View view){
-        Toast.makeText(this, "cyber", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "cyber", Toast.LENGTH_SHORT).show();
 
     }
 }
