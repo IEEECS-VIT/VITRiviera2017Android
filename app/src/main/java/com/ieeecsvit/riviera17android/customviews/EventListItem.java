@@ -16,6 +16,7 @@ import com.ieeecsvit.riviera17android.R;
 /**
  * Created by Karishnu Poddar on 16/10/2016.
  */
+
 public class EventListItem extends LinearLayout {
 
     ImageView checkbox;

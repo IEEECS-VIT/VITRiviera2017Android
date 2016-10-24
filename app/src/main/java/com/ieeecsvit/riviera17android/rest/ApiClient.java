@@ -29,7 +29,8 @@ public class ApiClient {
                     .addInterceptor(new Interceptor() {
                         @Override
                         public Response intercept(Chain chain) throws IOException {
-                            Request request = chain.request().newBuilder().addHeader("Authorization", Auth.getToken(context)).build();
+                            Request request = chain.request().newBuilder()
+                                    .addHeader("Authorization", Auth.getToken(context)).build();
                             return chain.proceed(request);
                         }
                     })
@@ -37,7 +38,8 @@ public class ApiClient {
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
-                    .client(ok.newBuilder().connectTimeout(30, TimeUnit.SECONDS).readTimeout(10, TimeUnit.SECONDS).writeTimeout(10, TimeUnit.SECONDS).build())
+                    .client(ok.newBuilder().connectTimeout(30, TimeUnit.SECONDS).readTimeout(10, TimeUnit.SECONDS)
+                            .writeTimeout(10, TimeUnit.SECONDS).build())
                     .build();
         }
         return retrofit;
