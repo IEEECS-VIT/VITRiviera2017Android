@@ -25,6 +25,7 @@ public class Data {
             @Override
             public void onResponse(Call<Events> call, Response<Events> response) {
                 Realm realm = RealmController.with(activity).getRealm();
+                RealmController.with(activity).clearAll();
 
                 for (Event e : response.body().events) {
                     realm.beginTransaction();

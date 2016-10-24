@@ -4,6 +4,8 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -34,7 +36,11 @@ public class EventListItem extends LinearLayout {
         event_chap_name.setText(event_chap_name_string);
     }
 
-    private void setCheck(Boolean checked) {
+    public ImageView getCheckButton(){
+        return checkbox;
+    }
+
+    public void setCheck(Boolean checked) {
         if (checked != null) {
             if (checked) {
                 checkbox.setImageResource(R.drawable.event_check);
