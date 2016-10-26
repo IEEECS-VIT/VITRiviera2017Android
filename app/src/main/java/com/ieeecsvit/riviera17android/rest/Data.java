@@ -6,6 +6,8 @@ import android.util.Log;
 import com.ieeecsvit.riviera17android.RealmController;
 import com.ieeecsvit.riviera17android.models.Event;
 import com.ieeecsvit.riviera17android.models.Events;
+import com.ieeecsvit.riviera17android.models.Message;
+import com.ieeecsvit.riviera17android.models.MessagesResponse;
 
 import io.realm.Realm;
 import retrofit2.Call;
@@ -43,7 +45,33 @@ public class Data {
         });
     }
 
+    public static void updateMessages(final Activity activity, final UpdateCallback updateCallback){
+        ApiInterface apiInterface = new ApiClient().getClient(activity).create(ApiInterface.class);
+        Call<MessagesResponse> getMessages = apiInterface.getMessages();
+
+        getMessages.enqueue(new Callback<MessagesResponse>() {
+            @Override
+            public void onResponse(Call<MessagesResponse> call, Response<MessagesResponse> response) {
+                Realm realm = RealmController.with(activity).getRealm();
+                RealmController.with(activity).clearAll();
+
+                for (Message e : response.body().getData()) {
+                    realm.beginTransaction();
+                    realm.copyToRealm(e);
+                    realm.commitTransaction();
+                }
+
+                updateCallback.onUpdate();
+            }
+
+            @Override
+            public void onFailure(Call<MessagesResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
     public interface UpdateCallback{
-        public void onUpdate();
+        void onUpdate();
     }
 }
