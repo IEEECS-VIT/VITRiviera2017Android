@@ -54,9 +54,7 @@ public class EventActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
