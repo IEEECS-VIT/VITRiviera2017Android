@@ -118,7 +118,8 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.wishlist) {
             // Handle the camera action
         } else if (id == R.id.messageb) {
-
+            Intent intent = new Intent(this, MessageActivity.class);
+            startActivity(intent);
         } else if (id == R.id.requestb) {
 
         } else if (id == R.id.register) {
