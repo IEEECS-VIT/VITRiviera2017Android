@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 
 import com.dynamitechetan.flowinggradient.FlowingGradient;
 import com.dynamitechetan.flowinggradient.FlowingGradientClass;
+import com.ieeecsvit.riviera17android.rest.Auth;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -56,6 +57,18 @@ public class LoginActivity extends AppCompatActivity {
         pass=(EditText)findViewById(R.id.password);
         regno.setTypeface(typeface);
         pass.setTypeface(typeface);
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Auth.login(regno.getText().toString(), pass.getText().toString(), LoginActivity.this, new Auth.OnLoginCallback() {
+                    @Override
+                    public void onSuccess() {
+                        startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                    }
+                });
+            }
+        });
 
         viewevent.setOnClickListener(new View.OnClickListener() {
             @Override
