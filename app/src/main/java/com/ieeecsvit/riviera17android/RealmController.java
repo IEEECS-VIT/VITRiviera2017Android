@@ -60,7 +60,7 @@ public class RealmController {
     }
 
     //clear all objects from Book.class
-    public void clearAll() {
+    public void clearAllEvents() {
         realm.beginTransaction();
         realm.delete(Event.class);
         realm.commitTransaction();
@@ -69,6 +69,10 @@ public class RealmController {
     //find all objects in the Book.class
     RealmResults<Event> getEvents(String category) {
         return realm.where(Event.class).equalTo("eventCategory",category).findAll();
+    }
+
+    RealmResults<Event> getEvents(){
+        return realm.where(Event.class).findAll();
     }
 
     Event getEvent(String eventId){

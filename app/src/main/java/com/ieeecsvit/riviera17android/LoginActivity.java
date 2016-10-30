@@ -28,7 +28,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
         relativeLayout=(RelativeLayout)findViewById(R.id.activity_login);
         FlowingGradientClass grad=new FlowingGradientClass();
         grad.setBackgroundResource(R.drawable.gradient)

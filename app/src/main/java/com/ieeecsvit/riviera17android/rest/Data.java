@@ -1,7 +1,6 @@
 package com.ieeecsvit.riviera17android.rest;
 
 import android.app.Activity;
-import android.util.Log;
 
 import com.ieeecsvit.riviera17android.RealmController;
 import com.ieeecsvit.riviera17android.models.Event;
@@ -27,7 +26,7 @@ public class Data {
             @Override
             public void onResponse(Call<Events> call, Response<Events> response) {
                 Realm realm = RealmController.with(activity).getRealm();
-                RealmController.with(activity).clearAll();
+                RealmController.with(activity).clearAllEvents();
 
                 for (Event e : response.body().events) {
                     realm.beginTransaction();
@@ -53,7 +52,7 @@ public class Data {
             @Override
             public void onResponse(Call<MessagesResponse> call, Response<MessagesResponse> response) {
                 Realm realm = RealmController.with(activity).getRealm();
-                RealmController.with(activity).clearAll();
+                RealmController.with(activity).clearAllEvents();
 
                 for (Message e : response.body().getData()) {
                     realm.beginTransaction();
