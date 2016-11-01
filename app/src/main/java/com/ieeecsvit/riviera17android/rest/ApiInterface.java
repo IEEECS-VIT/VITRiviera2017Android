@@ -11,7 +11,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
-interface ApiInterface {
+public interface ApiInterface {
 /*    @GET("events/all")
     Call<Events> events();*/
 

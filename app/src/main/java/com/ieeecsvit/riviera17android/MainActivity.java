@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity
 
         toolbar.setBackgroundColor(Color.parseColor("#302236"));
 
-        getSupportActionBar().setTitle("Riviera '17");
+        getSupportActionBar().setTitle("");
 
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
 

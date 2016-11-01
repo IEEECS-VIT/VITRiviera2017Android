@@ -20,6 +20,7 @@ public class RVEventListAdapter extends RecyclerView.Adapter<RVEventListAdapter.
 
     private List<Event> eventsList;
     private Activity context;
+    Boolean clickable;
 
     public class EventItemViewHolder extends RecyclerView.ViewHolder {
         public EventListItem eventListItem;
@@ -30,10 +31,10 @@ public class RVEventListAdapter extends RecyclerView.Adapter<RVEventListAdapter.
         }
     }
 
-
-    public RVEventListAdapter(List<Event> eventsList, Activity context) {
+    public RVEventListAdapter(List<Event> eventsList, Activity context, Boolean clickable) {
         this.eventsList = eventsList;
         this.context = context;
+        this.clickable = clickable;
     }
 
     @Override
@@ -51,10 +52,17 @@ public class RVEventListAdapter extends RecyclerView.Adapter<RVEventListAdapter.
         holder.eventListItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, EventActivity.class);
-                intent.putExtra("eventId", event.id);
-                context.startActivity(intent);
-                context.finish();
+                if(clickable) {
+                    Intent intent = new Intent(context, EventActivity.class);
+                    intent.putExtra("eventId", event.id);
+                    context.startActivity(intent);
+                }
+                else{
+                    Intent intent = new Intent();
+                    intent.putExtra("eventId",event.id);
+                    context.setResult(Activity.RESULT_OK,intent);
+                    context.finish();
+                }
             }
         });
 

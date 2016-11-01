@@ -1,11 +1,13 @@
 package com.ieeecsvit.riviera17android;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.ieeecsvit.riviera17android.rest.Data;
 
@@ -32,6 +34,14 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
         rvMessageAdapter = new RVMessageAdapter(RealmController.with(this).getMessages(), this);
 
         recyclerView.setAdapter(rvMessageAdapter);
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MessageActivity.this, SendMessageActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
