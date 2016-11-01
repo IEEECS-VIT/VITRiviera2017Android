@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.ieeecsvit.riviera17android.Consts;
+import com.ieeecsvit.riviera17android.utility.Consts;
 import com.ieeecsvit.riviera17android.models.LoginRequest;
 import com.ieeecsvit.riviera17android.models.LoginResponse;
 

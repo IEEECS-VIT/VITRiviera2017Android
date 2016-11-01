@@ -1,4 +1,4 @@
-package com.ieeecsvit.riviera17android;
+package com.ieeecsvit.riviera17android.utility;
 
 /**
  * Created by Karishnu Poddar on 15/10/2016.
@@ -6,4 +6,5 @@ package com.ieeecsvit.riviera17android;
 public class Consts {
     public static String PREF_NAME = "prefs";
     public static String TOKEN_PREF = "token";
+    public static String LOGGED_IN_PREF = "logged_in";
 }

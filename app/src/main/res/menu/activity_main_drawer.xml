@@ -14,10 +14,6 @@
             android:id="@+id/requestb"
             android:icon="@drawable/message"
             android:title="Request-Board" />
-        <item
-            android:id="@+id/register"
-            android:icon="@drawable/register"
-            android:title="Register" />
     </group>
 
 

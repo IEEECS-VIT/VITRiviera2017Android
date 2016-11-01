@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.Preference;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,12 +21,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ieeecsvit.riviera17android.rest.Data;
+import com.ieeecsvit.riviera17android.utility.Consts;
+import com.ieeecsvit.riviera17android.utility.Preferences;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     TextView pre,work,formal,informal,cyber;
     ProgressBar progressBar;
+    NavigationView navigationView;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -72,8 +76,12 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        if(Preferences.getPrefs(Consts.LOGGED_IN_PREF, MainActivity.this).equals("0")){
+            hideItem();
+        }
     }
 
     @Override
@@ -108,10 +116,17 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    private void hideItem()
+    {
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        Menu nav_Menu = navigationView.getMenu();
+        nav_Menu.findItem(R.id.messageb).setVisible(false);
+        nav_Menu.findItem(R.id.requestb).setVisible(false);
+    }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.wishlist) {
@@ -121,9 +136,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.requestb) {
 
-        } else if (id == R.id.register) {
-
-        } else if (id == R.id.feedback) {
+        }  else if (id == R.id.feedback) {
 
         } else if (id == R.id.licences) {
 

@@ -16,6 +16,8 @@ import android.widget.RelativeLayout;
 import com.dynamitechetan.flowinggradient.FlowingGradient;
 import com.dynamitechetan.flowinggradient.FlowingGradientClass;
 import com.ieeecsvit.riviera17android.rest.Auth;
+import com.ieeecsvit.riviera17android.utility.Consts;
+import com.ieeecsvit.riviera17android.utility.Preferences;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -64,6 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess() {
                         startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                        Preferences.setPrefs(Consts.LOGGED_IN_PREF,"1",LoginActivity.this);
                     }
                 });
             }
@@ -73,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                Preferences.setPrefs(Consts.LOGGED_IN_PREF,"0",LoginActivity.this);
             }
         });
     }

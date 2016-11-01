@@ -1,16 +1,13 @@
 package com.ieeecsvit.riviera17android.customviews;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.ieeecsvit.riviera17android.utility.CapitalizedTextView;
 import com.ieeecsvit.riviera17android.R;
 
 /**
@@ -20,14 +17,15 @@ import com.ieeecsvit.riviera17android.R;
 public class EventListItem extends LinearLayout {
 
     ImageView checkbox;
-    TextView event_name, event_chap_name;
+    CapitalizedTextView event_name;
+    TextView event_chap_name;
 
     public void initialize() {
         LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         layoutInflater.inflate(R.layout.item_event_list, this, true);
 
         checkbox = (ImageView) findViewById(R.id.iv_checkbox_event);
-        event_name = (TextView) findViewById(R.id.tv_event_title);
+        event_name = (CapitalizedTextView) findViewById(R.id.tv_event_title);
         event_chap_name = (TextView) findViewById(R.id.tv_event_chap_name);
     }
 
@@ -37,7 +35,7 @@ public class EventListItem extends LinearLayout {
         event_chap_name.setText(event_chap_name_string);
     }
 
-    public ImageView getCheckButton(){
+    public ImageView getCheckButton() {
         return checkbox;
     }
 
