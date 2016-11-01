@@ -28,6 +28,7 @@ public class MessageListItem extends LinearLayout {
     }
 
     public void setValues(Message message) {
+        tvSentBy.setText(message.getFrom().getName() + " (" + message.getFrom().getUsername() + ")");
         tvMessage.setText(message.getText());
     }
 

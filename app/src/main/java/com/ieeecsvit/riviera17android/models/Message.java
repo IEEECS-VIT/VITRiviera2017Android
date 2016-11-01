@@ -8,29 +8,74 @@ import io.realm.RealmObject;
 
 public class Message extends RealmObject{
 
-    @SerializedName("text")
+    @SerializedName("_id")
     @Expose
-    private String text;
+    private String id;
+    @SerializedName("from")
+    @Expose
+    private From from;
+    @SerializedName("to")
+    @Expose
+    private To to;
     @SerializedName("time")
     @Expose
     private String time;
+    @SerializedName("text")
+    @Expose
+    private String text;
 
     /**
      * 
      * @return
-     *     The text
+     *     The id
      */
-    public String getText() {
-        return text;
+    public String getId() {
+        return id;
     }
 
     /**
      * 
-     * @param text
-     *     The text
+     * @param id
+     *     The _id
      */
-    public void setText(String text) {
-        this.text = text;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /**
+     * 
+     * @return
+     *     The from
+     */
+    public From getFrom() {
+        return from;
+    }
+
+    /**
+     * 
+     * @param from
+     *     The from
+     */
+    public void setFrom(From from) {
+        this.from = from;
+    }
+
+    /**
+     * 
+     * @return
+     *     The to
+     */
+    public To getTo() {
+        return to;
+    }
+
+    /**
+     * 
+     * @param to
+     *     The to
+     */
+    public void setTo(To to) {
+        this.to = to;
     }
 
     /**
@@ -49,6 +94,24 @@ public class Message extends RealmObject{
      */
     public void setTime(String time) {
         this.time = time;
+    }
+
+    /**
+     * 
+     * @return
+     *     The text
+     */
+    public String getText() {
+        return text;
+    }
+
+    /**
+     * 
+     * @param text
+     *     The text
+     */
+    public void setText(String text) {
+        this.text = text;
     }
 
 }

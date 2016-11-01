@@ -66,6 +66,12 @@ public class RealmController {
         realm.commitTransaction();
     }
 
+    public void clearAllMessages() {
+        realm.beginTransaction();
+        realm.delete(Message.class);
+        realm.commitTransaction();
+    }
+
     //find all objects in the Book.class
     RealmResults<Event> getEvents(String category) {
         return realm.where(Event.class).equalTo("eventCategory",category).findAll();

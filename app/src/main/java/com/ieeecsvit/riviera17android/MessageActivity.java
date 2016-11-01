@@ -44,6 +44,8 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
                 recyclerView.setAdapter(rvMessageAdapter);
                 swipeRefreshLayout.setRefreshing(false);
             }
+            @Override
+            public void onFailure(){}
         });
     }
 }

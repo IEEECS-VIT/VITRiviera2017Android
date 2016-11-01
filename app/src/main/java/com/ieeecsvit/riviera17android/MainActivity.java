@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity
             public void onUpdate() {
                 progressBar.setVisibility(View.GONE);
             }
+            @Override
+            public void onFailure(){}
         });
 
         pre=(TextView)findViewById(R.id.pretext);

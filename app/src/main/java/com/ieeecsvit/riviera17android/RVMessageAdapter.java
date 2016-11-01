@@ -38,7 +38,7 @@ class RVMessageAdapter extends RecyclerView.Adapter<RVMessageAdapter.EventItemVi
     @Override
     public EventItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_message_custom, parent, false);
+                .inflate(R.layout.item_message, parent, false);
 
         return new EventItemViewHolder(itemView);
     }
