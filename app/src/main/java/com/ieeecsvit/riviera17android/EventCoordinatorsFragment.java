@@ -42,6 +42,7 @@ public class EventCoordinatorsFragment extends Fragment {
 
             Event event =  RealmController.with(getActivity()).getEvent(eventId);
 
+
             this.eventCoordinator1 = event.eventCoordinators.get(0);
             this.eventCoordinator2 = event.eventCoordinators.get(1);
         }

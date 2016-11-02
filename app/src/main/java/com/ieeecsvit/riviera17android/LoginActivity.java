@@ -34,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         .onRelativeLayout(relativeLayout).
         setTransitionDuration(2500).start();
 
+
 /*
         background=(ImageView)findViewById(R.id.backgroundimage);
         background.setBackgroundResource(R.drawable.gradient);
