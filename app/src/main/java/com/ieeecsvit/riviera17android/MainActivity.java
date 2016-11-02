@@ -1,22 +1,12 @@
 package com.ieeecsvit.riviera17android;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.Point;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutCompat;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.Display;
-import android.view.View;
+import android.preference.Preference;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -25,16 +15,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.ieeecsvit.riviera17android.rest.Data;
+import com.ieeecsvit.riviera17android.utility.Consts;
+import com.ieeecsvit.riviera17android.utility.Preferences;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     TextView pre,work,formal,informal,cyber;
+    ProgressBar progressBar;
+    NavigationView navigationView;
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +42,19 @@ public class MainActivity extends AppCompatActivity
 
         toolbar.setBackgroundColor(Color.parseColor("#302236"));
 
-        getSupportActionBar().setTitle("Riviera '17");
+        getSupportActionBar().setTitle("");
+
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+
+        progressBar.setVisibility(View.VISIBLE);
+        Data.updateEvents(this, new Data.UpdateCallback() {
+            @Override
+            public void onUpdate() {
+                progressBar.setVisibility(View.GONE);
+            }
+            @Override
+            public void onFailure(){}
+        });
 
         pre=(TextView)findViewById(R.id.pretext);
         work=(TextView)findViewById(R.id.workshoptext);
@@ -67,8 +76,12 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        if(Preferences.getPrefs(Consts.LOGGED_IN_PREF, MainActivity.this).equals("0")){
+            hideItem();
+        }
     }
 
     @Override
@@ -103,21 +116,27 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    private void hideItem()
+    {
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        Menu nav_Menu = navigationView.getMenu();
+        nav_Menu.findItem(R.id.messageb).setVisible(false);
+        nav_Menu.findItem(R.id.requestb).setVisible(false);
+    }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.wishlist) {
             // Handle the camera action
         } else if (id == R.id.messageb) {
-
+            Intent intent = new Intent(this, MessageActivity.class);
+            startActivity(intent);
         } else if (id == R.id.requestb) {
 
-        } else if (id == R.id.register) {
-
-        } else if (id == R.id.feedback) {
+        }  else if (id == R.id.feedback) {
 
         } else if (id == R.id.licences) {
 

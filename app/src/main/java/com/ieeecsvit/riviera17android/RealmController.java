@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.Application;
 import android.support.v4.app.Fragment;
 import com.ieeecsvit.riviera17android.models.Event;
+import com.ieeecsvit.riviera17android.models.Message;
+
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -12,7 +14,7 @@ public class RealmController {
     private static RealmController instance;
     private final Realm realm;
 
-    public RealmController(Application application) {
+    private RealmController(Application application) {
         Realm.init(application);
         realm = Realm.getDefaultInstance();
     }
@@ -58,19 +60,33 @@ public class RealmController {
     }
 
     //clear all objects from Book.class
-    public void clearAll() {
+    public void clearAllEvents() {
         realm.beginTransaction();
         realm.delete(Event.class);
         realm.commitTransaction();
     }
 
+    public void clearAllMessages() {
+        realm.beginTransaction();
+        realm.delete(Message.class);
+        realm.commitTransaction();
+    }
+
     //find all objects in the Book.class
-    public RealmResults<Event> getEvents(String category) {
+    RealmResults<Event> getEvents(String category) {
         return realm.where(Event.class).equalTo("eventCategory",category).findAll();
     }
 
-    public Event getEvent(String eventId){
+    RealmResults<Event> getEvents(){
+        return realm.where(Event.class).findAll();
+    }
+
+    Event getEvent(String eventId){
         return realm.where(Event.class).equalTo("id", eventId).findFirst();
+    }
+
+    RealmResults<Message> getMessages(){
+        return realm.where(Message.class).findAll();
     }
 
     /*    //query a single item with the given id

@@ -19,7 +19,7 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.VH> {
     private Context context;
     private List<Event> events;
 
-    public class VH extends RecyclerView.ViewHolder{
+    public class VH extends RecyclerView.ViewHolder {
         public TextView clubName, eventName;
         ImageView deleteButton;
 
@@ -36,7 +36,6 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.VH> {
         this.events = events;
     }
 
-
     @Override
     public VH onCreateViewHolder(ViewGroup parent, int viewType) {
         View rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item, parent, false);
@@ -44,11 +43,13 @@ public class WishlistAdapter extends RecyclerView.Adapter<WishlistAdapter.VH> {
     }
 
     @Override
-    public void onBindViewHolder(VH holder, int position){
-    holder.eventName.setText(events.get(position).eventName);
-    holder.clubName.setText(events.get(position).eventChapterName);
+    public void onBindViewHolder(VH holder, int position) {
+        holder.eventName.setText(events.get(position).eventName);
+        holder.clubName.setText(events.get(position).eventChapterName);
     }
 
     @Override
-    public int getItemCount(){ return events.size(); }
+    public int getItemCount() {
+        return events.size();
+    }
 }

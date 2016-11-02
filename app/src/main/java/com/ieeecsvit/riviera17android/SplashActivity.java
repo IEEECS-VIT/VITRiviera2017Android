@@ -16,14 +16,20 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-
-        Data.updateEvents(this, new Data.UpdateCallback() {
-            @Override
-            public void onUpdate() {
-                Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
-
+        if(RealmController.with(this).getEvents().isEmpty()){
+            Data.updateEvents(this, new Data.UpdateCallback() {
+                @Override
+                public void onUpdate() {
+                    Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
+                @Override
+                public void onFailure(){}
+            });
+        }
+        else {
+            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
     }
 }

@@ -5,10 +5,8 @@ package com.ieeecsvit.riviera17android;
  */
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +16,16 @@ import com.ieeecsvit.riviera17android.models.Event;
 
 import java.util.List;
 
+import io.realm.RealmResults;
+
 public class RVEventListAdapter extends RecyclerView.Adapter<RVEventListAdapter.EventItemViewHolder> {
 
     private List<Event> eventsList;
     private Activity context;
+    Boolean clickable;
+
+    public RVEventListAdapter(RealmResults<Event> category, CategoryActivity categoryActivity) {
+    }
 
     public class EventItemViewHolder extends RecyclerView.ViewHolder {
         public EventListItem eventListItem;
@@ -32,10 +36,10 @@ public class RVEventListAdapter extends RecyclerView.Adapter<RVEventListAdapter.
         }
     }
 
-
-    public RVEventListAdapter(List<Event> eventsList, Activity context) {
+    public RVEventListAdapter(List<Event> eventsList, Activity context, Boolean clickable) {
         this.eventsList = eventsList;
         this.context = context;
+        this.clickable = clickable;
     }
 
     @Override
@@ -47,15 +51,42 @@ public class RVEventListAdapter extends RecyclerView.Adapter<RVEventListAdapter.
     }
 
     @Override
-    public void onBindViewHolder(EventItemViewHolder holder, final int position) {
-        holder.eventListItem.setValues(eventsList.get(position).checked, eventsList.get(position).eventName, eventsList.get(position).eventChapterName);
+    public void onBindViewHolder(final EventItemViewHolder holder, final int position) {
+        final Event event = eventsList.get(position);
+        holder.eventListItem.setValues(event.checked, event.eventName, event.eventChapterName);
         holder.eventListItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, EventActivity.class);
-                intent.putExtra("eventId", eventsList.get(position).id);
-                context.startActivity(intent);
-                context.finish();
+                if(clickable) {
+                    Intent intent = new Intent(context, EventActivity.class);
+                    intent.putExtra("eventId", event.id);
+                    context.startActivity(intent);
+                }
+                else{
+                    Intent intent = new Intent();
+                    intent.putExtra("eventId",event.id);
+                    context.setResult(Activity.RESULT_OK,intent);
+                    context.finish();
+                }
+            }
+        });
+
+        holder.eventListItem.getCheckButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(event.checked==null){
+                    RealmController.with(context).setFavourite(event.id,true);
+                    holder.eventListItem.setCheck(true);
+                }
+                else {
+                    if (event.checked) {
+                        RealmController.with(context).setFavourite(event.id, false);
+                        holder.eventListItem.setCheck(false);
+                    } else {
+                        RealmController.with(context).setFavourite(event.id, true);
+                        holder.eventListItem.setCheck(true);
+                    }
+                }
             }
         });
     }

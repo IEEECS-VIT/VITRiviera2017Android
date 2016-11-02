@@ -3,10 +3,9 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.ieeecsvit.riviera17android.customviews.EventListItem
-        android:id="@+id/event_list_item"
+    <com.ieeecsvit.riviera17android.customviews.MessageListItem
+        android:id="@+id/item_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
 
 </LinearLayout>

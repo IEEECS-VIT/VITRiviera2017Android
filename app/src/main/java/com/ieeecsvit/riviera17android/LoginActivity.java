@@ -15,6 +15,9 @@ import android.widget.RelativeLayout;
 
 import com.dynamitechetan.flowinggradient.FlowingGradient;
 import com.dynamitechetan.flowinggradient.FlowingGradientClass;
+import com.ieeecsvit.riviera17android.rest.Auth;
+import com.ieeecsvit.riviera17android.utility.Consts;
+import com.ieeecsvit.riviera17android.utility.Preferences;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -26,7 +29,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
 
         relativeLayout=(RelativeLayout)findViewById(R.id.activity_login);
         FlowingGradientClass grad=new FlowingGradientClass();
@@ -58,15 +60,25 @@ public class LoginActivity extends AppCompatActivity {
         regno.setTypeface(typeface);
         pass.setTypeface(typeface);
 
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Auth.login(regno.getText().toString(), pass.getText().toString(), LoginActivity.this, new Auth.OnLoginCallback() {
+                    @Override
+                    public void onSuccess() {
+                        startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                        Preferences.setPrefs(Consts.LOGGED_IN_PREF,"1",LoginActivity.this);
+                    }
+                });
+            }
+        });
+
         viewevent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                Preferences.setPrefs(Consts.LOGGED_IN_PREF,"0",LoginActivity.this);
             }
         });
-
-
-
-
     }
 }
