@@ -16,7 +16,9 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        if(RealmController.with(this).getEvents().isEmpty()){
+        RealmController.with(this);
+
+        if(RealmController.getInstance().getEvents().isEmpty()){
             Data.updateEvents(this, new Data.UpdateCallback() {
                 @Override
                 public void onUpdate() {
