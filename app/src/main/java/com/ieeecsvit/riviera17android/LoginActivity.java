@@ -67,8 +67,9 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess() {
                         startActivity(new Intent(LoginActivity.this,MainActivity.class));
-                        Preferences.setPrefs(Consts.LOGGED_IN_PREF,"1",LoginActivity.this);
                     }
+                    @Override
+                    public void onFailure(){}
                 });
             }
         });

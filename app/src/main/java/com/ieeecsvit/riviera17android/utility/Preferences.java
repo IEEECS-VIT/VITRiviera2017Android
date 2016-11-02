@@ -16,6 +16,6 @@ public class Preferences {
 
     public static String getPrefs(String key, Context context){
         SharedPreferences sharedpreferences = context.getSharedPreferences("RivieraPrefs", Context.MODE_PRIVATE);
-        return sharedpreferences.getString(key, "not_found");
+        return sharedpreferences.getString(key, "notfound");
     }
 }

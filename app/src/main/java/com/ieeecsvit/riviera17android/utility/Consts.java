@@ -7,4 +7,5 @@ public class Consts {
     public static String PREF_NAME = "prefs";
     public static String TOKEN_PREF = "token";
     public static String LOGGED_IN_PREF = "logged_in";
+    public static String ROLE_PREF = "role";
 }

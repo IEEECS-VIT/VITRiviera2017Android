@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.ieeecsvit.riviera17android.LoginActivity;
 import com.ieeecsvit.riviera17android.utility.Consts;
 import com.ieeecsvit.riviera17android.models.LoginRequest;
 import com.ieeecsvit.riviera17android.models.LoginResponse;
+import com.ieeecsvit.riviera17android.utility.Preferences;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,10 +30,14 @@ public class Auth {
         login.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                SharedPreferences.Editor editor = activity.getSharedPreferences(Consts.PREF_NAME, Context.MODE_PRIVATE).edit();
-                editor.putString(Consts.TOKEN_PREF, response.body().token);
-                editor.apply();
-                onLoginCallback.onSuccess();
+                if (response.body().success) {
+                    Preferences.setPrefs(Consts.TOKEN_PREF, response.body().token, activity);
+                    Preferences.setPrefs(Consts.LOGGED_IN_PREF,"1",activity);
+                    onLoginCallback.onSuccess();
+                }
+                else {
+                    onLoginCallback.onFailure();
+                }
             }
 
             @Override
@@ -42,11 +48,12 @@ public class Auth {
     }
 
     static String getToken(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(Consts.PREF_NAME, Context.MODE_PRIVATE);
-        return prefs.getString(Consts.TOKEN_PREF,"notfound");
+        return Preferences.getPrefs(Consts.TOKEN_PREF, context);
     }
 
-    public interface OnLoginCallback{
+    public interface OnLoginCallback {
         void onSuccess();
+
+        void onFailure();
     }
 }
