@@ -13,7 +13,7 @@
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -49,6 +49,11 @@
         </activity>
         <activity android:name=".MessageActivity" />
         <activity android:name=".EventSearchActivity" />
+<<<<<<< HEAD
+=======
+        <activity android:name=".SendMessageActivity" />
+        <activity android:name=".WishlistActivity"></activity>
+>>>>>>> f39de474b3969645b5762dd97b65acebd042e407
     </application>
 
 </manifest>

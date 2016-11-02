@@ -31,7 +31,8 @@ public class Data {
             public void onResponse(Call<MessagesResponse> call, Response<MessagesResponse> response) {
 
                 if (response.body().getSuccess()) {
-                    Realm realm = RealmController.with(activity).getRealm();
+                    RealmController.with(activity).refresh();
+                    Realm realm = RealmController.getInstance().getRealm();
                     RealmController.getInstance().clearAllMessages();
 
                     for (Message e : response.body().getData()) {
@@ -66,8 +67,10 @@ public class Data {
             Call<Events> eventsCall = apiInterface.events();
             try {
                 List<Event> events = eventsCall.execute().body().events;
-                Realm realm = RealmController.with(activity).getRealm();
-                RealmController.getInstance().clearAllEvents();
+                Realm realm = Realm.getDefaultInstance();
+                realm.beginTransaction();
+                realm.delete(Event.class);
+                realm.commitTransaction();
                 for (final Event e : events) {
                     realm.executeTransaction(new Realm.Transaction() {
                         @Override
