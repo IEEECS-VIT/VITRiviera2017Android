@@ -1,5 +1,6 @@
 package com.ieeecsvit.riviera17android;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -81,27 +82,15 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
 
     @Override
     public void onRefresh() {
-        swipeRefreshLayout.setRefreshing(true);
-        Data.updateMessages(this, new Data.UpdateCallback() {
-            @Override
-            public void onUpdate() {
-                rvMessageAdapter = new RVMessageAdapter(RealmController.with(MessageActivity.this).getMessages(), MessageActivity.this);
-                recyclerView.setAdapter(rvMessageAdapter);
-                swipeRefreshLayout.setRefreshing(false);
-            }
-            @Override
-            public void onFailure(){
-                swipeRefreshLayout.setRefreshing(false);
-            }
-        });
+       customRefresh();
     }
 
 
     public void seealert(){
-        AlertDialog.Builder builder=new AlertDialog.Builder(this);
-        builder.setTitle("Choose..");
-       // builder.setCancelable(false);
 
+        final Dialog dialog=new Dialog(this);
+        dialog.setTitle("Choose");
+       // builder.setCancelable(false);
 
         LayoutInflater inflater=getLayoutInflater();
 
@@ -109,10 +98,11 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
 
         Button sendtoall=(Button)view.findViewById(R.id.bt_send);
 
-        sendtoall.setOnClickListener(new View.OnClickListener() {
+
+        sendtoall.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MessageActivity.this,"hello",Toast.LENGTH_SHORT).show();
+               // Toast.makeText(MessageActivity.this,"hello",Toast.LENGTH_SHORT).show();
                 MessageRequest messageRequest = new MessageRequest();
                 messageRequest.setMessage(message.getText().toString());
                 messageRequest.setTo(sendTo);
@@ -123,7 +113,9 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
                 call.enqueue(new Callback<MessagesResponse>() {
                     @Override
                     public void onResponse(Call<MessagesResponse> call, Response<MessagesResponse> response) {
-
+                        customRefresh();
+                        dialog.dismiss();
+                        Toast.makeText(MessageActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -144,8 +136,9 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
                 startActivityForResult(in, 1);
             }
         });
-        builder.setView(view);
-        builder.create().show();
+
+        dialog.setContentView(view);
+        dialog.show();
     }
 
     @Override
@@ -157,5 +150,20 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
             //tvSendTo.setText(event.eventName);
             sendTo = result;
         }
+    }
+    public void customRefresh(){
+        swipeRefreshLayout.setRefreshing(true);
+        Data.updateMessages(this, new Data.UpdateCallback() {
+            @Override
+            public void onUpdate() {
+                rvMessageAdapter = new RVMessageAdapter(RealmController.with(MessageActivity.this).getMessages(), MessageActivity.this);
+                recyclerView.setAdapter(rvMessageAdapter);
+                swipeRefreshLayout.setRefreshing(false);
+            }
+            @Override
+            public void onFailure(){
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
     }
 }
