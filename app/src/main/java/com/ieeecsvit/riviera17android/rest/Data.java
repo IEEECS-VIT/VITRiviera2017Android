@@ -32,7 +32,6 @@ public class Data {
             public void onResponse(Call<MessagesResponse> call, Response<MessagesResponse> response) {
 
                 if (response.body().getSuccess()) {
-                    RealmController.with(activity).refresh();
                     Realm realm = RealmController.getInstance().getRealm();
                     RealmController.getInstance().clearAllMessages();
 
@@ -80,6 +79,7 @@ public class Data {
                         }
                     });
                 }
+                realm.close();
             }catch (Exception e){e.printStackTrace();}
             return 0;
         }
