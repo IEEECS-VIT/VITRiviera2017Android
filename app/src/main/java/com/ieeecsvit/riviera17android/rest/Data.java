@@ -24,6 +24,7 @@ public class Data {
 
     public static void updateMessages(final Activity activity, final UpdateCallback updateCallback) {
         ApiInterface apiInterface = new ApiClient().getClient(activity).create(ApiInterface.class);
+
         Call<MessagesResponse> getMessages = apiInterface.getMessages();
 
         getMessages.enqueue(new Callback<MessagesResponse>() {

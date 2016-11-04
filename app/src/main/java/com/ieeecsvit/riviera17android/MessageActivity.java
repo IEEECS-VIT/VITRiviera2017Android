@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.ieeecsvit.riviera17android.models.Event;
 import com.ieeecsvit.riviera17android.models.Message;
@@ -89,7 +90,9 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
                 swipeRefreshLayout.setRefreshing(false);
             }
             @Override
-            public void onFailure(){}
+            public void onFailure(){
+                swipeRefreshLayout.setRefreshing(false);
+            }
         });
     }
 
@@ -101,6 +104,7 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
 
 
         LayoutInflater inflater=getLayoutInflater();
+
         View view=inflater.inflate(R.layout.activity_send_message,null);
 
         Button sendtoall=(Button)view.findViewById(R.id.bt_send);
@@ -108,6 +112,7 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
         sendtoall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(MessageActivity.this,"hello",Toast.LENGTH_SHORT).show();
                 MessageRequest messageRequest = new MessageRequest();
                 messageRequest.setMessage(message.getText().toString());
                 messageRequest.setTo(sendTo);
@@ -153,11 +158,4 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
             sendTo = result;
         }
     }
-
-    @Override
-    protected void onResume() {
-
-        super.onResume();
-    }
-
 }
