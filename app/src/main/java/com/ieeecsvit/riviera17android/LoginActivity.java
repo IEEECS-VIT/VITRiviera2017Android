@@ -69,7 +69,9 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(new Intent(LoginActivity.this,MainActivity.class));
                     }
                     @Override
-                    public void onFailure(){}
+                    public void onFailure(){
+
+                    }
                 });
             }
         });

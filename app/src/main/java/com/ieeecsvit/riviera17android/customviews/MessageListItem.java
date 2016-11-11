@@ -14,7 +14,7 @@ import com.ieeecsvit.riviera17android.models.Message;
  * Created by Karishnu Poddar on 16/10/2016.
  */
 
-public class MessageListItem extends LinearLayout {
+public class MessageListItem extends LinearLayout{
 
     TextView tvSentBy, tvSentTo, tvMessage;
 
