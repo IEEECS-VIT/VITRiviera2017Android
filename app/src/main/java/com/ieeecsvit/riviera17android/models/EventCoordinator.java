@@ -3,6 +3,8 @@ package com.ieeecsvit.riviera17android.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 import io.realm.RealmObject;
 
 public class EventCoordinator extends RealmObject{

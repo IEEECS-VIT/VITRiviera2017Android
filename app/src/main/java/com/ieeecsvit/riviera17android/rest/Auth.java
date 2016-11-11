@@ -33,6 +33,7 @@ public class Auth {
                 if (response.body().success) {
                     Preferences.setPrefs(Consts.TOKEN_PREF, response.body().token, activity);
                     Preferences.setPrefs(Consts.LOGGED_IN_PREF,"1",activity);
+                    Preferences.setPrefs(Consts.ROLE_PREF, response.body().role, activity);
                     onLoginCallback.onSuccess();
                 }
                 else {
