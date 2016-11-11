@@ -66,6 +66,14 @@ public class MainActivity extends AppCompatActivity
 
         bell = (ImageView) toolbar.findViewById(R.id.iv_bell);
 
+        bell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, NotificationsActivity.class);
+                startActivity(intent);
+            }
+        });
+
         if (Preferences.getPrefs(Consts.ROLE_PREF, this).equals("admin")){
             bell.setVisibility(View.VISIBLE);
         }
