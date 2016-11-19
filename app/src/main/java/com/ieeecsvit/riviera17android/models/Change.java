@@ -12,5 +12,8 @@ public class Change {
     @SerializedName("changeValue")
     @Expose
     public String changeValue;
+    @SerializedName("_id")
+    @Expose
+    public String id;
 
 }

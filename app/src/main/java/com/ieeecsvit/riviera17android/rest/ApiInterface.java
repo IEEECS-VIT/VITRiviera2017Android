@@ -1,6 +1,7 @@
 package com.ieeecsvit.riviera17android.rest;
 
 import com.ieeecsvit.riviera17android.models.ChangeRequest;
+import com.ieeecsvit.riviera17android.models.ChangeResponse;
 import com.ieeecsvit.riviera17android.models.Events;
 import com.ieeecsvit.riviera17android.models.LoginRequest;
 import com.ieeecsvit.riviera17android.models.LoginResponse;
@@ -30,4 +31,7 @@ public interface ApiInterface {
 
     @POST("requests")
     Call<LoginResponse> changeEvent(@Body ChangeRequest changeRequest);
+
+    @GET("requests")
+    Call<ChangeResponse> getChanges();
 }
