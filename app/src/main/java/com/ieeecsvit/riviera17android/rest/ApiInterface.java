@@ -1,5 +1,6 @@
 package com.ieeecsvit.riviera17android.rest;
 
+import com.ieeecsvit.riviera17android.models.AcceptRequest;
 import com.ieeecsvit.riviera17android.models.ChangeRequest;
 import com.ieeecsvit.riviera17android.models.ChangeResponse;
 import com.ieeecsvit.riviera17android.models.Events;
@@ -12,10 +13,9 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 
 public interface ApiInterface {
-/*    @GET("events/all")
-    Call<Events> events();*/
 
     @GET("events/all")
     Call<Events> events();
@@ -34,4 +34,7 @@ public interface ApiInterface {
 
     @GET("requests")
     Call<ChangeResponse> getChanges();
+
+    @PUT("requests")
+    Call<LoginResponse> acceptEvent(@Body AcceptRequest acceptRequest);
 }

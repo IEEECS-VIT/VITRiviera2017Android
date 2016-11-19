@@ -9,23 +9,56 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="STATUS"
+            android:layout_margin="5dp"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="3dp">
-        <TextView
-            android:id="@+id/tvEvent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvChanges"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp" />
+            <TextView
+                android:id="@+id/tvEvent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvChanges"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/acceptButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:text="ACCEPT"/>
+
+                <Button
+                    android:id="@+id/declineButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:text="DECLINE"/>
+            </LinearLayout>
         </LinearLayout>
+
+
     </android.support.v7.widget.CardView>
 
 </LinearLayout>

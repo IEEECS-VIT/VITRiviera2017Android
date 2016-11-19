@@ -4,13 +4,13 @@ package com.ieeecsvit.riviera17android.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Approved {
+public class AcceptRequest {
 
-    @SerializedName("by")
+    @SerializedName("requestId")
     @Expose
-    public String by;
-    @SerializedName("approvalStatus")
+    public String requestId;
+    @SerializedName("accept")
     @Expose
-    public Boolean approvalStatus;
+    public Boolean accept;
 
 }
