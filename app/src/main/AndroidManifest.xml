@@ -13,7 +13,7 @@
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Transparent">
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -49,8 +49,10 @@
         </activity>
         <activity android:name=".MessageActivity" />
         <activity android:name=".EventSearchActivity" />
-        <activity android:name=".SendMessageActivity" />
-        <activity android:name=".WishlistActivity"></activity>
+        <activity android:name=".WishlistActivity" />
+        <activity android:name=".EventEditActivity" />
+        <activity android:name=".NotificationsActivity" />
+        <activity android:name=".AboutPage"></activity>
     </application>
 
 </manifest>

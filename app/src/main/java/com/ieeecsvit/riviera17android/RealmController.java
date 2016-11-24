@@ -100,7 +100,7 @@ public class RealmController {
         return !realm.where(Event.class).findAll().isEmpty();
     }
 
-    public void setFavourite(String eventId, Boolean favourite){
+    void setFavourite(String eventId, Boolean favourite){
         Event event = realm.where(Event.class).equalTo("id",eventId).findFirst();
         realm.beginTransaction();
         event.checked = favourite;

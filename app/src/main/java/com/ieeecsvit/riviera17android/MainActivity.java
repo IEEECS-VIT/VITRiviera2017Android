@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity
     TextView pre,work,formal,informal,cyber;
     ProgressBar progressBar;
     NavigationView navigationView;
+    ImageView bell;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -61,6 +63,20 @@ public class MainActivity extends AppCompatActivity
         formal=(TextView)findViewById(R.id.formaltext);
         informal=(TextView)findViewById(R.id.informaltext);
         cyber=(TextView)findViewById(R.id.cybertext);
+
+        bell = (ImageView) toolbar.findViewById(R.id.iv_bell);
+
+        bell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, NotificationsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        if (Preferences.getPrefs(Consts.ROLE_PREF, this).equals("admin")){
+            bell.setVisibility(View.VISIBLE);
+        }
 
         Typeface typeface=Typeface.createFromAsset(getAssets(), "fonts/Montserrat-Regular.ttf");
 

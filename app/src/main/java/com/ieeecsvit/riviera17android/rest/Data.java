@@ -24,6 +24,7 @@ public class Data {
 
     public static void updateMessages(final Activity activity, final UpdateCallback updateCallback) {
         ApiInterface apiInterface = new ApiClient().getClient(activity).create(ApiInterface.class);
+
         Call<MessagesResponse> getMessages = apiInterface.getMessages();
 
         getMessages.enqueue(new Callback<MessagesResponse>() {
@@ -31,7 +32,6 @@ public class Data {
             public void onResponse(Call<MessagesResponse> call, Response<MessagesResponse> response) {
 
                 if (response.body().getSuccess()) {
-                    RealmController.with(activity).refresh();
                     Realm realm = RealmController.getInstance().getRealm();
                     RealmController.getInstance().clearAllMessages();
 
@@ -79,6 +79,7 @@ public class Data {
                         }
                     });
                 }
+                realm.close();
             }catch (Exception e){e.printStackTrace();}
             return 0;
         }

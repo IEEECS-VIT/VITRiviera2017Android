@@ -2,6 +2,7 @@ package com.ieeecsvit.riviera17android;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,6 +22,10 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import com.ieeecsvit.riviera17android.models.Event;
+import com.ieeecsvit.riviera17android.utility.Consts;
+import com.ieeecsvit.riviera17android.utility.Preferences;
+
 public class EventActivity extends AppCompatActivity {
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
@@ -36,22 +41,28 @@ public class EventActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
+        //
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), this, getIntent().getStringExtra("eventId"));
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
+
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        if(Preferences.getPrefs(Consts.ROLE_PREF,this).equals("admin") || Preferences.getPrefs(Consts.ROLE_PREF,this).equals("coordinator")){
+            fab.setVisibility(View.VISIBLE);
+        }
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(EventActivity.this, EventEditActivity.class);
+                intent.putExtra(Consts.EVENT_BUNDLE, getIntent().getStringExtra("eventId"));
+                startActivity(intent);
             }
         });
     }

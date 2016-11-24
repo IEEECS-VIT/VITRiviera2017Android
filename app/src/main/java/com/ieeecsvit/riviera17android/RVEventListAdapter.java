@@ -16,11 +16,16 @@ import com.ieeecsvit.riviera17android.models.Event;
 
 import java.util.List;
 
+import io.realm.RealmResults;
+
 public class RVEventListAdapter extends RecyclerView.Adapter<RVEventListAdapter.EventItemViewHolder> {
 
     private List<Event> eventsList;
     private Activity context;
     Boolean clickable;
+
+    public RVEventListAdapter(RealmResults<Event> category, CategoryActivity categoryActivity) {
+    }
 
     public class EventItemViewHolder extends RecyclerView.ViewHolder {
         public EventListItem eventListItem;

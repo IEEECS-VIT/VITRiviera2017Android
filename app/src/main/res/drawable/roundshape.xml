@@ -8,8 +8,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <gradient
-        android:startColor="#80FFFFFF"
-        android:endColor="#80FFFFFF"
+        android:startColor="#90FFFFFF"
+        android:endColor="#90FFFFFF"
         android:type="linear"
         android:angle="270"
         android:layout_width="wrap_content"
