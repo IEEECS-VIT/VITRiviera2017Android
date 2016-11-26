@@ -11,10 +11,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.dynamitechetan.flowinggradient.FlowingGradient;
 import com.dynamitechetan.flowinggradient.FlowingGradientClass;
+import com.ieeecsvit.riviera17android.models.To;
 import com.ieeecsvit.riviera17android.rest.Auth;
 import com.ieeecsvit.riviera17android.utility.Consts;
 import com.ieeecsvit.riviera17android.utility.Preferences;
@@ -25,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText regno,pass;
     ImageView background;
     RelativeLayout relativeLayout;
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         .onRelativeLayout(relativeLayout).
         setTransitionDuration(2500).start();
 
+        progressBar=(ProgressBar)findViewById(R.id.progress_bar);
 
 /*
         background=(ImageView)findViewById(R.id.backgroundimage);
@@ -63,16 +68,25 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Auth.login(regno.getText().toString(), pass.getText().toString(), LoginActivity.this, new Auth.OnLoginCallback() {
-                    @Override
-                    public void onSuccess() {
-                        startActivity(new Intent(LoginActivity.this,MainActivity.class));
-                    }
-                    @Override
-                    public void onFailure(){
+                progressBar.setVisibility(View.VISIBLE);
+                if(!regno.getText().equals("") && !pass.getText().equals("")) {
+                    Auth.login(regno.getText().toString(), pass.getText().toString(), LoginActivity.this, new Auth.OnLoginCallback() {
+                        @Override
+                        public void onSuccess() {
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        }
 
-                    }
-                });
+                        @Override
+                        public void onFailure() {
+                            Toast.makeText(LoginActivity.this,"Login Failed", Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.INVISIBLE);
+                        }
+                    });
+                }
+                else{
+                    Toast.makeText(LoginActivity.this,"Enter Username or Password.", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.INVISIBLE);
+                }
             }
         });
 

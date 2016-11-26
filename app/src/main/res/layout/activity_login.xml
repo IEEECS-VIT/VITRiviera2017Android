@@ -43,6 +43,7 @@
         android:layout_height="40dp"
         android:ellipsize="start"
         android:hint="\tREGISTRATION NUMBER"
+        android:textColorHint="#eeeeee"
         android:inputType="text"
         android:paddingLeft="5dp"
         android:typeface="serif"
@@ -56,6 +57,7 @@
         android:layout_height="40dp"
         android:ellipsize="start"
         android:paddingLeft="5dp"
+        android:textColorHint="#eeeeee"
         android:hint="\tPASSWORD"
         android:textSize="20dp"
         android:inputType="textPassword"
@@ -86,6 +88,15 @@
         android:textColor="#ffffff"
         android:textSize="25dp"
         android:gravity="center" />
+
+        <ProgressBar
+        android:id="@+id/progress_bar"
+        android:paddingTop="10dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:indeterminate="true"
+        android:layout_margin="3dp"
+        android:layout_gravity="center"/>
 
     </LinearLayout>
 </RelativeLayout>
