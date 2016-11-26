@@ -6,11 +6,43 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.ieeecsvit.riviera17android.CategoryActivity"
-    tools:showIn="@layout/activity_category">
+    tools:showIn="@layout/activity_category"
+    android:background="#E5E5E5">
+<android.support.v7.widget.CardView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="25dp"
+    android:layout_marginRight="25dp"
+    android:backgroundTint="#ffffff">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="352dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:id="@+id/typeCategory"
+        android:textSize="25dp"
+        android:layout_centerHorizontal="true"
+        android:text=""/>
+
+    <View
+        android:layout_width="205dp"
+        android:layout_height="2dp"
+        android:layout_centerHorizontal="true"
+        android:background="#000000"
+        android:id="@+id/catLine"
+        android:layout_below="@id/typeCategory"
+        android:paddingBottom="10dp"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_events"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catLine"/>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
 
 </RelativeLayout>

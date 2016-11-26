@@ -14,11 +14,15 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class CategoryActivity extends AppCompatActivity {
 
     ImageView catimage,back_image;
     String getCat;
+    TextView catTextView;
+    View view;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,24 +30,38 @@ public class CategoryActivity extends AppCompatActivity {
 
         getCat=getIntent().getStringExtra("category");
 
+        catTextView=(TextView)findViewById(R.id.typeCategory);
+        catTextView.setText(getCat);
+
+        view=(View)findViewById(R.id.catLine);
+
         back_image=(ImageView)findViewById(R.id.back_image);
         catimage=(ImageView)findViewById(R.id.categoryimage);
 
         if(getCat.equals("Pre-Riviera")){
             catimage.setImageResource(R.drawable.preriv_ic);
             back_image.setImageResource(R.drawable.preriv_back);
+
+            view.setBackgroundColor(Color.parseColor("#FDA736"));
+
         }
         else if(getCat.equals("Workshop")){
             catimage.setImageResource(R.drawable.preriv_ic);
             back_image.setImageResource(R.drawable.workshop_back);
+
+            view.setBackgroundColor(Color.parseColor("#FDA736"));
         }
         else if(getCat.equals("Formal")){
             catimage.setImageResource(R.drawable.preriv_ic);
             back_image.setImageResource(R.drawable.formal_back);
+            view.setBackgroundColor(Color.parseColor("#FDA736"));
+
         }
         else if(getCat.equals("Informal")){
             catimage.setImageResource(R.drawable.preriv_ic);
             back_image.setImageResource(R.drawable.informal_back);
+            view.setBackgroundColor(Color.parseColor("#FDA736"));
+
         }
 
 
@@ -70,6 +88,6 @@ public class CategoryActivity extends AppCompatActivity {
         recyclerView.setAdapter(new RVEventListAdapter(RealmController.with(this).getEvents(getIntent()
                 .getStringExtra("category")), this));
 
-        recyclerView.setAdapter(new RVEventListAdapter(RealmController.with(this).getEvents(getIntent().getStringExtra("category")), this, true));
+        recyclerView.setAdapter(new RVEventListAdapter(RealmController.with(this).getEvents(getIntent().getStringExtra("category")),this,true));
     }
 }
