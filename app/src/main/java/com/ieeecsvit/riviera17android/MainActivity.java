@@ -198,8 +198,6 @@ public class MainActivity extends AppCompatActivity
         Intent intent = new Intent(this, CategoryActivity.class);
         intent.putExtra("category","Informal");
         startActivity(intent);
-
-
     }
     public void cyber(View view){
         //Toast.makeText(this, "cyber", Toast.LENGTH_SHORT).show();

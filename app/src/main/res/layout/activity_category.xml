@@ -13,28 +13,24 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/appbar_padding_top"
         android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
-        </android.support.v7.widget.Toolbar>
-
+            android:layout_height="150dp"
+            android:src="@drawable/preriv_back"
+            android:id="@+id/back_image"
+            android:scaleType="fitXY"/>
     </android.support.design.widget.AppBarLayout>
+
 
     <include layout="@layout/content_category"
         android:id="@+id/include" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_gravity="center_vertical|center_horizontal"
-        app:fabSize="normal"
+        android:scaleType="fitXY"
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="top|center_horizontal"
-        android:id="@+id/floatingActionButton" />
-
+        android:id="@+id/categoryimage"/>
 </android.support.design.widget.CoordinatorLayout>
