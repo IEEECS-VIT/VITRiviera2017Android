@@ -33,6 +33,8 @@ public class CategoryActivity extends AppCompatActivity {
         catTextView=(TextView)findViewById(R.id.typeCategory);
         catTextView.setText(getCat);
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         view=(View)findViewById(R.id.catLine);
 
         back_image=(ImageView)findViewById(R.id.back_image);

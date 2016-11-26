@@ -12,6 +12,10 @@ public class EventSearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_search);
 
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_events);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new RVEventListAdapter(RealmController.with(this).getEvents(), this, false));
