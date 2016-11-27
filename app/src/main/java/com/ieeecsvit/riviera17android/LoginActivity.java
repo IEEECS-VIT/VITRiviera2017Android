@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
@@ -78,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure() {
-                            Toast.makeText(LoginActivity.this,"Login Failed", Toast.LENGTH_SHORT).show();
+                            Snackbar.make(relativeLayout,"Login Failed",Snackbar.LENGTH_LONG).show();
                             progressBar.setVisibility(View.INVISIBLE);
                         }
                     });

@@ -56,7 +56,9 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
 
         swipeRefreshLayout.setOnRefreshListener(this);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
+        linearLayoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
 
         rvMessageAdapter = new RVMessageAdapter(RealmController.with(this).getMessages(), this);
 

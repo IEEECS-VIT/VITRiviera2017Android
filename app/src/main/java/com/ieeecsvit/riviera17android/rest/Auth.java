@@ -30,15 +30,21 @@ public class Auth {
         login.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                if (response.body().success) {
-                    Preferences.setPrefs(Consts.TOKEN_PREF, response.body().token, activity);
-                    Preferences.setPrefs(Consts.LOGGED_IN_PREF,"1",activity);
-                    Preferences.setPrefs(Consts.ROLE_PREF, response.body().role, activity);
-                    onLoginCallback.onSuccess();
-                }
-                else {
+                try {
+                    if (response.body().success) {
+                        Preferences.setPrefs(Consts.TOKEN_PREF, response.body().token, activity);
+                        Preferences.setPrefs(Consts.LOGGED_IN_PREF,"1",activity);
+                        Preferences.setPrefs(Consts.ROLE_PREF, response.body().role, activity);
+                        onLoginCallback.onSuccess();
+                    }
+                    else {
+                        onLoginCallback.onFailure();
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
                     onLoginCallback.onFailure();
                 }
+
             }
 
             @Override
