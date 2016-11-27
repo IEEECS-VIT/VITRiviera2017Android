@@ -162,7 +162,8 @@ public class MainActivity extends AppCompatActivity
 
         }
         else if (id == R.id.about) {
-
+            Intent intent = new Intent(this, AboutPage.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

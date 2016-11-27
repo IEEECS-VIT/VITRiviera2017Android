@@ -2,68 +2,133 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="5dp"
     android:orientation="vertical">
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8sp" />
 
-            <TextView
-                android:id="@+id/tv_coordinator_1_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/txt_cood1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingLeft="15dp"
+        android:text="Coordinator 1:" />
 
-            <TextView
-                android:id="@+id/tv_coordinator_1_regno"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8sp" />
 
-            <TextView
-                android:id="@+id/tv_coordinator_1_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tv_coordinator_1_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="48dp"
+        android:text="Name: XYZ" />
 
-            <TextView
-                android:id="@+id/tv_coordinator_1_phone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8sp" />
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv_coordinator_1_regno"
+        android:paddingLeft="48dp"
+        android:text="Reg.No.: 001122334455"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_coordinator_2_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8sp" />
 
-            <TextView
-                android:id="@+id/tv_coordinator_2_regno"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tv_coordinator_1_email"
+        android:paddingLeft="48dp"
+        android:text="Email: 001122334455"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/tv_coordinator_2_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8sp" />
 
-            <TextView
-                android:id="@+id/tv_coordinator_2_phone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_coordinator_1_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="48dp"
+        android:text="Contact: 001122334455" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8sp" />
+
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8sp" />
+
+    <TextView
+        android:id="@+id/txt_cood2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingLeft="15dp"
+        android:text="Coordinator 2:" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8sp" />
+
+    <TextView
+        android:id="@+id/tv_coordinator_2_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="48dp"
+        android:text="Name: XYZ" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8sp" />
+
+    <TextView
+        android:id="@+id/tv_coordinator_2_regno"
+        android:paddingLeft="48dp"
+        android:text="Reg.No.: 001122334455"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8sp" />
+
+    <TextView
+        android:id="@+id/tv_coordinator_2_email"
+        android:paddingLeft="48dp"
+        android:text="Email: 001122334455"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8sp" />
+
+
+    <TextView
+        android:id="@+id/tv_coordinator_2_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="48dp"
+        android:text="Contact: 001122334455" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8sp" />
 
 </LinearLayout>

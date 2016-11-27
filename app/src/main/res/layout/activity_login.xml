@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="174dp"
         android:id="@+id/riviera"
-        android:src="@drawable/riviera"
+        android:src="@drawable/rivlogo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp" />
 
