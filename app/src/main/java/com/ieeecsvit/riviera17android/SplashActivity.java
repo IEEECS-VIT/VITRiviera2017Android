@@ -5,16 +5,26 @@ import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
+import com.dynamitechetan.flowinggradient.FlowingGradientClass;
 import com.ieeecsvit.riviera17android.rest.Data;
 
 public class SplashActivity extends AppCompatActivity {
 
 
+    RelativeLayout relativeLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        relativeLayout=(RelativeLayout)findViewById(R.id.activity_splash);
+
+        FlowingGradientClass grad=new FlowingGradientClass();
+        grad.setBackgroundResource(R.drawable.gradient)
+                .onRelativeLayout(relativeLayout).
+                setTransitionDuration(2500).start();
 
         RealmController.with(this);
 
@@ -23,6 +33,7 @@ public class SplashActivity extends AppCompatActivity {
                 @Override
                 public void onUpdate() {
                     Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                    finish();
                     startActivity(intent);
                 }
                 @Override
@@ -31,7 +42,11 @@ public class SplashActivity extends AppCompatActivity {
         }
         else {
             Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+            finish();
             startActivity(intent);
+
         }
+
     }
+
 }

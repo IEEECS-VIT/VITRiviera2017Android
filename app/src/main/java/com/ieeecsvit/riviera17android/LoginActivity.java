@@ -27,7 +27,6 @@ public class LoginActivity extends AppCompatActivity {
 
     Button login,viewevent;
     EditText regno,pass;
-    ImageView background;
     RelativeLayout relativeLayout;
     ProgressBar progressBar;
     @Override
@@ -42,17 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         setTransitionDuration(2500).start();
 
         progressBar=(ProgressBar)findViewById(R.id.progress_bar);
-
-/*
-        background=(ImageView)findViewById(R.id.backgroundimage);
-        background.setBackgroundResource(R.drawable.gradient);
-
-        Animation fadeanim=AnimationUtils.loadAnimation(this,R.anim.fadein);
-        background.startAnimation(fadeanim);
-
-        AnimationDrawable changeBack=(AnimationDrawable)background.getBackground();
-        changeBack.start();
-*/
+        progressBar.setVisibility(View.INVISIBLE);
 
         login=(Button)findViewById(R.id.loginbutton);
         Typeface typeface=Typeface.createFromAsset(getAssets(), "fonts/orator.ttf");
@@ -74,19 +63,18 @@ public class LoginActivity extends AppCompatActivity {
                     Auth.login(regno.getText().toString(), pass.getText().toString(), LoginActivity.this, new Auth.OnLoginCallback() {
                         @Override
                         public void onSuccess() {
+                            progressBar.setVisibility(View.INVISIBLE);
+                            finish();
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         }
 
                         @Override
                         public void onFailure() {
+                            progressBar.setVisibility(View.INVISIBLE);
                             Snackbar.make(relativeLayout,"Login Failed",Snackbar.LENGTH_LONG).show();
                             progressBar.setVisibility(View.INVISIBLE);
                         }
                     });
-                }
-                else{
-                    Toast.makeText(LoginActivity.this,"Enter Username or Password.", Toast.LENGTH_SHORT).show();
-                    progressBar.setVisibility(View.INVISIBLE);
                 }
             }
         });
@@ -94,8 +82,10 @@ public class LoginActivity extends AppCompatActivity {
         viewevent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginActivity.this,MainActivity.class));
                 Preferences.setPrefs(Consts.LOGGED_IN_PREF,"0",LoginActivity.this);
+                finish();
+                startActivity(new Intent(LoginActivity.this,MainActivity.class));
+
             }
         });
     }

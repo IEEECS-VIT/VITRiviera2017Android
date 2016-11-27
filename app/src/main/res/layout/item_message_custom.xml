@@ -2,14 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="5dp">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#65b5d0"
-        android:layout_marginBottom="5dp">
+        android:backgroundTint="#68B3D2"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        app:cardCornerRadius="15dp"
+        android:elevation="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,7 +28,7 @@
 
             <TextView
                     android:id="@+id/tv_sent_by"
-                    android:textColor="#ffffff"
+                    android:textColor="#A2FCFF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 

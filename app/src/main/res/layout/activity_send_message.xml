@@ -15,12 +15,18 @@
         android:layout_width="match_parent"
         android:text="Send To Particular Events"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
         android:textSize="15dp"
         android:background="@drawable/sendbutton"/>
     <Button
         android:id="@+id/bt_send"
         android:layout_marginTop="10dp"
         android:textSize="15dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/sendbutton"
