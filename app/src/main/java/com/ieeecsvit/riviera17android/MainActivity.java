@@ -173,34 +173,29 @@ public class MainActivity extends AppCompatActivity
     //TODO: Change all to single function and check button id
 
     public void preriviera(View view){
-        Toast.makeText(this, "pre", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, CategoryActivity.class);
         intent.putExtra("category","Pre-Riviera");
         startActivity(intent);
     }
 
     public void workshop(View view){
-        Toast.makeText(this, "work", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, CategoryActivity.class);
         intent.putExtra("category","Workshop");
         startActivity(intent);
 
     }
     public void formal(View view){
-        Toast.makeText(this, "formal", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, CategoryActivity.class);
         intent.putExtra("category","Formal");
         startActivity(intent);
 
     }
     public void informal(View view){
-        Toast.makeText(this, "informal", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, CategoryActivity.class);
         intent.putExtra("category","Informal");
         startActivity(intent);
     }
     public void cyber(View view){
-        //Toast.makeText(this, "cyber", Toast.LENGTH_SHORT).show();
 
     }
 }

@@ -26,7 +26,7 @@ public class CategoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_category);
+        setContentView(R.layout.activity_category);
 
         getCat=getIntent().getStringExtra("category");
 
@@ -43,7 +43,6 @@ public class CategoryActivity extends AppCompatActivity {
         if(getCat.equals("Pre-Riviera")){
             catimage.setImageResource(R.drawable.preriv_ic);
             back_image.setImageResource(R.drawable.preriv_back);
-
             view.setBackgroundColor(Color.parseColor("#FDA736"));
 
         }

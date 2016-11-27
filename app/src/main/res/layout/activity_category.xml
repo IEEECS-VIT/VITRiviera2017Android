@@ -13,25 +13,10 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/appbar_padding_top"
         android:theme="@style/AppTheme.AppBarOverlay">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@drawable/preriv_back"
-            android:id="@+id/back_image"
-            android:scaleType="fitXY"/>
     </android.support.design.widget.AppBarLayout>
 
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:scaleType="fitXY"
-        app:layout_anchor="@+id/include"
-        app:layout_anchorGravity="top|center_horizontal"
-        android:id="@+id/categoryimage"/>
-
     <include layout="@layout/content_category"
-        android:id="@+id/include" />
-
+        android:id="@+id/include"
+        />
 
 </android.support.design.widget.CoordinatorLayout>
