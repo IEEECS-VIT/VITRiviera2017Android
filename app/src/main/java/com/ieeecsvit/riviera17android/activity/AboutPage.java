@@ -1,4 +1,4 @@
-package com.ieeecsvit.riviera17android;
+package com.ieeecsvit.riviera17android.activity;
 
 import android.graphics.Point;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Display;
 
+import com.ieeecsvit.riviera17android.R;
 import com.ieeecsvit.riviera17android.about.AboutRivieraFragment;
 import com.ieeecsvit.riviera17android.about.AboutTeam2Fragment;
 import com.ieeecsvit.riviera17android.about.AboutTeamFragment;

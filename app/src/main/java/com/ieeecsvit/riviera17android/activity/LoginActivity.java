@@ -1,10 +1,9 @@
-package com.ieeecsvit.riviera17android;
+package com.ieeecsvit.riviera17android.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -15,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.dynamitechetan.flowinggradient.FlowingGradientClass;
+import com.ieeecsvit.riviera17android.R;
 import com.ieeecsvit.riviera17android.rest.Auth;
 import com.ieeecsvit.riviera17android.utility.Consts;
 import com.ieeecsvit.riviera17android.utility.Preferences;

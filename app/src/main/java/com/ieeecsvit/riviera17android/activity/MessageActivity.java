@@ -1,28 +1,22 @@
-package com.ieeecsvit.riviera17android;
+package com.ieeecsvit.riviera17android.activity;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 
-import com.ieeecsvit.riviera17android.models.Event;
-import com.ieeecsvit.riviera17android.models.Message;
+import com.ieeecsvit.riviera17android.R;
+import com.ieeecsvit.riviera17android.RVMessageAdapter;
+import com.ieeecsvit.riviera17android.RealmController;
 import com.ieeecsvit.riviera17android.models.MessageRequest;
 import com.ieeecsvit.riviera17android.models.MessagesResponse;
 import com.ieeecsvit.riviera17android.rest.ApiClient;
@@ -37,7 +31,7 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
 
     RecyclerView recyclerView;
     private SwipeRefreshLayout swipeRefreshLayout;
-    private RVMessageAdapter rvMessageAdapter;
+    RVMessageAdapter rvMessageAdapter;
     Button send;
     EditText message;
     String sendTo;

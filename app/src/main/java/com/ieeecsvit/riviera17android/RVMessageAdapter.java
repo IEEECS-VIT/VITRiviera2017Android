@@ -15,7 +15,7 @@ import com.ieeecsvit.riviera17android.models.Message;
 
 import java.util.List;
 
-class RVMessageAdapter extends RecyclerView.Adapter<RVMessageAdapter.EventItemViewHolder> {
+public class RVMessageAdapter extends RecyclerView.Adapter<RVMessageAdapter.EventItemViewHolder> {
 
     private List<Message> messageList;
     private Activity context;

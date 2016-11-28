@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#302236"
     android:fitsSystemWindows="true"
-    tools:context="com.ieeecsvit.riviera17android.MainActivity">
+    tools:context="com.ieeecsvit.riviera17android.activity.MainActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"

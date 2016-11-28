@@ -1,4 +1,4 @@
-package com.ieeecsvit.riviera17android;
+package com.ieeecsvit.riviera17android.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,12 +6,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.ieeecsvit.riviera17android.R;
+import com.ieeecsvit.riviera17android.RealmController;
 import com.ieeecsvit.riviera17android.models.Change;
 import com.ieeecsvit.riviera17android.models.ChangeRequest;
 import com.ieeecsvit.riviera17android.models.Event;
-import com.ieeecsvit.riviera17android.models.LoginRequest;
 import com.ieeecsvit.riviera17android.models.LoginResponse;
-import com.ieeecsvit.riviera17android.models.MessagesResponse;
 import com.ieeecsvit.riviera17android.rest.ApiClient;
 import com.ieeecsvit.riviera17android.rest.ApiInterface;
 import com.ieeecsvit.riviera17android.utility.Consts;

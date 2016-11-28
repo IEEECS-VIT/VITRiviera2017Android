@@ -5,7 +5,7 @@
     android:id="@+id/activity_message"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ieeecsvit.riviera17android.MessageActivity"
+    tools:context="com.ieeecsvit.riviera17android.activity.MessageActivity"
     android:background="#3FA3C5">
 
 

@@ -14,6 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.ieeecsvit.riviera17android.activity.CategoryActivity;
 import com.ieeecsvit.riviera17android.utility.Consts;
 
 import java.util.List;

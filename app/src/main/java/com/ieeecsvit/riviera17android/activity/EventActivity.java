@@ -1,4 +1,4 @@
-package com.ieeecsvit.riviera17android;
+package com.ieeecsvit.riviera17android.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -17,6 +17,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.ieeecsvit.riviera17android.EventCoordinatorsFragment;
+import com.ieeecsvit.riviera17android.EventDetailsFragment;
+import com.ieeecsvit.riviera17android.R;
 import com.ieeecsvit.riviera17android.models.PerEventResponse;
 import com.ieeecsvit.riviera17android.rest.ApiClient;
 import com.ieeecsvit.riviera17android.rest.ApiInterface;

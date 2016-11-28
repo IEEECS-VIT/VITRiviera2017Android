@@ -1,4 +1,4 @@
-package com.ieeecsvit.riviera17android;
+package com.ieeecsvit.riviera17android.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,6 +11,10 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.ieeecsvit.riviera17android.R;
+import com.ieeecsvit.riviera17android.RVEventListAdapter;
+import com.ieeecsvit.riviera17android.RealmController;
+import com.ieeecsvit.riviera17android.SubCategoryListAdapter;
 import com.ieeecsvit.riviera17android.utility.Consts;
 
 import java.util.ArrayList;

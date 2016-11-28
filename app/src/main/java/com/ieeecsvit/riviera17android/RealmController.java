@@ -73,13 +73,13 @@ public class RealmController {
     }
 
     //find all objects in the Book.class
-    RealmResults<Event> getEvents(String category) {
+    public RealmResults<Event> getEvents(String category) {
         return realm.where(Event.class)
                 .equalTo("eventCategory",category)
                 .findAll();
     }
 
-    RealmResults<Event> getSubEvents(String category, String subCategory) {
+    public RealmResults<Event> getSubEvents(String category, String subCategory) {
 
         if(subCategory.equals("Others")){
             subCategory = null;
@@ -91,15 +91,15 @@ public class RealmController {
                 .findAll();
     }
 
-    RealmResults<Event> getEvents(){
+    public RealmResults<Event> getEvents(){
         return realm.where(Event.class).findAll();
     }
 
-    Event getEvent(String eventId){
+    public Event getEvent(String eventId){
         return realm.where(Event.class).equalTo("id", eventId).findFirst();
     }
 
-    RealmResults<Message> getMessages(){
+    public RealmResults<Message> getMessages(){
         return realm.where(Message.class).findAll();
     }
 

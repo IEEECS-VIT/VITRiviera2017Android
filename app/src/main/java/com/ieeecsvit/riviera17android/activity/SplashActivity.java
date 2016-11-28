@@ -1,13 +1,13 @@
-package com.ieeecsvit.riviera17android;
+package com.ieeecsvit.riviera17android.activity;
 
 import android.content.Intent;
-import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.dynamitechetan.flowinggradient.FlowingGradientClass;
+import com.ieeecsvit.riviera17android.R;
+import com.ieeecsvit.riviera17android.RealmController;
 import com.ieeecsvit.riviera17android.rest.Data;
 import com.ieeecsvit.riviera17android.utility.UtilityMethods;
 

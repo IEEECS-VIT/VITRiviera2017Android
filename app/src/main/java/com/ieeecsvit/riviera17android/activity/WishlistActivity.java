@@ -1,10 +1,14 @@
-package com.ieeecsvit.riviera17android;
+package com.ieeecsvit.riviera17android.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.ieeecsvit.riviera17android.R;
+import com.ieeecsvit.riviera17android.RVEventListAdapter;
+import com.ieeecsvit.riviera17android.RealmController;
+import com.ieeecsvit.riviera17android.WishlistAdapter;
 import com.ieeecsvit.riviera17android.models.Event;
 
 public class WishlistActivity extends AppCompatActivity {
