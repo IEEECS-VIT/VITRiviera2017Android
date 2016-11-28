@@ -6,6 +6,7 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_wishlist"
         android:scrollbars="vertical"

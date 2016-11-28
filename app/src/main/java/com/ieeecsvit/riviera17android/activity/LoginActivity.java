@@ -54,8 +54,8 @@ public class LoginActivity extends AppCompatActivity {
 
         regno = (EditText) findViewById(R.id.regno);
         pass = (EditText) findViewById(R.id.password);
-        regno.setTypeface(typeface);
-        pass.setTypeface(typeface);
+       // regno.setTypeface(typeface);
+        //pass.setTypeface(typeface);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
