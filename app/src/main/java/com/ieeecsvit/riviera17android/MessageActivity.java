@@ -33,16 +33,15 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MessageActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener{
+public class MessageActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 
     RecyclerView recyclerView;
-   // FloatingActionButton floatingActionButton;
     private SwipeRefreshLayout swipeRefreshLayout;
     private RVMessageAdapter rvMessageAdapter;
     Button send;
     EditText message;
     String sendTo;
-
+    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,18 +54,15 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#68B3D2")));
 
-
-
         recyclerView = (RecyclerView) findViewById(R.id.rv_message);
-
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
 
-        send=(Button)findViewById(R.id.sendmsg);
-        message=(EditText)findViewById(R.id.msgbox);
+        send = (Button) findViewById(R.id.sendmsg);
+        message = (EditText) findViewById(R.id.msgbox);
 
         swipeRefreshLayout.setOnRefreshListener(this);
 
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
 
@@ -81,65 +77,33 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
             }
         });
 
-        /*
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MessageActivity.this, SendMessageActivity.class);
-                startActivity(intent);
-            }
-        });
-        */
+        customRefresh();
     }
 
     @Override
     public void onRefresh() {
-       customRefresh();
+        customRefresh();
     }
 
-
-    public void seealert(){
-
-        final Dialog dialog=new Dialog(this);
+    public void seealert() {
+        dialog = new Dialog(this);
         dialog.setTitle("Choose");
-       // builder.setCancelable(false);
 
-        LayoutInflater inflater=getLayoutInflater();
+        LayoutInflater inflater = getLayoutInflater();
 
-        View view=inflater.inflate(R.layout.activity_send_message,null);
+        View view = inflater.inflate(R.layout.activity_send_message, null);
 
-        Button sendtoall=(Button)view.findViewById(R.id.bt_send);
+        Button sendtoall = (Button) view.findViewById(R.id.bt_send);
 
-
-        sendtoall.setOnClickListener( new View.OnClickListener() {
+        sendtoall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Toast.makeText(MessageActivity.this,"hello",Toast.LENGTH_SHORT).show();
-                MessageRequest messageRequest = new MessageRequest();
-                messageRequest.setMessage(message.getText().toString());
-                messageRequest.setTo(sendTo);
-
-                ApiInterface apiInterface = new ApiClient().getClient(MessageActivity.this).create(ApiInterface.class);
-                Call<MessagesResponse> call = apiInterface.postMessage(messageRequest);
-
-                call.enqueue(new Callback<MessagesResponse>() {
-                    @Override
-                    public void onResponse(Call<MessagesResponse> call, Response<MessagesResponse> response) {
-                        customRefresh();
-                        dialog.dismiss();
-                    }
-
-                    @Override
-                    public void onFailure(Call<MessagesResponse> call, Throwable t) {
-
-                    }
-                });
+                sendTo = "all";
+                sendMessage();
             }
         });
 
-        Button event=(Button)view.findViewById(R.id.bt_add_event);
-
-
+        Button event = (Button) view.findViewById(R.id.bt_add_event);
         event.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -156,13 +120,12 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (resultCode == RESULT_OK) {
-            String result = data.getStringExtra("eventId");
-            Event event = RealmController.with(MessageActivity.this).getEvent(result);
-            //tvSendTo.setText(event.eventName);
-            sendTo = result;
+            sendTo = data.getStringExtra("eventId");
+            sendMessage();
         }
     }
-    public void customRefresh(){
+
+    public void customRefresh() {
         swipeRefreshLayout.setRefreshing(true);
         Data.updateMessages(this, new Data.UpdateCallback() {
             @Override
@@ -171,9 +134,32 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
                 recyclerView.setAdapter(rvMessageAdapter);
                 swipeRefreshLayout.setRefreshing(false);
             }
+
             @Override
-            public void onFailure(){
+            public void onFailure() {
                 swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+    }
+
+    private void sendMessage(){
+        MessageRequest messageRequest = new MessageRequest();
+        messageRequest.setMessage(message.getText().toString());
+        messageRequest.setTo(sendTo);
+
+        ApiInterface apiInterface = new ApiClient().getClient(MessageActivity.this).create(ApiInterface.class);
+        Call<MessagesResponse> call = apiInterface.postMessage(messageRequest);
+
+        dialog.dismiss();
+        call.enqueue(new Callback<MessagesResponse>() {
+            @Override
+            public void onResponse(Call<MessagesResponse> call, Response<MessagesResponse> response) {
+                customRefresh();
+            }
+
+            @Override
+            public void onFailure(Call<MessagesResponse> call, Throwable t) {
+
             }
         });
     }

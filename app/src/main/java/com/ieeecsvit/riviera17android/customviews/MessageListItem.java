@@ -23,7 +23,6 @@ public class MessageListItem extends LinearLayout{
         layoutInflater.inflate(R.layout.item_message_custom, this, true);
 
         tvSentBy = (TextView) findViewById(R.id.tv_sent_by);
-        tvSentTo = (TextView) findViewById(R.id.tv_sent_to);
         tvMessage = (TextView) findViewById(R.id.tv_message);
     }
 
