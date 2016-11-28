@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.ieeecsvit.riviera17android.rest.Data;
+import com.ieeecsvit.riviera17android.utility.UtilityMethods;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -18,12 +19,13 @@ public class SplashActivity extends AppCompatActivity {
 
         RealmController.with(this);
 
-        if(RealmController.getInstance().getEvents().isEmpty()){
+        if(UtilityMethods.isNetworkAvailable()){
             Data.updateEvents(this, new Data.UpdateCallback() {
                 @Override
                 public void onUpdate() {
                     Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                     startActivity(intent);
+                    finish();
                 }
                 @Override
                 public void onFailure(){}
@@ -32,6 +34,7 @@ public class SplashActivity extends AppCompatActivity {
         else {
             Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
             startActivity(intent);
+            finish();
         }
     }
 }

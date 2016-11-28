@@ -15,6 +15,7 @@ public class Event extends RealmObject{
 
     @SerializedName("_id")
     @Expose
+    @PrimaryKey
     public String id;
     @SerializedName("event_name")
     @Expose

@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     TextView pre,work,formal,informal,cyber;
-    ProgressBar progressBar;
     NavigationView navigationView;
     ImageView bell;
 
@@ -45,18 +44,6 @@ public class MainActivity extends AppCompatActivity
         toolbar.setBackgroundColor(Color.parseColor("#302236"));
 
         getSupportActionBar().setTitle("");
-
-        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
-
-        progressBar.setVisibility(View.VISIBLE);
-        Data.updateEvents(this, new Data.UpdateCallback() {
-            @Override
-            public void onUpdate() {
-                progressBar.setVisibility(View.GONE);
-            }
-            @Override
-            public void onFailure(){}
-        });
 
         pre=(TextView)findViewById(R.id.pretext);
         work=(TextView)findViewById(R.id.workshoptext);
@@ -126,7 +113,8 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Preferences.deletePrefs(this);
+            finish();
         }
 
         return super.onOptionsItemSelected(item);
