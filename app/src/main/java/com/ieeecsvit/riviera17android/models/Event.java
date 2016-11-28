@@ -11,7 +11,7 @@ import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class Event extends RealmObject{
+public class Event extends RealmObject {
 
     @SerializedName("_id")
     @Expose
@@ -26,6 +26,9 @@ public class Event extends RealmObject{
     @SerializedName("event_category")
     @Expose
     public String eventCategory;
+    @SerializedName("event_subcategory")
+    @Expose
+    private String eventSubcategory;
     @SerializedName("event_previous")
     @Expose
     public Boolean eventPrevious;

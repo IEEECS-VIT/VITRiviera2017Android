@@ -10,4 +10,7 @@ public class Consts {
     public static String ROLE_PREF = "role";
 
     public static String EVENT_BUNDLE = "event_bundle";
+
+    public static String INTENT_CATEGORY = "category";
+    public static String INTENT_SUB_CATEGORY = "subcategory";
 }

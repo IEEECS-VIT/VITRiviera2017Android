@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.Preference;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,18 +16,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.ieeecsvit.riviera17android.rest.Data;
 import com.ieeecsvit.riviera17android.utility.Consts;
 import com.ieeecsvit.riviera17android.utility.Preferences;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    TextView pre,work,formal,informal,cyber;
+    TextView pre, work, formal, informal, cyber;
     NavigationView navigationView;
     ImageView bell;
 
@@ -45,11 +41,11 @@ public class MainActivity extends AppCompatActivity
 
         getSupportActionBar().setTitle("");
 
-        pre=(TextView)findViewById(R.id.pretext);
-        work=(TextView)findViewById(R.id.workshoptext);
-        formal=(TextView)findViewById(R.id.formaltext);
-        informal=(TextView)findViewById(R.id.informaltext);
-        cyber=(TextView)findViewById(R.id.cybertext);
+        pre = (TextView) findViewById(R.id.pretext);
+        work = (TextView) findViewById(R.id.workshoptext);
+        formal = (TextView) findViewById(R.id.formaltext);
+        informal = (TextView) findViewById(R.id.informaltext);
+        cyber = (TextView) findViewById(R.id.sportstext);
 
         bell = (ImageView) toolbar.findViewById(R.id.iv_bell);
 
@@ -61,11 +57,11 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        if (Preferences.getPrefs(Consts.ROLE_PREF, this).equals("admin")){
+        if (Preferences.getPrefs(Consts.ROLE_PREF, this).equals("admin")) {
             bell.setVisibility(View.VISIBLE);
         }
 
-        Typeface typeface=Typeface.createFromAsset(getAssets(), "fonts/Montserrat-Regular.ttf");
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Montserrat-Regular.ttf");
 
         pre.setTypeface(typeface);
         work.setTypeface(typeface);
@@ -82,7 +78,7 @@ public class MainActivity extends AppCompatActivity
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        if(Preferences.getPrefs(Consts.LOGGED_IN_PREF, MainActivity.this).equals("0")){
+        if (Preferences.getPrefs(Consts.LOGGED_IN_PREF, MainActivity.this).equals("0")) {
             hideItem();
         }
     }
@@ -106,12 +102,8 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             Preferences.deletePrefs(this);
             finish();
@@ -120,8 +112,7 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    private void hideItem()
-    {
+    private void hideItem() {
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         Menu nav_Menu = navigationView.getMenu();
         nav_Menu.findItem(R.id.messageb).setVisible(false);
@@ -141,15 +132,13 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.requestb) {
 
-        }  else if (id == R.id.feedback) {
+        } else if (id == R.id.feedback) {
 
         } else if (id == R.id.licences) {
 
-        }
-        else if (id == R.id.contact) {
+        } else if (id == R.id.contact) {
 
-        }
-        else if (id == R.id.about) {
+        } else if (id == R.id.about) {
             Intent intent = new Intent(this, AboutPage.class);
             startActivity(intent);
         }
@@ -161,30 +150,34 @@ public class MainActivity extends AppCompatActivity
 
     //TODO: Change all to single function and check button id
 
-    public void preriviera(View view){
+    public void preriviera(View view) {
         Intent intent = new Intent(this, CategoryActivity.class);
-        intent.putExtra("category","Pre-Riviera");
+        intent.putExtra("category", "Pre-Riviera");
         startActivity(intent);
     }
 
-    public void workshop(View view){
+    public void workshop(View view) {
         Intent intent = new Intent(this, CategoryActivity.class);
-        intent.putExtra("category","Workshop");
+        intent.putExtra("category", "Workshop");
         startActivity(intent);
 
     }
-    public void formal(View view){
-        Intent intent = new Intent(this, CategoryActivity.class);
-        intent.putExtra("category","Formal");
-        startActivity(intent);
 
-    }
-    public void informal(View view){
+    public void formal(View view) {
         Intent intent = new Intent(this, CategoryActivity.class);
-        intent.putExtra("category","Informal");
+        intent.putExtra("category", "Formal");
         startActivity(intent);
     }
-    public void cyber(View view){
 
+    public void informal(View view) {
+        Intent intent = new Intent(this, CategoryActivity.class);
+        intent.putExtra("category", "Informal");
+        startActivity(intent);
+    }
+
+    public void cyber(View view) {
+        Intent intent = new Intent(this, CategoryActivity.class);
+        intent.putExtra("category", "Adventure Sports");
+        startActivity(intent);
     }
 }

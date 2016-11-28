@@ -25,9 +25,6 @@ public class RVEventListAdapter extends RecyclerView.Adapter<RVEventListAdapter.
     private Activity context;
     Boolean clickable;
 
-    public RVEventListAdapter(RealmResults<Event> category, CategoryActivity categoryActivity) {
-    }
-
     public class EventItemViewHolder extends RecyclerView.ViewHolder {
         public EventListItem eventListItem;
 
