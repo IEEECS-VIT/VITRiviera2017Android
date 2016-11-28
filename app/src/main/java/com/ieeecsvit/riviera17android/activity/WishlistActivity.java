@@ -33,7 +33,6 @@ public class WishlistActivity extends AppCompatActivity {
         wish_text=(TextView)findViewById(R.id.wish_text);
         wish_text.setText("");
 
-        ;
         recyclerView = (RecyclerView) findViewById(R.id.rv_wishlist);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         wishlistAdapter= new WishlistAdapter(RealmController.with(this).getEvents(),this);
