@@ -15,6 +15,9 @@ public class WishlistActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         setContentView(R.layout.activity_wishlist);
         recyclerView = (RecyclerView) findViewById(R.id.rv_wishlist);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="174dp"
         android:id="@+id/riviera"
-        android:src="@drawable/riviera"
+        android:src="@drawable/rivlogo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp" />
 
@@ -43,6 +43,7 @@
         android:layout_height="40dp"
         android:ellipsize="start"
         android:hint="\tREGISTRATION NUMBER"
+        android:textColorHint="#eeeeee"
         android:inputType="text"
         android:paddingLeft="5dp"
         android:typeface="serif"
@@ -50,12 +51,14 @@
         android:background="@drawable/roundshape"
         android:layout_marginTop="45dp"/>
 
-    <EditText
+
+    <android.support.design.widget.TextInputEditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:ellipsize="start"
         android:paddingLeft="5dp"
+        android:textColorHint="#eeeeee"
         android:hint="\tPASSWORD"
         android:textSize="20dp"
         android:inputType="textPassword"
@@ -86,6 +89,16 @@
         android:textColor="#ffffff"
         android:textSize="25dp"
         android:gravity="center" />
+
+        <ProgressBar
+        android:id="@+id/progress_bar"
+        android:paddingTop="10dp"
+        android:backgroundTint="@color/colorAccent"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:indeterminate="true"
+        android:layout_margin="3dp"
+        android:layout_gravity="center"/>
 
     </LinearLayout>
 </RelativeLayout>

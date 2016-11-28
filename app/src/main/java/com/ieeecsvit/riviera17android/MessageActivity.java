@@ -3,7 +3,10 @@ package com.ieeecsvit.riviera17android;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.ieeecsvit.riviera17android.models.Event;
@@ -47,8 +51,14 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
 
         sendTo = "all";
 
+        getSupportActionBar().setTitle("Riviera'17");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#68B3D2")));
+
+
+
         recyclerView = (RecyclerView) findViewById(R.id.rv_message);
-       // floatingActionButton = (FloatingActionButton) findViewById(R.id.fab_add_message);
+
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
 
         send=(Button)findViewById(R.id.sendmsg);
@@ -56,7 +66,9 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
 
         swipeRefreshLayout.setOnRefreshListener(this);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
+        linearLayoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
 
         rvMessageAdapter = new RVMessageAdapter(RealmController.with(this).getMessages(), this);
 
@@ -115,7 +127,6 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
                     public void onResponse(Call<MessagesResponse> call, Response<MessagesResponse> response) {
                         customRefresh();
                         dialog.dismiss();
-                        Toast.makeText(MessageActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

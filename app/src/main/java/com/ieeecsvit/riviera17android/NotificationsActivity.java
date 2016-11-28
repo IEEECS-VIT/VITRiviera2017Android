@@ -23,6 +23,10 @@ public class NotificationsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
 
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
         recyclerView = (RecyclerView) findViewById(R.id.rvNotifications);
         RecyclerView.LayoutManager linearLayoutManager = new CustomLinearLayoutManager(this);
         linearLayoutManager.setAutoMeasureEnabled(true);

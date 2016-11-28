@@ -6,24 +6,25 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:noHistory="true"/>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -41,17 +42,40 @@
         <activity
             android:name=".EventActivity"
             android:label="@string/title_activity_event"
-            android:parentActivityName=".CategoryActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.ieeecsvit.riviera17android.CategoryActivity" />
         </activity>
-        <activity android:name=".MessageActivity" />
-        <activity android:name=".EventSearchActivity" />
-        <activity android:name=".WishlistActivity" />
-        <activity android:name=".EventEditActivity" />
-        <activity android:name=".NotificationsActivity"></activity>
+        <activity
+            android:name=".AboutPage"
+            android:label="@string/title_activity_event"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ieeecsvit.riviera17android.MainActivity" />
+        </activity>
+        <activity android:name=".MessageActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".EventSearchActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".WishlistActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".EventEditActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".NotificationsActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
