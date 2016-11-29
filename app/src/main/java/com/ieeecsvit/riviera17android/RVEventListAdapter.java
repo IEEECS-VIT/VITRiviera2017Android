@@ -15,11 +15,12 @@ import com.ieeecsvit.riviera17android.activity.EventActivity;
 import com.ieeecsvit.riviera17android.customviews.EventListItem;
 import com.ieeecsvit.riviera17android.models.Event;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RVEventListAdapter extends RecyclerView.Adapter<RVEventListAdapter.EventItemViewHolder> {
 
-    private List<Event> eventsList;
+    private List<Event> eventsList, eventListCopy;
     private Activity context;
     Boolean clickable;
 
@@ -33,9 +34,29 @@ public class RVEventListAdapter extends RecyclerView.Adapter<RVEventListAdapter.
     }
 
     public RVEventListAdapter(List<Event> eventsList, Activity context, Boolean clickable) {
-        this.eventsList = eventsList;
+        this.eventsList = new ArrayList<>();
+        for(Event e: eventsList){
+            this.eventsList.add(e);
+        }
         this.context = context;
         this.clickable = clickable;
+        eventListCopy = new ArrayList<>();
+        eventListCopy.addAll(eventsList);
+    }
+
+    public void filter(String text) {
+        eventsList.clear();
+        if(text.isEmpty()){
+            eventsList.addAll(eventListCopy);
+        } else{
+            text = text.toLowerCase();
+            for(Event item: eventListCopy){
+                if(item.eventName.toLowerCase().contains(text) || item.eventName.toLowerCase().contains(text)){
+                    eventsList.add(item);
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 
     @Override

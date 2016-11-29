@@ -13,7 +13,7 @@
     <Button
         android:id="@+id/bt_add_event"
         android:layout_width="match_parent"
-        android:text="Send To Particular Events"
+        android:text="Send To Particular Event"
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:paddingRight="10dp"

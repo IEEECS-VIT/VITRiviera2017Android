@@ -21,8 +21,9 @@ import com.roughike.bottombar.OnMenuTabClickListener;
 
 public class AboutPage extends AppCompatActivity {
 
-    int height,width;
+    int height, width;
     private BottomBar bottomBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,11 +37,11 @@ public class AboutPage extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        AppBarLayout appBarLayout = (AppBarLayout)findViewById(R.id.app_bar_about);
-        appBarLayout.setLayoutParams(new CoordinatorLayout.LayoutParams(width,height/3));
-        final NestedScrollView scrollView = (NestedScrollView)findViewById(R.id.about_nested_scrolling);
+        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar_about);
+        appBarLayout.setLayoutParams(new CoordinatorLayout.LayoutParams(width, height / 3));
+        final NestedScrollView scrollView = (NestedScrollView) findViewById(R.id.about_nested_scrolling);
         scrollView.setSmoothScrollingEnabled(true);
-        bottomBar = BottomBar.attachShy((CoordinatorLayout) findViewById(R.id.about_coordinator),findViewById(R.id.about_nested_scrolling),savedInstanceState);
+        bottomBar = BottomBar.attachShy((CoordinatorLayout) findViewById(R.id.about_coordinator), findViewById(R.id.about_nested_scrolling), savedInstanceState);
         bottomBar.setMaxFixedTabs(3);
         bottomBar.noTopOffset();
         bottomBar.setItems(R.menu.bottombar_about);
@@ -49,66 +50,64 @@ public class AboutPage extends AppCompatActivity {
         bottomBar.setOnMenuTabClickListener(new OnMenuTabClickListener() {
             @Override
             public void onMenuTabSelected(int menuItemId) {
-                if(menuItemId== R.id.bottom_bar_about_riviera){
+                if (menuItemId == R.id.bottom_bar_about_riviera) {
                     Fragment fragment = null;
                     Class fragmentClass;
                     fragmentClass = AboutRivieraFragment.class;
-                    try{
-                        fragment = (Fragment)fragmentClass.newInstance();
-                    }catch (Exception e){
+                    try {
+                        fragment = (Fragment) fragmentClass.newInstance();
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                     FragmentManager fragmentManager = getSupportFragmentManager();
-                    fragmentManager.beginTransaction().replace(R.id.about_fragment_container,fragment).commit();
-                }else if(menuItemId== R.id.bottom_bar_about_university){
+                    fragmentManager.beginTransaction().replace(R.id.about_fragment_container, fragment).commit();
+                } else if (menuItemId == R.id.bottom_bar_about_university) {
                     Fragment fragment = null;
                     Class fragmentClass;
                     fragmentClass = AboutUniversityFragment.class;
-                    try{
-                        fragment = (Fragment)fragmentClass.newInstance();
-                    }catch (Exception e){
+                    try {
+                        fragment = (Fragment) fragmentClass.newInstance();
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                     FragmentManager fragmentManager = getSupportFragmentManager();
-                    fragmentManager.beginTransaction().replace(R.id.about_fragment_container,fragment).commit();
-                }else if(menuItemId== R.id.bottom_bar_about_team){
+                    fragmentManager.beginTransaction().replace(R.id.about_fragment_container, fragment).commit();
+                } else if (menuItemId == R.id.bottom_bar_about_team) {
                     Fragment fragment = null;
                     Class fragmentClass;
                     fragmentClass = AboutTeamFragment.class;
-                    try{
-                        fragment = (Fragment)fragmentClass.newInstance();
-                    }catch (Exception e){
+                    try {
+                        fragment = (Fragment) fragmentClass.newInstance();
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                     FragmentManager fragmentManager = getSupportFragmentManager();
-                    fragmentManager.beginTransaction().replace(R.id.about_fragment_container,fragment).commit();
-                }else if(menuItemId== R.id.bottom_bar_about_team2){
+                    fragmentManager.beginTransaction().replace(R.id.about_fragment_container, fragment).commit();
+                } else if (menuItemId == R.id.bottom_bar_about_team2) {
                     Fragment fragment = null;
                     Class fragmentClass;
                     fragmentClass = AboutTeam2Fragment.class;
-                    try{
-                        fragment = (Fragment)fragmentClass.newInstance();
-                    }catch (Exception e){
+                    try {
+                        fragment = (Fragment) fragmentClass.newInstance();
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                     FragmentManager fragmentManager = getSupportFragmentManager();
-                    fragmentManager.beginTransaction().replace(R.id.about_fragment_container,fragment).commit();
+                    fragmentManager.beginTransaction().replace(R.id.about_fragment_container, fragment).commit();
                 }
             }
 
             @Override
             public void onMenuTabReSelected(int menuItemId) {
-                if(menuItemId== R.id.bottom_bar_about_riviera){
+                if (menuItemId == R.id.bottom_bar_about_riviera) {
                     scrollView.fullScroll(NestedScrollView.FOCUS_UP);
-                }else if(menuItemId== R.id.bottom_bar_about_university){
+                } else if (menuItemId == R.id.bottom_bar_about_university) {
                     scrollView.fullScroll(NestedScrollView.FOCUS_UP);
-                }else if(menuItemId== R.id.bottom_bar_about_team){
+                } else if (menuItemId == R.id.bottom_bar_about_team) {
                     scrollView.fullScroll(NestedScrollView.FOCUS_UP);
                 }
             }
         });
-
-
 
 
     }
