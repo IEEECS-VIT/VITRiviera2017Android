@@ -53,6 +53,7 @@ public class CategoryActivity extends AppCompatActivity {
         stringList.add("Words Worth English");
         stringList.add("Words Worth Hindi");
         stringList.add("Words Worth Tamil");
+        stringList.add("Words Worth Telugu");
         stringList.add("Drama");
         stringList.add("Workshop");
         stringList.add("Dance");
@@ -96,11 +97,7 @@ public class CategoryActivity extends AppCompatActivity {
                 catimage.setImageResource(R.drawable.preriv_ic);
                 back_image.setImageResource(R.drawable.informal_back);
                 view.setBackgroundColor(Color.parseColor("#FDA736"));
-                if (getSubCat == null) {
-                    showSubCategories();
-                } else {
-                    showSubEvents();
-                }
+                recyclerView.setAdapter(new RVEventListAdapter(RealmController.with(this).getEvents(getCat), this, true));
                 break;
             case "Adventure Sports":
                 catimage.setImageResource(R.drawable.preriv_ic);

@@ -8,6 +8,7 @@ public class Consts {
     public static String TOKEN_PREF = "token";
     public static String LOGGED_IN_PREF = "logged_in";
     public static String ROLE_PREF = "role";
+    public static String EVENT_ID = "eventid";
 
     public static String EVENT_BUNDLE = "event_bundle";
 

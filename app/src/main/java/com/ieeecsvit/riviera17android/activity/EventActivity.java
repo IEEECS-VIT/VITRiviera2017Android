@@ -93,7 +93,8 @@ public class EventActivity extends AppCompatActivity {
         scrollView.setFillViewport (true);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        if(Preferences.getPrefs(Consts.ROLE_PREF,this).equals("admin") || Preferences.getPrefs(Consts.ROLE_PREF,this).equals("coordinator")){
+        if(Preferences.getPrefs(Consts.ROLE_PREF,this).equals("admin") ||
+                (Preferences.getPrefs(Consts.ROLE_PREF,this).equals("coordinator") && Preferences.getPrefs(Consts.EVENT_ID,this).equals(getIntent().getStringExtra("eventId")))){
             fab.setVisibility(View.VISIBLE);
         }
 

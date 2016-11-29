@@ -15,4 +15,7 @@ public class LoginResponse {
     @SerializedName("success")
     @Expose
     public Boolean success;
+    @SerializedName("eventId")
+    @Expose
+    public String eventId;
 }

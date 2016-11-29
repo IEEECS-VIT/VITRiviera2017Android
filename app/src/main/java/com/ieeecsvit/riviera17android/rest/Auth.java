@@ -33,6 +33,11 @@ public class Auth {
                         Preferences.setPrefs(Consts.TOKEN_PREF, response.body().token, activity);
                         Preferences.setPrefs(Consts.LOGGED_IN_PREF, "1", activity);
                         Preferences.setPrefs(Consts.ROLE_PREF, response.body().role, activity);
+
+                        if(response.body().role.equals("coordinator")){
+                            Preferences.setPrefs(Consts.EVENT_ID, response.body().eventId, activity);
+                        }
+
                         onLoginCallback.onSuccess();
                     } else {
                         onLoginCallback.onFailure();

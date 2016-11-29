@@ -36,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
         }
+
         relativeLayout = (RelativeLayout) findViewById(R.id.activity_login);
         FlowingGradientClass grad = new FlowingGradientClass();
         grad.setBackgroundResource(R.drawable.gradient)
@@ -54,8 +55,6 @@ public class LoginActivity extends AppCompatActivity {
 
         regno = (EditText) findViewById(R.id.regno);
         pass = (EditText) findViewById(R.id.password);
-       // regno.setTypeface(typeface);
-        //pass.setTypeface(typeface);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
