@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.ieeecsvit.riviera17android.EventActivity">
+    tools:context="com.ieeecsvit.riviera17android.activity.EventActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -72,7 +72,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email"
+        app:backgroundTint="#302236"
+        android:src="@drawable/ic_mode_edit_white_24dp"
         android:visibility="gone"/>
 
 </android.support.design.widget.CoordinatorLayout>

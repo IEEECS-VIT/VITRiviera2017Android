@@ -64,7 +64,7 @@ public class Data {
         protected Integer doInBackground(Activity... activities) {
             final Activity activity = activities[0];
             ApiInterface apiInterface = new ApiClient().getClient(activity).create(ApiInterface.class);
-            Call<Events> eventsCall = apiInterface.events();
+            Call<Events> eventsCall = apiInterface.getEventNames();
             try {
                 List<Event> events = eventsCall.execute().body().events;
                 Realm realm = Realm.getDefaultInstance();

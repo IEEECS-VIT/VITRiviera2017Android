@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "6050905850",
+    "firebase_url": "https://riviera-2017.firebaseio.com",
+    "project_id": "riviera-2017",
+    "storage_bucket": "riviera-2017.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6050905850:android:38f8d081c0ebeed8",
+        "android_client_info": {
+          "package_name": "com.ieeecsvit.riviera17android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "6050905850-e7tqcnqb586hi719d3d65rbpmrtlquft.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKN7sO3i3ku4CicDhv9z52NtGdwSDmyt0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

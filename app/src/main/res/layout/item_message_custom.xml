@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="5dp">
+    android:orientation="vertical">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#65b5d0"
-        android:layout_marginBottom="5dp">
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:backgroundTint="#68B3D2"
+        android:elevation="8dp"
+        app:cardCornerRadius="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,25 +25,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-            <TextView
+                <TextView
                     android:id="@+id/tv_sent_by"
-                    android:textColor="#ffffff"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textColor="#A2FCFF" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:textColor="#ffffff"/>
+                    android:textColor="#ffffff" />
             </RelativeLayout>
-
-            <TextView
-                android:id="@+id/tv_sent_to"
-                android:textColor="#4fabc9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
             <TextView
                 android:id="@+id/tv_message"
                 android:layout_width="match_parent"

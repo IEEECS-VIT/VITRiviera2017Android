@@ -2,9 +2,7 @@ package com.ieeecsvit.riviera17android.rest;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.SharedPreferences;
 
-import com.ieeecsvit.riviera17android.LoginActivity;
 import com.ieeecsvit.riviera17android.utility.Consts;
 import com.ieeecsvit.riviera17android.models.LoginRequest;
 import com.ieeecsvit.riviera17android.models.LoginResponse;
@@ -31,16 +29,15 @@ public class Auth {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 try {
-                    if (response.body().success) {
+                    if (response.body() != null && response.body().success) {
                         Preferences.setPrefs(Consts.TOKEN_PREF, response.body().token, activity);
-                        Preferences.setPrefs(Consts.LOGGED_IN_PREF,"1",activity);
+                        Preferences.setPrefs(Consts.LOGGED_IN_PREF, "1", activity);
                         Preferences.setPrefs(Consts.ROLE_PREF, response.body().role, activity);
                         onLoginCallback.onSuccess();
-                    }
-                    else {
+                    } else {
                         onLoginCallback.onFailure();
                     }
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                     onLoginCallback.onFailure();
                 }
@@ -49,7 +46,7 @@ public class Auth {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-
+                onLoginCallback.onFailure();
             }
         });
     }
@@ -60,7 +57,6 @@ public class Auth {
 
     public interface OnLoginCallback {
         void onSuccess();
-
         void onFailure();
     }
 }

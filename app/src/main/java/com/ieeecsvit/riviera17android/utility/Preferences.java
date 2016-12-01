@@ -18,4 +18,11 @@ public class Preferences {
         SharedPreferences sharedpreferences = context.getSharedPreferences("RivieraPrefs", Context.MODE_PRIVATE);
         return sharedpreferences.getString(key, "notfound");
     }
+
+    public static void deletePrefs(Context context){
+        SharedPreferences sharedpreferences = context.getSharedPreferences("RivieraPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.clear();
+        editor.apply();
+    }
 }

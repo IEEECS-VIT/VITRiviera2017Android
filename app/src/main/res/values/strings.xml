@@ -4,11 +4,8 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-
     <string-array name="Register"></string-array>
-
     <string-array name="Licenses"></string-array>
-
     <string-array name="Home"></string-array>
     <string name="content_about_gravitas">graVITas is VIT University\'s annual knowledge carnival which aims to empower the young minds by giving them a national platform to showcase their genius and innovation.\n\nThe Technical festival is spread over 3 days with over 100 events, 50 workshops and 30,000 footfalls. Started in 2009 by a group of enthusiastic VITians, graVITas, now in its 8th edition has become the largest technical festival of its kind. Each year graVITas bring in a new theme, thus providing the eager participants a new experience every time.</string>
     <string name="content_about_vit">VIT University was established with the aim of providing quality higher education on par with international standards. It persistently seeks and adopts innovative methods to improve the quality of higher education on a consistent basis.\n\nThe campus has a cosmopolitan atmosphere with students from all corners of the globe. Experienced and learned teachers are strongly encouraged to nurture the students. The global standards set at VIT in the field of teaching and research spur us on in our relentless pursuit of excellence. In fact, it has become a way of life for us. The highly motivated youngsters on the campus are a constant source of pride. Our Memoranda of Understanding with various international universities are our major strength. They provide for an exchange of students and faculty and encourage joint research projects for the mutual benefit of these universities. Many of our students, who pursue their research projects in foreign universities, bring high quality to their work and esteem to India and have done us proud. \n\nWith steady steps, we continue our march forward. We look forward to meeting you here at VIT.</string>
@@ -31,6 +28,7 @@
     <string name="button_close_dialog">Close</string>
 
     <string name="action_settings">Settings</string>
+
     <string name="title_activity_event">EventActivity</string>
     <string name="title_activity_category">CategoryActivity</string>
     <string name="large_text">

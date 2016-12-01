@@ -73,29 +73,36 @@ public class RealmController {
     }
 
     //find all objects in the Book.class
-    RealmResults<Event> getEvents(String category) {
-        return realm.where(Event.class).equalTo("eventCategory",category).findAll();
+    public RealmResults<Event> getEvents(String category) {
+        return realm.where(Event.class)
+                .equalTo("eventCategory",category)
+                .findAll();
     }
 
-    RealmResults<Event> getEvents(){
+    public RealmResults<Event> getSubEvents(String category, String subCategory) {
+
+        if(subCategory.equals("Others")){
+            subCategory = null;
+        }
+
+        return realm.where(Event.class)
+                .equalTo("eventCategory",category)
+                .equalTo("eventSubcategory",subCategory)
+                .findAll();
+    }
+
+    public RealmResults<Event> getEvents(){
         return realm.where(Event.class).findAll();
     }
 
-    Event getEvent(String eventId){
+    public Event getEvent(String eventId){
         return realm.where(Event.class).equalTo("id", eventId).findFirst();
     }
 
-    RealmResults<Message> getMessages(){
+    public RealmResults<Message> getMessages(){
         return realm.where(Message.class).findAll();
     }
 
-    /*    //query a single item with the given id
-    public Event getEvent(String id) {
-
-        return realm.where(Event.class).equalTo("id", id).findFirst();
-    }*/
-
-    //check if Book.class is empty
     public boolean hasEvents() {
         return !realm.where(Event.class).findAll().isEmpty();
     }
@@ -106,15 +113,4 @@ public class RealmController {
         event.checked = favourite;
         realm.commitTransaction();
     }
-
-    //query example
-    /*    public RealmResults<Event> queryedBooks() {
-
-        return realm.where(Event.class)
-                .contains("author", "Author 0")
-                .or()
-                .contains("title", "Realm")
-                .findAll();
-
-    }*/
 }

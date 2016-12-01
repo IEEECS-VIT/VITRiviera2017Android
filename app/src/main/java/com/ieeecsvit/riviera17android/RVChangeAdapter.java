@@ -16,7 +16,7 @@ import com.ieeecsvit.riviera17android.models.Message;
 
 import java.util.List;
 
-class RVChangeAdapter extends RecyclerView.Adapter<RVChangeAdapter.ChangeItemViewHolder> {
+public class RVChangeAdapter extends RecyclerView.Adapter<RVChangeAdapter.ChangeItemViewHolder> {
 
     private List<Change> changeList;
     private Activity context;

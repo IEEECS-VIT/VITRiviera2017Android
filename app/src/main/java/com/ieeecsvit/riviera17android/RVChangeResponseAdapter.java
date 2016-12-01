@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import com.ieeecsvit.riviera17android.models.AcceptRequest;
 import com.ieeecsvit.riviera17android.models.ChangeRequests;
-import com.ieeecsvit.riviera17android.models.LoginRequest;
 import com.ieeecsvit.riviera17android.models.LoginResponse;
 import com.ieeecsvit.riviera17android.rest.ApiClient;
 import com.ieeecsvit.riviera17android.rest.ApiInterface;
@@ -25,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-class RVChangeResponseAdapter extends RecyclerView.Adapter<RVChangeResponseAdapter.ChangeResponseItemViewHolder> {
+public class RVChangeResponseAdapter extends RecyclerView.Adapter<RVChangeResponseAdapter.ChangeResponseItemViewHolder> {
 
     private List<ChangeRequests> changeList;
     private Activity context;
@@ -51,7 +50,7 @@ class RVChangeResponseAdapter extends RecyclerView.Adapter<RVChangeResponseAdapt
         }
     }
 
-    RVChangeResponseAdapter(List<ChangeRequests> changeList, Activity context) {
+    public RVChangeResponseAdapter(List<ChangeRequests> changeList, Activity context) {
         this.changeList = changeList;
         this.context = context;
     }

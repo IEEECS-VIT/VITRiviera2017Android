@@ -1,11 +1,12 @@
-package com.ieeecsvit.riviera17android;
+package com.ieeecsvit.riviera17android.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.LinearLayout;
 
+import com.ieeecsvit.riviera17android.CustomLinearLayoutManager;
+import com.ieeecsvit.riviera17android.R;
+import com.ieeecsvit.riviera17android.RVChangeResponseAdapter;
 import com.ieeecsvit.riviera17android.models.ChangeResponse;
 import com.ieeecsvit.riviera17android.rest.ApiClient;
 import com.ieeecsvit.riviera17android.rest.ApiInterface;

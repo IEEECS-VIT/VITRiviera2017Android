@@ -1,33 +1,35 @@
-package com.ieeecsvit.riviera17android;
+package com.ieeecsvit.riviera17android.activity;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
+import android.support.v4.widget.NestedScrollView;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 
-import android.widget.TextView;
-
-import com.ieeecsvit.riviera17android.models.Event;
+import com.ieeecsvit.riviera17android.EventCoordinatorsFragment;
+import com.ieeecsvit.riviera17android.EventDetailsFragment;
+import com.ieeecsvit.riviera17android.R;
+import com.ieeecsvit.riviera17android.models.PerEventResponse;
+import com.ieeecsvit.riviera17android.rest.ApiClient;
+import com.ieeecsvit.riviera17android.rest.ApiInterface;
 import com.ieeecsvit.riviera17android.utility.Consts;
 import com.ieeecsvit.riviera17android.utility.Preferences;
+
+import io.realm.Realm;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class EventActivity extends AppCompatActivity {
 
@@ -43,20 +45,46 @@ public class EventActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
         // Create the adapter that will return a fragment for each of the three
         //
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), this, getIntent().getStringExtra("eventId"));
 
+        Realm.init(this);
+
+        final Realm realm = Realm.getDefaultInstance();
+
+        ApiInterface apiInterface = new ApiClient().getClient(this).create(ApiInterface.class);
+        Call<PerEventResponse> perEventResponseCall = apiInterface.getEvent(getIntent().getStringExtra("eventId"));
+
+        perEventResponseCall.enqueue(new Callback<PerEventResponse>() {
+            @Override
+            public void onResponse(Call<PerEventResponse> call, Response<PerEventResponse> response) {
+                realm.beginTransaction();
+                realm.copyToRealmOrUpdate(response.body().event);
+                realm.commitTransaction();
+                mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), EventActivity.this, getIntent().getStringExtra("eventId"));
+                mViewPager.setAdapter(mSectionsPagerAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<PerEventResponse> call, Throwable t) {
+
+            }
+        });
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
-
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle("Event Details");
-
         collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
         collapsingToolbarLayout.setContentScrimColor(ContextCompat.getColor(this,R.color.colorPrimary));
 
@@ -80,13 +108,6 @@ public class EventActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_event, menu);
-        return true;
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -97,8 +118,18 @@ public class EventActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+        if (id == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
