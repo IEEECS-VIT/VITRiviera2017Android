@@ -66,7 +66,10 @@ public class RVChangeResponseAdapter extends RecyclerView.Adapter<RVChangeRespon
 
     @Override
     public void onBindViewHolder(final ChangeResponseItemViewHolder holder, final int position) {
-        holder.tvEvent.setText(changeList.get(position).eventFor);
+
+        if(changeList.get(position).eventFor!=null) {
+            holder.tvEvent.setText(changeList.get(position).eventFor.eventName);
+        }
 
         if(changeList.get(position).approved.approvalStatus!=null){
             if(changeList.get(position).approved.approvalStatus) {
@@ -80,6 +83,8 @@ public class RVChangeResponseAdapter extends RecyclerView.Adapter<RVChangeRespon
         }
         else{
             holder.tvStatus.setText("NOT APPROVED");
+            holder.acceptBt.setVisibility(View.VISIBLE);
+            holder.declineBt.setVisibility(View.VISIBLE);
         }
 
 

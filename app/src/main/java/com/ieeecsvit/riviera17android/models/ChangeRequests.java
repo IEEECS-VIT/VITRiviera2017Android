@@ -14,7 +14,7 @@ public class ChangeRequests {
     public String id;
     @SerializedName("eventFor")
     @Expose
-    public String eventFor;
+    public Event eventFor;
     @SerializedName("__v")
     @Expose
     public Integer v;

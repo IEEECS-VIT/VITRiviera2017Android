@@ -22,6 +22,8 @@ import com.ieeecsvit.riviera17android.models.MessagesResponse;
 import com.ieeecsvit.riviera17android.rest.ApiClient;
 import com.ieeecsvit.riviera17android.rest.ApiInterface;
 import com.ieeecsvit.riviera17android.rest.Data;
+import com.ieeecsvit.riviera17android.utility.Consts;
+import com.ieeecsvit.riviera17android.utility.Preferences;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -53,6 +55,11 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
 
         send = (Button) findViewById(R.id.sendmsg);
         message = (EditText) findViewById(R.id.msgbox);
+
+        if(Preferences.getPrefs(Consts.ROLE_PREF,this).equals("coordinator")){
+            send.setVisibility(View.GONE);
+            message.setVisibility(View.GONE);
+        }
 
         swipeRefreshLayout.setOnRefreshListener(this);
 
