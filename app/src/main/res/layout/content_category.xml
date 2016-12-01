@@ -32,8 +32,8 @@
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
         android:id="@+id/typeCategory"
-        android:textSize="25dp"
         android:layout_marginTop="25dp"
+        android:textSize="25dp"
         android:layout_centerHorizontal="true"
         android:text=""/>
 

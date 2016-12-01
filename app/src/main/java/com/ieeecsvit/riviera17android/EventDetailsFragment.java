@@ -15,7 +15,7 @@ public class EventDetailsFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
 
     Event event;
-    TextView tvEventDesc, tvEventRules;
+    TextView tvEventDesc, tvEventRules, tvEventName, tvEventCategory, tvEventFees;
 
     public EventDetailsFragment() {
         // Required empty public constructor
@@ -45,7 +45,13 @@ public class EventDetailsFragment extends Fragment {
 
         tvEventDesc = (TextView) v.findViewById(R.id.tv_event_description);
         tvEventRules = (TextView) v.findViewById(R.id.tv_event_rules);
+        tvEventName = (TextView) v.findViewById(R.id.tv_event_name);
+        tvEventCategory = (TextView) v.findViewById(R.id.tv_event_category);
+        tvEventFees = (TextView) v.findViewById(R.id.tv_event_fees);
 
+        tvEventFees.setText(event.eventRegFees);
+        tvEventCategory.setText(event.eventCategory);
+        tvEventName.setText(event.eventName);
         tvEventDesc.setText(event.eventDescription);
         tvEventRules.setText(event.eventRules);
 

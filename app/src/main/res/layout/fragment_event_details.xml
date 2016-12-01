@@ -1,9 +1,17 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<android.support.v4.widget.NestedScrollView android:id="@+id/scroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp"
-    tools:context="com.ieeecsvit.riviera17android.EventDetailsFragment">
+    android:clipToPadding="false"
+
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,25 +24,74 @@
             android:elevation="5dp">
 
             <!-- TODO: Update blank fragment layout -->
+
+
             <TextView
+                android:id="@+id/tv_event_name"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_margin="4dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:text="Event Category:"
+                android:textSize="15dp"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:id="@+id/tv_event_category"
+                android:layout_width="match_parent"
+                android:paddingTop="5dp"
+                android:textSize="15dp"
+                android:paddingLeft="5dp"
+                android:layout_height="wrap_content"
+                />
+            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:paddingLeft="5dp"
-                android:text="Description"
-                android:textSize="24sp"/>
+                android:text="Description:"
+                android:textSize="15dp"
+                android:paddingTop="5dp"
+                android:layout_centerHorizontal="true"/>
 
             <TextView
                 android:id="@+id/tv_event_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp"/>
+                android:textSize="15dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="3dp"/>
+            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
-                android:text="Rules"
-                android:textSize="24sp"/>
+                android:paddingTop="5dp"
+                android:text="Rules:"
+                android:textSize="15dp"
+                android:layout_centerHorizontal="true"/>
 
 
 
@@ -42,7 +99,33 @@
                 android:id="@+id/tv_event_rules"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp"/>
+                android:textSize="15dp"
+                android:paddingTop="5dp"
+                android:paddingLeft="5dp" />
+            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="20dp"
+                android:text="Fees:"
+                android:textSize="15dp"/>
+
+            <TextView
+                android:id="@+id/tv_event_fees"
+                android:layout_width="match_parent"
+                android:textSize="15dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:layout_height="wrap_content"
+                android:paddingBottom="20dp"/>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
-</FrameLayout>
+</LinearLayout>
+</android.support.v4.widget.NestedScrollView>
