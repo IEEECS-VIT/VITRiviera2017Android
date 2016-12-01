@@ -137,10 +137,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.licences) {
 
         } else if (id == R.id.contact) {
+            Intent intent = new Intent(this, ContactActivity.class);
+             startActivity(intent);
 
         } else if (id == R.id.about) {
-            Intent intent = new Intent(this, AboutPage.class);
-            startActivity(intent);
+            //Intent intent = new Intent(this, AboutPage.class);
+           // startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

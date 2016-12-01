@@ -12,19 +12,20 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.SplashActivity"
-            android:screenOrientation="portrait"
             android:noHistory="true"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.LoginActivity"
+            android:noHistory="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:noHistory="true"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/app_name"
@@ -42,8 +43,8 @@
         <activity
             android:name=".activity.EventActivity"
             android:label="@string/title_activity_event"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.ieeecsvit.riviera17android.activity.CategoryActivity" />
@@ -52,30 +53,32 @@
             android:name=".activity.AboutPage"
             android:label="@string/title_activity_event"
             android:parentActivityName=".activity.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.ieeecsvit.riviera17android.activity.MainActivity" />
         </activity>
-        <activity android:name=".activity.MessageActivity"
+        <activity
+            android:name=".activity.MessageActivity"
             android:parentActivityName=".activity.MainActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".activity.EventSearchActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".activity.WishlistActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.EventSearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.WishlistActivity"
             android:parentActivityName=".activity.MainActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".activity.EventEditActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.EventEditActivity"
             android:parentActivityName=".activity.MainActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".activity.NotificationsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.NotificationsActivity"
             android:parentActivityName=".activity.MainActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".activity.ContactActivity"></activity>
     </application>
 
 </manifest>

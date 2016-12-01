@@ -55,34 +55,16 @@ public class AboutTeam2Fragment extends Fragment {
                 "Mr. G. V. Selvam\nVice President\nVIT University",
                 "Dr. Anand A Samuel\nVice Chancellor\nVIT University",
                 "Dr. V. Raju\nPro-Vice Chancellor\nVIT University",
-                "Dr. S. Narayanan\nPro-Vice Chancellor\nVIT University",
-                "Dr. S. Karthi",
-                "Dr. C. D. Naiju",
-                "Dr. K. Ramesh Babu",
-                "Dr. N. Sudhakar",
-                "Prof. Senthil Kumar M",
-                "Prof.Balasubramanian V",
-                "Prof.Saravananaguru RA K",
-                "Prof.Prabhu K R",
-                "Prof. Bhaskar Das",
-                "Prof.Mahesh Ganesapillai",
-                "Prof.Karthikeyan J",
-                "Prof. Ramesh N",
-                "Prof.Suthindhiran K",
-                "Prof.Saravanan B",
-                "Prof.Jayaram Reddy A",
-                "Prof.Sasikumar P",
-                "Prof. Joel J",
-                "Prof.Kishore V Krishnan",
-                "Prof.Jayakumar S"};
+                "Dr. S. Narayanan\nPro-Vice Chancellor\nVIT University"
+                };
         String[] drawableId = new String[27];
-        for (int i=1;i<=26;i++) {
+        for (int i=1;i<=7;i++) {
             drawableId[i] = "y" + i;
         }
 
         TeamMember teamMember;
 
-        for (int i=1;i<=26;i++) {
+        for (int i=1;i<=7;i++) {
             int resId = getResources().getIdentifier(drawableId[i],"drawable",getActivity().getPackageName());
             teamMember = new TeamMember(names[i],resId);
             teamMemberList.add(teamMember);
