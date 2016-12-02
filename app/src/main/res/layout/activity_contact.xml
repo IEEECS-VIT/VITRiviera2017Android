@@ -25,7 +25,8 @@
                 android:layout_width="284dp"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
-                android:layout_margin="5dp"
+                android:layout_margin="3dp"
+                android:textColor="#000000"
                 android:text="Rishabh Chadha"/>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -41,7 +42,7 @@
                     android:id="@+id/dial1"
                     android:textSize="18dp"
                     android:textColor="#2556cf"
-                    android:layout_margin="5dp"
+                    android:layout_margin="3dp"
                     android:text="+919629766583"/>
 
             </LinearLayout>
@@ -67,7 +68,8 @@
                 android:layout_width="296dp"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
-                android:layout_margin="5dp"
+                android:layout_margin="3dp"
+                android:textColor="#000000"
                 android:text="Divesh Pandey"/>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -81,7 +83,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
-                    android:layout_margin="5dp"
+                    android:layout_margin="3dp"
                     android:id="@+id/dial2"
                     android:textColor="#2556cf"
                     android:text="+919677361808"/>
