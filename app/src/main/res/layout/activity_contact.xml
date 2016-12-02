@@ -9,34 +9,84 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:orientation="vertical"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:layout_margin="12dp"
+    android:layout_margin="5dp"
     tools:context="com.ieeecsvit.riviera17android.activity.ContactActivity">
 
-    <TextView
+
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="CONTACT"/>
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="284dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_margin="5dp"
+                android:text="Rishabh Chadha"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="23dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/call"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dial1"
+                    android:textSize="18dp"
+                    android:textColor="#2556cf"
+                    android:layout_margin="5dp"
+                    android:text="+919629766583"/>
+
+            </LinearLayout>
+        </LinearLayout>
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="8sp" />
+    </android.support.v7.widget.CardView>
     <Space
         android:layout_width="wrap_content"
-        android:layout_height="8sp" />
-    <TextView
+        android:layout_height="10dp" />
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Rishabh Chadha"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+919629766583"/>
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="8sp" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Divesh Pandey"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+919677361808"/>
+        android:layout_height="wrap_content">
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="16sp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="296dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_margin="5dp"
+                android:text="Divesh Pandey"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="23dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/call"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:id="@+id/dial2"
+                    android:textColor="#2556cf"
+                    android:text="+919677361808"/>
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>

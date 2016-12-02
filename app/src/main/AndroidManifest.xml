@@ -3,6 +3,7 @@
     package="com.ieeecsvit.riviera17android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+   
 
     <application
         android:allowBackup="true"
@@ -78,7 +79,10 @@
             android:name=".activity.NotificationsActivity"
             android:parentActivityName=".activity.MainActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.ContactActivity"></activity>
+        <activity android:name=".activity.ContactActivity"
+            android:label="CONTACTS">
+
+        </activity>
     </application>
 
 </manifest>
