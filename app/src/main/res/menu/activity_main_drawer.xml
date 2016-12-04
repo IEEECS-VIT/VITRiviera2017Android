@@ -9,11 +9,7 @@
         <item
             android:id="@+id/messageb"
             android:icon="@drawable/message"
-            android:title="Message-Board" />
-        <item
-            android:id="@+id/requestb"
-            android:icon="@drawable/message"
-            android:title="Request-Board" />
+            android:title="Message Board" />
     </group>
 
 

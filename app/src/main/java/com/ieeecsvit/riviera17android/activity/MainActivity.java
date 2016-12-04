@@ -116,7 +116,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         Menu nav_Menu = navigationView.getMenu();
         nav_Menu.findItem(R.id.messageb).setVisible(false);
-        nav_Menu.findItem(R.id.requestb).setVisible(false);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -130,9 +129,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.messageb) {
             Intent intent = new Intent(this, MessageActivity.class);
             startActivity(intent);
-        } else if (id == R.id.requestb) {
-
-        } else if (id == R.id.feedback) {
+        }  else if (id == R.id.feedback) {
 
         } else if (id == R.id.licences) {
 
