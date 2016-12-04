@@ -5,6 +5,7 @@ package com.ieeecsvit.riviera17android;
  */
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -96,19 +97,27 @@ public class RVChangeResponseAdapter extends RecyclerView.Adapter<RVChangeRespon
         acceptRequest.requestId = changeList.get(position).id;
 
         holder.acceptBt.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+                final ProgressDialog dialog = new ProgressDialog(context);
+                dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                dialog.setMessage("Responding to request. Please wait...");
+                dialog.setIndeterminate(true);
+                dialog.setCanceledOnTouchOutside(false);
+                dialog.show();
                 acceptRequest.accept = true;
                 Call<LoginResponse> loginRequestCall = apiInterface.acceptEvent(acceptRequest);
                 loginRequestCall.enqueue(new Callback<LoginResponse>() {
                     @Override
                     public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                         context.finish();
+                        dialog.hide();
                     }
 
                     @Override
                     public void onFailure(Call<LoginResponse> call, Throwable t) {
-
+                        dialog.hide();
                     }
                 });
             }
