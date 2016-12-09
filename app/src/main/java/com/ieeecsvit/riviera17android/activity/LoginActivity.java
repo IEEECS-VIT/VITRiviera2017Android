@@ -105,7 +105,6 @@ public class LoginActivity extends AppCompatActivity {
                 Preferences.setPrefs(Consts.LOGGED_IN_PREF, "0", LoginActivity.this);
                 finish();
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
-
             }
         });
     }

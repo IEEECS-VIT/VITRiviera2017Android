@@ -134,33 +134,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent intent = new Intent(this, MessageActivity.class);
             startActivity(intent);
 
-        } else if (id == R.id.requestb) {
-
         } else if (id == R.id.feedback) {
             drawer.closeDrawer(GravityCompat.START);
             Intent sendIntent = new Intent(Intent.ACTION_VIEW);
             sendIntent.setType("plain/text");
             sendIntent.setData(Uri.parse("tushar.narula17@live.com"));
             sendIntent.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail");
-            sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[] { "tushar.narula17@live.com" });
+            sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"tushar.narula17@live.com"});
             try {
-                sendIntent.putExtra(Intent.EXTRA_SUBJECT, "FEEDBACK: Riviera 2017 Android App" + getPackageManager().getPackageInfo(getPackageName(),0).versionName);
+                sendIntent.putExtra(Intent.EXTRA_SUBJECT, "FEEDBACK: Riviera 2017 Android App" + getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
             }
             sendIntent.putExtra(Intent.EXTRA_TEXT, "");
             startActivity(sendIntent);
-        }  else if (id == R.id.licences) {
+        } else if (id == R.id.licences) {
 
         } else if (id == R.id.contact) {
             Intent intent = new Intent(this, ContactActivity.class);
-             startActivity(intent);
+            startActivity(intent);
 
         } else if (id == R.id.about) {
             Intent intent = new Intent(this, AboutPage.class);
             startActivity(intent);
+        } else if (id == R.id.login) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         }
-
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -178,7 +179,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Intent intent = new Intent(this, CategoryActivity.class);
         intent.putExtra("category", "Workshop");
         startActivity(intent);
-
     }
 
     public void formal(View view) {

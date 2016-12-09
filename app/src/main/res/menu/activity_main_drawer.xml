@@ -15,27 +15,31 @@
 
     <item android:title="Communicate">
         <menu>
-    <item
-        android:id="@+id/feedback"
-        android:icon="@drawable/feedback"
-        android:title="Feedback" />
+            <item
+                android:id="@+id/feedback"
+                android:icon="@drawable/feedback"
+                android:title="Feedback" />
 
-    <item
-        android:id="@+id/contact"
-        android:icon="@drawable/contact"
-        android:title="Contact" />
+            <item
+                android:id="@+id/contact"
+                android:icon="@drawable/contact"
+                android:title="Contact" />
 
-    <item
-        android:id="@+id/about"
-        android:icon="@drawable/ic_build_black_24dp"
-        android:title="Developers" />
+            <item
+                android:id="@+id/about"
+                android:icon="@drawable/ic_build_black_24dp"
+                android:title="Developers" />
 
-    <item
-        android:id="@+id/licences"
-        android:icon="@drawable/licence"
-        android:title="Licences" />
+            <item
+                android:id="@+id/licences"
+                android:icon="@drawable/licence"
+                android:title="Licences" />
+
+            <item
+                android:id="@+id/login"
+                android:icon="@drawable/licence"
+                android:title="Login" />
         </menu>
     </item>
-
 </menu>
 

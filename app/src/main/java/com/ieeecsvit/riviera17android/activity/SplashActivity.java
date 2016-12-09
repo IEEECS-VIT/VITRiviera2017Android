@@ -9,6 +9,8 @@ import com.dynamitechetan.flowinggradient.FlowingGradientClass;
 import com.ieeecsvit.riviera17android.R;
 import com.ieeecsvit.riviera17android.RealmController;
 import com.ieeecsvit.riviera17android.rest.Data;
+import com.ieeecsvit.riviera17android.utility.Consts;
+import com.ieeecsvit.riviera17android.utility.Preferences;
 import com.ieeecsvit.riviera17android.utility.UtilityMethods;
 
 public class SplashActivity extends AppCompatActivity {
@@ -29,12 +31,15 @@ public class SplashActivity extends AppCompatActivity {
 
         RealmController.with(this);
 
+        if(Preferences.getPrefs(Consts.LOGGED_IN_PREF, this).equals("notfound")){
+            Preferences.setPrefs(Consts.ROLE_PREF, "0", this);
+        }
+
         if(UtilityMethods.isNetworkAvailable()){
             Data.updateEvents(this, new Data.UpdateCallback() {
                 @Override
                 public void onUpdate() {
-                    Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-                    finish();
+                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -43,8 +48,7 @@ public class SplashActivity extends AppCompatActivity {
             });
         }
         else {
-            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-            finish();
+            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         }
