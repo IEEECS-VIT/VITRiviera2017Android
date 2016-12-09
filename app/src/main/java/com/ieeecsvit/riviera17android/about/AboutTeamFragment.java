@@ -4,6 +4,7 @@ package com.ieeecsvit.riviera17android.about;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -39,7 +40,8 @@ public class AboutTeamFragment extends Fragment {
 
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view_team);
         teamAdapter = new TeamAdapter(teamMemberList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
+        final GridLayoutManager layoutManager = new GridLayoutManager(getActivity(),3);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(teamAdapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
