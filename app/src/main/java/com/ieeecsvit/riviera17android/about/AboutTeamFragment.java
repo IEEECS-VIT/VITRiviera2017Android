@@ -37,7 +37,7 @@ public class AboutTeamFragment extends Fragment {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_about_team, container, false);
 
-        recyclerView = (RecyclerView)v.findViewById(R.id.recycler_view_team);
+        recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view_team);
         teamAdapter = new TeamAdapter(teamMemberList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -48,11 +48,10 @@ public class AboutTeamFragment extends Fragment {
         return v;
     }
 
-    private void getData(){
+    private void getData() {
 
 
-
-        String[] names = {"Rishabh Chaddha","Harsh Khara","Abhinav",
+        String[] names = {"Rishabh Chaddha", "Harsh Khara", "Abhinav",
                 "Harshal Varday",
                 "Tushar Narula",
                 "Waris Chutani",
@@ -66,32 +65,32 @@ public class AboutTeamFragment extends Fragment {
                 "Ankur Sarode",
                 "Aditya Shaha",
                 "Rishabh Mittal",
-                "Anish Singh Walia",""};
-        String[] regno = {"13BCE0034", "13BCL0139","13",
-        "14BCE0751",
-        "14BCE0336",
-        "14BIT0155",
-        "14BIT0180",
-        "14BCE0531",
-        "15BCE0318",
-        "15BIT0136",
-        "15BCE0325",
-        "15BCE0751",
-        "15BME0007",
-        "15BCE0785","15BCE0227",
-        "15BCB0076",
-        "15BIT0116",""};
+                "Anish Singh Walia", ""};
+        String[] regno = {"13BCE0034", "13BCL0139", "13BCE0680",
+                "14BCE0751",
+                "14BCE0336",
+                "14BIT0155",
+                "14BIT0180",
+                "14BCE0531",
+                "15BCE0318",
+                "15BIT0136",
+                "15BCE0325",
+                "15BCE0751",
+                "15BME0007",
+                "15BCE0785", "15BCE0227",
+                "15BCB0076",
+                "15BIT0116", ""};
 
         String[] drawableId = new String[25];
-        for (int i=0;i<18;i++) {
+        for (int i = 0; i < 18; i++) {
             drawableId[i] = "x" + i;
         }
 
         TeamMember teamMember;
 
-        for (int i=0;i<17;i++) {
-            int resId = getResources().getIdentifier(drawableId[i],"drawable",getActivity().getPackageName());
-            teamMember = new TeamMember(names[i],regno[i],resId);
+        for (int i = 0; i < 17; i++) {
+            int resId = getResources().getIdentifier(drawableId[i], "drawable", getActivity().getPackageName());
+            teamMember = new TeamMember(names[i], regno[i], resId);
             teamMemberList.add(teamMember);
         }
 
