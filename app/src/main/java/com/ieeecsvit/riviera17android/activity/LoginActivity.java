@@ -1,5 +1,6 @@
 package com.ieeecsvit.riviera17android.activity;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -60,12 +61,19 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
+                final ProgressDialog dialog = new ProgressDialog(LoginActivity.this);
+                dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                dialog.setMessage("Logging in. Please wait...");
+                dialog.setIndeterminate(true);
+                dialog.setCanceledOnTouchOutside(false);
+                dialog.show();
                 Auth.login(regno.getText().toString(), pass.getText().toString(), LoginActivity.this, new Auth.OnLoginCallback() {
                     @Override
                     public void onSuccess() {
                         progressBar.setVisibility(View.INVISIBLE);
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         finish();
+                        dialog.hide();
                     }
 
                     @Override
@@ -85,6 +93,7 @@ public class LoginActivity extends AppCompatActivity {
                                 })
                                 .setIcon(android.R.drawable.ic_dialog_alert)
                                 .show();
+                        dialog.hide();
                     }
                 });
             }

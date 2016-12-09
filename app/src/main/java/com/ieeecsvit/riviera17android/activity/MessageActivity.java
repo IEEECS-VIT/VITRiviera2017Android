@@ -1,6 +1,7 @@
 package com.ieeecsvit.riviera17android.activity;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -119,7 +120,6 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
         if (resultCode == RESULT_OK) {
             sendTo = data.getStringExtra("eventId");
             sendMessage();
@@ -152,15 +152,25 @@ public class MessageActivity extends AppCompatActivity implements SwipeRefreshLa
         Call<MessagesResponse> call = apiInterface.postMessage(messageRequest);
 
         dialog.dismiss();
+
+        final ProgressDialog progressdialog = new ProgressDialog(this);
+        progressdialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressdialog.setMessage("Sending Messaging. Please wait...");
+        progressdialog.setIndeterminate(true);
+        progressdialog.setCanceledOnTouchOutside(false);
+        progressdialog.show();
+
         call.enqueue(new Callback<MessagesResponse>() {
             @Override
             public void onResponse(Call<MessagesResponse> call, Response<MessagesResponse> response) {
                 customRefresh();
+                progressdialog.hide();
+                message.setText("");
             }
 
             @Override
             public void onFailure(Call<MessagesResponse> call, Throwable t) {
-
+                progressdialog.hide();
             }
         });
     }

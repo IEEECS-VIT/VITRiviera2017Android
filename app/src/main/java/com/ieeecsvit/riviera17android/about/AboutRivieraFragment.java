@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ieeecsvit.riviera17android.R;
+
 
 
 /**
@@ -15,7 +15,7 @@ import com.ieeecsvit.riviera17android.R;
  */
 public class AboutRivieraFragment extends Fragment {
 
-
+/*
     public AboutRivieraFragment() {
         // Required empty public constructor
     }
@@ -26,6 +26,6 @@ public class AboutRivieraFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_about_riviera, container, false);
-    }
+    }*/
 
 }
