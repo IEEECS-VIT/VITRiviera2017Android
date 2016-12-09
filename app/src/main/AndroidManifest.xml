@@ -52,7 +52,7 @@
         </activity>
         <activity
             android:name=".activity.AboutPage"
-            android:label="@string/title_activity_event"
+            android:label="Developers"
             android:parentActivityName=".activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
@@ -80,6 +80,7 @@
             android:parentActivityName=".activity.MainActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".activity.ContactActivity"
+            android:parentActivityName=".activity.MainActivity"
             android:label="CONTACTS">
 
         </activity>

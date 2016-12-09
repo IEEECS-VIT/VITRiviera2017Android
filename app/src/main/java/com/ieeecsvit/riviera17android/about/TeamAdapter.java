@@ -21,11 +21,15 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.MyViewHolder> 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         public TextView name;
+        public TextView regno;
+
         public ImageView image;
 
         public MyViewHolder(View view) {
             super(view);
             name = (TextView) view.findViewById(R.id.member_name);
+            regno = (TextView) view.findViewById(R.id.member_regno);
+
             image = (ImageView) view.findViewById(R.id.member_image);
         }
     }
@@ -44,6 +48,8 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.MyViewHolder> 
     public void onBindViewHolder(MyViewHolder holder, int position) {
         TeamMember teamMember = teamMemberList.get(position);
         holder.name.setText(teamMember.getName());
+        holder.regno.setText(teamMember.getRegno());
+
         holder.image.setImageResource(teamMember.getImageResId());
     }
 

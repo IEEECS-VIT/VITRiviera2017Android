@@ -24,7 +24,7 @@ public class AboutTeam2Fragment extends Fragment {
     private TeamAdapter teamAdapter;
     private View v;
 
-    public AboutTeam2Fragment() {
+  /*  public AboutTeam2Fragment() {
         // Required empty public constructor
     }
 
@@ -71,5 +71,5 @@ public class AboutTeam2Fragment extends Fragment {
         }
 
     }
-
+*/
 }

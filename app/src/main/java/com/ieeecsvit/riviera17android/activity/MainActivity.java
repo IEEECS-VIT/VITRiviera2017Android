@@ -1,8 +1,10 @@
 package com.ieeecsvit.riviera17android.activity;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -119,11 +121,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         nav_Menu.findItem(R.id.requestb).setVisible(false);
     }
 
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
+
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
-
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (id == R.id.wishlist) {
             Intent intent = new Intent(this, WishlistActivity.class);
             startActivity(intent);
@@ -133,7 +137,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.requestb) {
 
         } else if (id == R.id.feedback) {
-
+            drawer.closeDrawer(GravityCompat.START);
+            Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+            sendIntent.setType("plain/text");
+            sendIntent.setData(Uri.parse("tushar.narula17@live.com"));
+            sendIntent.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail");
+            sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[] { "tushar.narula17@live.com" });
+            try {
+                sendIntent.putExtra(Intent.EXTRA_SUBJECT, "FEEDBACK: Riviera 2017 Android App" + getPackageManager().getPackageInfo(getPackageName(),0).versionName);
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+            }
+            sendIntent.putExtra(Intent.EXTRA_TEXT, "");
+            startActivity(sendIntent);
         } else if (id == R.id.licences) {
 
         } else if (id == R.id.contact) {
@@ -141,11 +157,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
              startActivity(intent);
 
         } else if (id == R.id.about) {
-            //Intent intent = new Intent(this, AboutPage.class);
-           // startActivity(intent);
+            Intent intent = new Intent(this, AboutPage.class);
+            startActivity(intent);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

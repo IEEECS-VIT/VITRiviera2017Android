@@ -50,26 +50,48 @@ public class AboutTeamFragment extends Fragment {
 
     private void getData(){
 
-        /*//TODO ENTER DATA HERE
-        TeamMember teamMember = new TeamMember("Sample Name",R.drawable.graivtas16);
-        teamMemberList.add(teamMember);
 
-        for(int i=0;i<30;i++){
-            teamMember = new TeamMember("Sample Name",R.drawable.graivtas16);
-            teamMemberList.add(teamMember);
-        }*/
 
-        String[] names = {""};
-        String[] drawableId = new String[14];
-        for (int i=0;i<14;i++) {
+        String[] names = {"Rishabh Chaddha","Harsh Khara","Abhinav",
+                "Harshal Varday",
+                "Tushar Narula",
+                "Waris Chutani",
+                "Saurabh Mathur",
+                "Himanshu Jain",
+                "Karishnu Poddar",
+                "Vishwajeetsinh Jadeja",
+                "Akanshi Srivastava",
+                "Mayank Aggarwal",
+                "Vishwash Tilala",
+                "Ankur Sarode",
+                "Aditya Shaha",
+                "Rishabh Mittal",
+                "Anish Singh Walia",""};
+        String[] regno = {"13BCE0034", "13BCL0139","13",
+        "14BCE0751",
+        "14BCE0336",
+        "14BIT0155",
+        "14BIT0180",
+        "14BCE0531",
+        "15BCE0318",
+        "15BIT0136",
+        "15BCE0325",
+        "15BCE0751",
+        "15BME0007",
+        "15BCE0785","15BCE0227",
+        "15BCB0076",
+        "15BIT0116",""};
+
+        String[] drawableId = new String[25];
+        for (int i=0;i<18;i++) {
             drawableId[i] = "x" + i;
         }
 
         TeamMember teamMember;
 
-        for (int i=0;i<0;i++) {
+        for (int i=0;i<17;i++) {
             int resId = getResources().getIdentifier(drawableId[i],"drawable",getActivity().getPackageName());
-            teamMember = new TeamMember(names[i],resId);
+            teamMember = new TeamMember(names[i],regno[i],resId);
             teamMemberList.add(teamMember);
         }
 
