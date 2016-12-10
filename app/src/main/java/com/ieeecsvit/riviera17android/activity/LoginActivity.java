@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.dynamitechetan.flowinggradient.FlowingGradientClass;
 import com.ieeecsvit.riviera17android.R;
@@ -33,7 +34,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        if (!Preferences.getPrefs(Consts.LOGGED_IN_PREF, this).equals("notfound")) {
+        if (Preferences.getPrefs(Consts.LOGGED_IN_PREF, this).equals("1")) {
+            Toast.makeText(this, "Already Logged In! Please Log Out first!", Toast.LENGTH_LONG).show();
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
         }

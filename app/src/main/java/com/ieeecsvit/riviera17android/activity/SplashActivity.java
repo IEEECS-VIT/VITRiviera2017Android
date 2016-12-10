@@ -32,7 +32,7 @@ public class SplashActivity extends AppCompatActivity {
         RealmController.with(this);
 
         if(Preferences.getPrefs(Consts.LOGGED_IN_PREF, this).equals("notfound")){
-            Preferences.setPrefs(Consts.ROLE_PREF, "0", this);
+            Preferences.setPrefs(Consts.LOGGED_IN_PREF, "0", this);
         }
 
         if(UtilityMethods.isNetworkAvailable()){
