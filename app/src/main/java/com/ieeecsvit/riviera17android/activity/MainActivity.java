@@ -195,7 +195,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void cyber(View view) {
         Intent intent = new Intent(this, CategoryActivity.class);
-        intent.putExtra("category", "Adventure Sports");
+        intent.putExtra("category", "Formal");
+        intent.putExtra(Consts.INTENT_SUB_CATEGORY, "Adventure Sports");
         startActivity(intent);
     }
 }

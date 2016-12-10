@@ -103,7 +103,7 @@ public class CategoryActivity extends AppCompatActivity {
                 catimage.setImageResource(R.drawable.preriv_ic);
                 back_image.setImageResource(R.drawable.cyber);
                 view.setBackgroundColor(Color.parseColor("#FDA736"));
-                recyclerView.setAdapter(new RVEventListAdapter(RealmController.with(this).getEvents(getCat), this, true));
+                showSubEvents();
         }
     }
 
