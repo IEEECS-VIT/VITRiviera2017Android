@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
@@ -79,11 +78,12 @@
             android:name=".activity.NotificationsActivity"
             android:parentActivityName=".activity.MainActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.ContactActivity"
-            android:parentActivityName=".activity.MainActivity"
-            android:label="CONTACTS">
-
-        </activity>
+        <activity
+            android:name=".activity.ContactActivity"
+            android:label="CONTACTS"
+            android:parentActivityName=".activity.MainActivity"/>
+        <activity android:name=".activity.LicenseActivity"
+            android:label="Licenses"/>
     </application>
 
 </manifest>

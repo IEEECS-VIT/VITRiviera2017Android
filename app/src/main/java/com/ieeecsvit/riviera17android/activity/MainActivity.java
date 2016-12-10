@@ -150,6 +150,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(sendIntent);
         } else if (id == R.id.licences) {
 
+            Intent intent = new Intent(this, LicenseActivity.class);
+            startActivity(intent);
         } else if (id == R.id.contact) {
             Intent intent = new Intent(this, ContactActivity.class);
             startActivity(intent);

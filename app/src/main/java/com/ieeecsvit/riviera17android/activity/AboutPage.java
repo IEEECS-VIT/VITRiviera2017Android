@@ -12,17 +12,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Display;
 
 import com.ieeecsvit.riviera17android.R;
-import com.ieeecsvit.riviera17android.about.AboutRivieraFragment;
-import com.ieeecsvit.riviera17android.about.AboutTeam2Fragment;
 import com.ieeecsvit.riviera17android.about.AboutTeamFragment;
-import com.ieeecsvit.riviera17android.about.AboutUniversityFragment;
-import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnMenuTabClickListener;
 
 public class AboutPage extends AppCompatActivity {
 
     int height, width;
-    private BottomBar bottomBar;
+    //private BottomBar bottomBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
