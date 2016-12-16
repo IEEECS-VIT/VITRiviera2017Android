@@ -2,11 +2,13 @@ package com.ieeecsvit.riviera17android.activity;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,14 +21,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ieeecsvit.riviera17android.R;
 import com.ieeecsvit.riviera17android.utility.Consts;
 import com.ieeecsvit.riviera17android.utility.Preferences;
 
+import java.util.List;
+import java.util.Stack;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    TextView pre, work, formal, informal, cyber;
+    TextView pre, work, formal, informal, cyber, premium;
     NavigationView navigationView;
     ImageView bell;
 
@@ -48,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         formal = (TextView) findViewById(R.id.formaltext);
         informal = (TextView) findViewById(R.id.informaltext);
         cyber = (TextView) findViewById(R.id.sportstext);
+        premium = (TextView) findViewById(R.id.premiumtext);
 
         bell = (ImageView) toolbar.findViewById(R.id.iv_bell);
 
@@ -65,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Montserrat-Regular.ttf");
 
+        premium.setTypeface(typeface);
         pre.setTypeface(typeface);
         work.setTypeface(typeface);
         formal.setTypeface(typeface);
@@ -120,38 +128,57 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         nav_Menu.findItem(R.id.messageb).setVisible(false);
     }
 
+    public Intent createEmailOnlyChooserIntent(Intent source,
+                                               CharSequence chooserTitle) {
+        Stack<Intent> intents = new Stack<Intent>();
+        Intent i = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto",
+                "tushar.narula17@live.com", null));
+        List<ResolveInfo> activities = getPackageManager()
+                .queryIntentActivities(i, 0);
+
+        for (ResolveInfo ri : activities) {
+            Intent target = new Intent(source);
+            target.setPackage(ri.activityInfo.packageName);
+            intents.add(target);
+        }
+
+        if (!intents.isEmpty()) {
+            Intent chooserIntent = Intent.createChooser(intents.remove(0),
+                    chooserTitle);
+            chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS,
+                    intents.toArray(new Parcelable[intents.size()]));
+
+            return chooserIntent;
+        } else {
+            return Intent.createChooser(source, chooserTitle);
+        }
+    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (id == R.id.wishlist) {
             Intent intent = new Intent(this, WishlistActivity.class);
             startActivity(intent);
+
         } else if (id == R.id.messageb) {
             Intent intent = new Intent(this, MessageActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.feedback) {
             drawer.closeDrawer(GravityCompat.START);
-            Intent sendIntent = new Intent(Intent.ACTION_VIEW);
-            sendIntent.setType("plain/text");
-            sendIntent.setData(Uri.parse("tushar.narula17@live.com"));
-            sendIntent.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail");
-            sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"tushar.narula17@live.com"});
-            try {
-                sendIntent.putExtra(Intent.EXTRA_SUBJECT, "FEEDBACK: Riviera 2017 Android App" + getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-            }
-            sendIntent.putExtra(Intent.EXTRA_TEXT, "");
-            startActivity(sendIntent);
-        } else if (id == R.id.licences) {
+            Intent i = new Intent(Intent.ACTION_SEND);
+            i.setType("*/*");
+            i.putExtra(Intent.EXTRA_EMAIL, new String[]{"tushar.narula17@live.com", "karishnu@gmail.com"});
+            i.putExtra(Intent.EXTRA_SUBJECT, "Riviera 2017 Android App Feedback");
+            startActivity(createEmailOnlyChooserIntent(i, "Send Feedback via email"));
 
+        } else if (id == R.id.licences) {
             Intent intent = new Intent(this, LicenseActivity.class);
             startActivity(intent);
+
         } else if (id == R.id.contact) {
             Intent intent = new Intent(this, ContactActivity.class);
             startActivity(intent);
@@ -159,6 +186,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.about) {
             Intent intent = new Intent(this, AboutPage.class);
             startActivity(intent);
+
         } else if (id == R.id.login) {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
@@ -169,36 +197,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    //TODO: Change all to single function and check button id
-
-    public void preriviera(View view) {
+    public void categoryClick(View view) {
         Intent intent = new Intent(this, CategoryActivity.class);
-        intent.putExtra("category", "Pre-Riviera");
-        startActivity(intent);
-    }
-
-    public void workshop(View view) {
-        Intent intent = new Intent(this, CategoryActivity.class);
-        intent.putExtra("category", "Workshop");
-        startActivity(intent);
-    }
-
-    public void formal(View view) {
-        Intent intent = new Intent(this, CategoryActivity.class);
-        intent.putExtra("category", "Formal");
-        startActivity(intent);
-    }
-
-    public void informal(View view) {
-        Intent intent = new Intent(this, CategoryActivity.class);
-        intent.putExtra("category", "Informal");
-        startActivity(intent);
-    }
-
-    public void cyber(View view) {
-        Intent intent = new Intent(this, CategoryActivity.class);
-        intent.putExtra("category", "Formal");
-        intent.putExtra(Consts.INTENT_SUB_CATEGORY, "Adventure Sports");
+        switch (view.getId()) {
+            case R.id.cv_premium_button:
+                intent.putExtra("category", "Premium");
+                break;
+            case R.id.cv_preriviera_button:
+                intent.putExtra("category", "Pre-Riviera");
+                break;
+            case R.id.cv_workshop_button:
+                intent.putExtra("category", "Workshop");
+                break;
+            case R.id.cv_formal_button:
+                intent.putExtra("category", "Formal");
+                break;
+            case R.id.cv_informal_button:
+                intent.putExtra("category", "Informal");
+                break;
+            case R.id.cv_sports_button:
+                intent.putExtra("category", "Formal");
+                intent.putExtra(Consts.INTENT_SUB_CATEGORY, "Adventure Sports");
+                break;
+        }
         startActivity(intent);
     }
 }

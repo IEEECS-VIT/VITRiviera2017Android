@@ -71,6 +71,12 @@ public class CategoryActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         switch (getCat) {
+            case "Premium":
+                catimage.setImageResource(R.drawable.ic_premium);
+                back_image.setImageResource(R.drawable.premium);
+                view.setBackgroundColor(Color.parseColor("#6FA5D6"));
+                recyclerView.setAdapter(new RVEventListAdapter(RealmController.with(this).getEvents(getCat), this, true));
+                break;
             case "Pre-Riviera":
                 catimage.setImageResource(R.drawable.preriv_ic);
                 back_image.setImageResource(R.drawable.preriv_back);
@@ -101,7 +107,7 @@ public class CategoryActivity extends AppCompatActivity {
                 break;
             case "Adventure Sports":
                 catimage.setImageResource(R.drawable.preriv_ic);
-                back_image.setImageResource(R.drawable.cyber);
+                back_image.setImageResource(R.drawable.sports);
                 view.setBackgroundColor(Color.parseColor("#FDA736"));
                 showSubEvents();
         }

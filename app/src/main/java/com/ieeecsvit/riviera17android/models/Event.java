@@ -29,6 +29,9 @@ public class Event extends RealmObject {
     @SerializedName("event_subcategory")
     @Expose
     private String eventSubcategory;
+    @SerializedName("event_mainCategory")
+    @Expose
+    private String eventMainCategory;
     @SerializedName("event_previous")
     @Expose
     public Boolean eventPrevious;
