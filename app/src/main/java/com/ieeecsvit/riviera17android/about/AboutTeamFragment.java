@@ -1,6 +1,5 @@
 package com.ieeecsvit.riviera17android.about;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -16,10 +15,6 @@ import com.ieeecsvit.riviera17android.R;
 import java.util.ArrayList;
 import java.util.List;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class AboutTeamFragment extends Fragment {
 
     private List<TeamMember> teamMemberList = new ArrayList<>();
@@ -95,7 +90,5 @@ public class AboutTeamFragment extends Fragment {
             teamMember = new TeamMember(names[i], regno[i], resId);
             teamMemberList.add(teamMember);
         }
-
     }
-
 }
