@@ -19,7 +19,7 @@ import org.w3c.dom.Text;
 public class WishlistActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    private WishlistAdapter wishlistAdapter,item_countAdapter;
+    WishlistAdapter wishlistAdapter,item_countAdapter;
     TextView wish_text;
 
     @Override
@@ -39,8 +39,6 @@ public class WishlistActivity extends AppCompatActivity {
 
         item_countAdapter=new WishlistAdapter(RealmController.with(this).getRealm().where(Event.class).equalTo("checked",true).findAll(),this);
 
-        Log.v("wish",String.valueOf(item_countAdapter.getItemCount()));
-
         if(item_countAdapter.getItemCount()==0){
             recyclerView.setAdapter(new RVEventListAdapter(RealmController.with(this).getRealm().where(Event.class).equalTo("checked",true).findAll(),this,true));
             wish_text.setText("No Events Added To Wishlist!");
@@ -49,6 +47,5 @@ public class WishlistActivity extends AppCompatActivity {
             recyclerView.setAdapter(new RVEventListAdapter(RealmController.with(this).getRealm().where(Event.class).equalTo("checked",true).findAll(),this,true));
             wish_text.setText("");
         }
-
     }
 }

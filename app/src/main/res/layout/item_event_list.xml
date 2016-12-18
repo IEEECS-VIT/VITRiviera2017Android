@@ -6,14 +6,17 @@
 
     <ImageView
         android:id="@+id/iv_checkbox_event"
-        android:layout_height="40dp"
-        android:layout_width="40dp"/>
+        android:layout_height="32dp"
+        android:layout_width="32dp"
+        android:tint="#F57F17"
+        android:layout_centerVertical="true"/>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/iv_checkbox_event">
+        android:layout_toEndOf="@+id/iv_checkbox_event"
+        android:layout_marginLeft="10dp">
 
         <com.ieeecsvit.riviera17android.utility.CapitalizedTextView
             android:id="@+id/tv_event_title"

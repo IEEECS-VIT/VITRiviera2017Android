@@ -42,12 +42,12 @@ public class EventListItem extends LinearLayout {
     public void setCheck(Boolean checked) {
         if (checked != null) {
             if (checked) {
-                checkbox.setImageResource(R.drawable.event_check);
+                checkbox.setImageResource(R.drawable.ic_star_black_24dp);
             } else {
-                checkbox.setImageResource(R.drawable.event_uncheck);
+                checkbox.setImageResource(R.drawable.ic_star_border_black_24dp);
             }
         } else {
-            checkbox.setImageResource(R.drawable.event_uncheck);
+            checkbox.setImageResource(R.drawable.ic_star_border_black_24dp);
         }
     }
 

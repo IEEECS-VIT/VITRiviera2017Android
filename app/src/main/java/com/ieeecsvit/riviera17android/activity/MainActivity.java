@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ieeecsvit.riviera17android.CustomDialogClass;
 import com.ieeecsvit.riviera17android.R;
 import com.ieeecsvit.riviera17android.utility.Consts;
 import com.ieeecsvit.riviera17android.utility.Preferences;
@@ -44,10 +45,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         toolbar.setBackgroundColor(Color.parseColor("#302236"));
-
         getSupportActionBar().setTitle("");
+
+        if (Preferences.getPrefs(Consts.SHOW_WISHLIST_PREF, this).equals(Consts.TRUE) || Preferences.getPrefs(Consts.SHOW_WISHLIST_PREF, this).equals(Consts.NOT_FOUND)) {
+            CustomDialogClass cdd = new CustomDialogClass(this);
+            cdd.show();
+        }
 
         pre = (TextView) findViewById(R.id.pretext);
         work = (TextView) findViewById(R.id.workshoptext);

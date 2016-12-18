@@ -53,7 +53,7 @@ public class AboutTeamFragment extends Fragment {
     private void getData() {
 
 
-        String[] names = {"Rishabh Chaddha", "Harsh Khara", "Abhinav",
+        String[] names = {"Rishabh Chaddha", "Harsh Khara", "Abhinav Sharma",
                 "Harshal Varday",
                 "Tushar Narula",
                 "Waris Chutani",

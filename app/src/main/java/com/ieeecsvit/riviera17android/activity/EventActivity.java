@@ -52,8 +52,7 @@ public class EventActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        // Create the adapter that will return a fragment for each of the three
-        //
+
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), this, getIntent().getStringExtra("eventId"));
 
         Realm.init(this);
