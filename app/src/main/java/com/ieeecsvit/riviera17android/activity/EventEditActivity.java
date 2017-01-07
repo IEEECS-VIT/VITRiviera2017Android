@@ -50,17 +50,17 @@ public class EventEditActivity extends AppCompatActivity {
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!etEventName.equals(event.eventName)){
+                if(!etEventName.getText().toString().equals(event.eventName)){
                     changeName.changeField = "event_name";
                     changeName.changeValue = etEventName.getText().toString();
                     changeRequest.changes.add(changeName);
                 }
-                if(!etEventDesc.equals(event.eventDescription)){
+                if(!etEventDesc.getText().toString().equals(event.eventDescription)){
                     changeDesc.changeField = "event_description";
                     changeDesc.changeValue = etEventDesc.getText().toString();
                     changeRequest.changes.add(changeDesc);
                 }
-                if(!etEventRules.equals(event.eventRules)){
+                if(!etEventRules.getText().toString().equals(event.eventRules)){
                     changeRules.changeField = "event_rules";
                     changeRules.changeValue = etEventRules.getText().toString();
                     changeRequest.changes.add(changeRules);

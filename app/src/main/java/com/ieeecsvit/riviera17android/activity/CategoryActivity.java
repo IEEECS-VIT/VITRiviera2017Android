@@ -55,11 +55,10 @@ public class CategoryActivity extends AppCompatActivity {
         stringList.add("Words Worth Tamil");
         stringList.add("Words Worth Telugu");
         stringList.add("Drama");
-        stringList.add("Workshop");
         stringList.add("Dance");
+        stringList.add("Music Events");
         stringList.add("Cyber Engage");
         stringList.add("Quiz Events");
-        stringList.add("Others");
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
@@ -84,13 +83,13 @@ public class CategoryActivity extends AppCompatActivity {
                 recyclerView.setAdapter(new RVEventListAdapter(RealmController.with(this).getEvents(getCat), this, true));
                 break;
             case "Workshop":
-                catimage.setImageResource(R.drawable.preriv_ic);
+                catimage.setImageResource(R.drawable.work_ic);
                 back_image.setImageResource(R.drawable.workshop_back);
                 view.setBackgroundColor(Color.parseColor("#FDA736"));
                 recyclerView.setAdapter(new RVEventListAdapter(RealmController.with(this).getEvents(getCat), this, true));
                 break;
             case "Formal":
-                catimage.setImageResource(R.drawable.preriv_ic);
+                catimage.setImageResource(R.drawable.formal_ic);
                 back_image.setImageResource(R.drawable.formal_back);
                 view.setBackgroundColor(Color.parseColor("#FDA736"));
                 if (getSubCat == null) {
@@ -100,13 +99,13 @@ public class CategoryActivity extends AppCompatActivity {
                 }
                 break;
             case "Informal":
-                catimage.setImageResource(R.drawable.preriv_ic);
+                catimage.setImageResource(R.drawable.informal_ic);
                 back_image.setImageResource(R.drawable.informal_back);
                 view.setBackgroundColor(Color.parseColor("#FDA736"));
                 recyclerView.setAdapter(new RVEventListAdapter(RealmController.with(this).getEvents(getCat), this, true));
                 break;
             case "Adventure Sports":
-                catimage.setImageResource(R.drawable.preriv_ic);
+                catimage.setImageResource(R.drawable.cyber_ic);
                 back_image.setImageResource(R.drawable.sports);
                 view.setBackgroundColor(Color.parseColor("#FDA736"));
                 showSubEvents();
