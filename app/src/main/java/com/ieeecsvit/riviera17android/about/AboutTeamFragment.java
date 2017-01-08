@@ -62,7 +62,7 @@ public class AboutTeamFragment extends Fragment {
         teamMemberList.add(new TeamMember("Vishwash Tilala", "15BME0007", R.drawable.x12, "https://www.facebook.com/vishwash.tilala"));
         teamMemberList.add(new TeamMember("Ankur Sarode", "15BCE0785", R.drawable.x13, "https://github.com/AnkurSarode"));
         teamMemberList.add(new TeamMember("Aditya Shaha", "15BCE0227", R.drawable.x14, "https://github.com/AdityaShaha"));
-        teamMemberList.add(new TeamMember("Rishabh Mittal", "13BCB0076", R.drawable.x15, "https://github.com/rishabh19038"));
-        teamMemberList.add(new TeamMember("Anish Singh Walia", "13BIT0116", R.drawable.x16, "https://github.com/anishsingh20"));
+        teamMemberList.add(new TeamMember("Rishabh Mittal", "15BCB0076", R.drawable.x15, "https://github.com/rishabh19038"));
+        teamMemberList.add(new TeamMember("Anish Singh Walia", "15BIT0116", R.drawable.x16, "https://github.com/anishsingh20"));
     }
 }
