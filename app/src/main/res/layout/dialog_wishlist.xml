@@ -29,7 +29,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Remind Me Later"
+            android:text="Later"
             android:background="@color/colorPrimaryDark"
             android:textColor="#FFFFFF"/>
         <Button

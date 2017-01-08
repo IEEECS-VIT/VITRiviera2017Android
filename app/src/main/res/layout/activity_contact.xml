@@ -39,7 +39,7 @@
                 <ImageView
                     android:layout_width="23dp"
                     android:layout_height="match_parent"
-                    android:src="@drawable/call" />
+                    android:src="@drawable/contact" />
 
                 <TextView
                     android:id="@+id/dial1"
@@ -94,7 +94,7 @@
                 <ImageView
                     android:layout_width="23dp"
                     android:layout_height="match_parent"
-                    android:src="@drawable/call" />
+                    android:src="@drawable/contact" />
 
                 <TextView
                     android:id="@+id/dial2"
