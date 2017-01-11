@@ -1,6 +1,7 @@
 package com.ieeecsvit.riviera17android.activity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
@@ -72,6 +73,13 @@ public class EventActivity extends AppCompatActivity {
         ApiInterface apiInterface = new ApiClient().getClient(this).create(ApiInterface.class);
         Call<PerEventResponse> perEventResponseCall = apiInterface.getEvent(id);
 
+        final ProgressDialog dialog = new ProgressDialog(EventActivity.this);
+        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        dialog.setMessage("Loading Event Details. Please wait...");
+        dialog.setIndeterminate(true);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
+
         perEventResponseCall.enqueue(new Callback<PerEventResponse>() {
             @Override
             public void onResponse(Call<PerEventResponse> call, Response<PerEventResponse> response) {
@@ -80,11 +88,13 @@ public class EventActivity extends AppCompatActivity {
                 realm.commitTransaction();
                 mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), EventActivity.this, id);
                 mViewPager.setAdapter(mSectionsPagerAdapter);
+                dialog.hide();
             }
 
             @Override
             public void onFailure(Call<PerEventResponse> call, Throwable t) {
-
+                dialog.hide();
+                finish();
             }
         });
         // Set up the ViewPager with the sections adapter.
@@ -96,7 +106,6 @@ public class EventActivity extends AppCompatActivity {
         collapsingToolbarLayout.setTitle("Event Details");
         collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
         collapsingToolbarLayout.setContentScrimColor(ContextCompat.getColor(this,R.color.colorPrimary));
-
 
         NestedScrollView scrollView = (NestedScrollView) findViewById (R.id.scroll);
         scrollView.setFillViewport (true);
