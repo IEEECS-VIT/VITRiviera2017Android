@@ -89,6 +89,7 @@
             android:name=".activity.EventEditActivity2"
             android:label="@string/title_activity_event_edit2"
             android:parentActivityName=".activity.EventActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
