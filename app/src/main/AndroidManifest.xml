@@ -81,9 +81,19 @@
         <activity
             android:name=".activity.ContactActivity"
             android:label="CONTACTS"
-            android:parentActivityName=".activity.MainActivity"/>
-        <activity android:name=".activity.LicenseActivity"
-            android:label="Licenses"/>
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.LicenseActivity"
+            android:label="Licenses" />
+        <activity
+            android:name=".activity.EventEditActivity2"
+            android:label="@string/title_activity_event_edit2"
+            android:parentActivityName=".activity.EventActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ieeecsvit.riviera17android.activity.EventActivity" />
+        </activity>
     </application>
 
 </manifest>

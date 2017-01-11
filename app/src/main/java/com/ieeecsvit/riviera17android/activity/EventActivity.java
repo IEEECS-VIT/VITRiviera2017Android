@@ -100,7 +100,7 @@ public class EventActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(EventActivity.this, EventEditActivity.class);
+                Intent intent = new Intent(EventActivity.this, EventEditActivity2.class);
                 intent.putExtra(Consts.EVENT_BUNDLE, getIntent().getStringExtra("eventId"));
                 startActivity(intent);
             }

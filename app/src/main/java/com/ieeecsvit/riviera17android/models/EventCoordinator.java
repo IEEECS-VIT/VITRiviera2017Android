@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 import io.realm.RealmObject;
 
-public class EventCoordinator extends RealmObject{
+public class EventCoordinator extends RealmObject implements Serializable{
 
     @SerializedName("name")
     @Expose

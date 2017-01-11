@@ -11,7 +11,7 @@ import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class Event extends RealmObject {
+public class Event extends RealmObject implements Serializable {
 
     @SerializedName("_id")
     @Expose
@@ -92,9 +92,6 @@ public class Event extends RealmObject {
     @SerializedName("event_coordinators")
     @Expose
     public RealmList<EventCoordinator> eventCoordinators = new RealmList<>();
-    @SerializedName("event_rating")
-    @Expose
-    public RealmList<EventRating> eventRating = new RealmList<>();
     @SerializedName("event_overall")
     @Expose
     public String eventOverall;

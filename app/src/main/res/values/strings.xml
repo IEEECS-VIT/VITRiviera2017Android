@@ -27,10 +27,11 @@
     <string name="fragment_licenses_title">Licenses</string>
     <string name="button_close_dialog">Close</string>
 
-    <string name="action_settings">Log Off</string>
+    <string name="action_settings">Log Off and Exit</string>
 
     <string name="title_activity_event">EventActivity</string>
     <string name="title_activity_category">CategoryActivity</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_event_edit2">EventEditActivity2</string>
 </resources>
