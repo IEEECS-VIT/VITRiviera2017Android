@@ -110,6 +110,7 @@ public class CoodDetailsEditFragment extends Fragment {
                 ChangeRequest changeRequest = new ChangeRequest();
                 List<Change> changes = new ArrayList<>();
                 changes.add(changeCood);
+                changeRequest.eventId = Long.parseLong(event.id);
                 changeRequest.changes = changes;
 
                 ApiInterface apiInterface = new ApiClient().getClient(getActivity()).create(ApiInterface.class);

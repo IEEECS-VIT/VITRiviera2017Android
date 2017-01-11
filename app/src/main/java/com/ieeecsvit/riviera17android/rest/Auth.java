@@ -35,7 +35,7 @@ public class Auth {
                         Preferences.setPrefs(Consts.ROLE_PREF, response.body().role, activity);
 
                         if(response.body().role.equals("coordinator")){
-                            Preferences.setPrefs(Consts.EVENT_ID, response.body().eventId, activity);
+                            Preferences.setPrefs(Consts.EVENT_MY_ID, response.body().eventId, activity);
                         }
 
                         onLoginCallback.onSuccess();

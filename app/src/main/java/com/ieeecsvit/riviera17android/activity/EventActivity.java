@@ -2,6 +2,7 @@ package com.ieeecsvit.riviera17android.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -20,6 +21,7 @@ import android.view.View;
 import com.ieeecsvit.riviera17android.EventCoordinatorsFragment;
 import com.ieeecsvit.riviera17android.EventDetailsFragment;
 import com.ieeecsvit.riviera17android.R;
+import com.ieeecsvit.riviera17android.models.Event;
 import com.ieeecsvit.riviera17android.models.PerEventResponse;
 import com.ieeecsvit.riviera17android.rest.ApiClient;
 import com.ieeecsvit.riviera17android.rest.ApiInterface;
@@ -37,6 +39,8 @@ public class EventActivity extends AppCompatActivity {
 
     private ViewPager mViewPager;
 
+    String id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,14 +57,20 @@ public class EventActivity extends AppCompatActivity {
             }
         });
 
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), this, getIntent().getStringExtra("eventId"));
+        if(getIntent().getStringExtra(Consts.EVENT_ID)!=null){
+            id = getIntent().getStringExtra(Consts.EVENT_ID);
+        }
+        else{
+            id = Preferences.getPrefs(Consts.EVENT_ID, this);
+        }
 
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), this, id);
         Realm.init(this);
 
         final Realm realm = Realm.getDefaultInstance();
 
         ApiInterface apiInterface = new ApiClient().getClient(this).create(ApiInterface.class);
-        Call<PerEventResponse> perEventResponseCall = apiInterface.getEvent(getIntent().getStringExtra("eventId"));
+        Call<PerEventResponse> perEventResponseCall = apiInterface.getEvent(id);
 
         perEventResponseCall.enqueue(new Callback<PerEventResponse>() {
             @Override
@@ -68,7 +78,7 @@ public class EventActivity extends AppCompatActivity {
                 realm.beginTransaction();
                 realm.copyToRealmOrUpdate(response.body().event);
                 realm.commitTransaction();
-                mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), EventActivity.this, getIntent().getStringExtra("eventId"));
+                mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), EventActivity.this, id);
                 mViewPager.setAdapter(mSectionsPagerAdapter);
             }
 
@@ -93,7 +103,7 @@ public class EventActivity extends AppCompatActivity {
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         if(Preferences.getPrefs(Consts.ROLE_PREF,this).equals("admin") ||
-                (Preferences.getPrefs(Consts.ROLE_PREF,this).equals("coordinator") && Preferences.getPrefs(Consts.EVENT_ID,this).equals(getIntent().getStringExtra("eventId")))){
+                (Preferences.getPrefs(Consts.ROLE_PREF,this).equals("coordinator") && Preferences.getPrefs(Consts.EVENT_MY_ID,this).equals(getIntent().getStringExtra(Consts.EVENT_ID)))){
             fab.setVisibility(View.VISIBLE);
         }
 
@@ -101,10 +111,26 @@ public class EventActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(EventActivity.this, EventEditActivity2.class);
-                intent.putExtra(Consts.EVENT_BUNDLE, getIntent().getStringExtra("eventId"));
+                intent.putExtra(Consts.EVENT_ID, id);
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if(getIntent().getStringExtra(Consts.EVENT_ID)==null) {
+            id = Preferences.getPrefs(Consts.EVENT_ID, this);
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        Preferences.setPrefs(Consts.EVENT_ID, id, this);
     }
 
     @Override

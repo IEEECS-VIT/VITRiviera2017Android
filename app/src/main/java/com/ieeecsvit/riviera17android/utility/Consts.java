@@ -9,7 +9,8 @@ public class Consts {
     public static String LOGGED_IN_PREF = "logged_in";
     public static String ROLE_PREF = "role";
     public static String SHOW_WISHLIST_PREF = "first_start";
-    public static String EVENT_ID = "eventid";
+    public static String EVENT_ID = "eventId";
+    public static String EVENT_MY_ID = "event_my_id";
     public static String NOT_FOUND = "notfound";
 
     public static String EVENT_BUNDLE = "event_bundle";

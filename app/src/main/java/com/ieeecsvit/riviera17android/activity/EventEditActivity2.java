@@ -66,11 +66,11 @@ public class EventEditActivity2 extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    return EventDetailsEditFragment.newInstance(getIntent().getStringExtra(Consts.EVENT_BUNDLE));
+                    return EventDetailsEditFragment.newInstance(getIntent().getStringExtra(Consts.EVENT_ID));
                 case 1:
-                    return CoodDetailsEditFragment.newInstance(getIntent().getStringExtra(Consts.EVENT_BUNDLE));
+                    return CoodDetailsEditFragment.newInstance(getIntent().getStringExtra(Consts.EVENT_ID));
                 default:
-                    return EventDetailsEditFragment.newInstance(getIntent().getStringExtra(Consts.EVENT_BUNDLE));
+                    return EventDetailsEditFragment.newInstance(getIntent().getStringExtra(Consts.EVENT_ID));
             }
         }
 
