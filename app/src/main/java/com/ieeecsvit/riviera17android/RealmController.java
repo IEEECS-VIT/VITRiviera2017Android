@@ -7,6 +7,7 @@ import com.ieeecsvit.riviera17android.models.Event;
 import com.ieeecsvit.riviera17android.models.Message;
 
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
 
 public class RealmController {
@@ -16,7 +17,10 @@ public class RealmController {
 
     private RealmController(Application application) {
         Realm.init(application);
-        realm = Realm.getDefaultInstance();
+        RealmConfiguration config = new RealmConfiguration.Builder()
+                .deleteRealmIfMigrationNeeded()
+                .build();
+        realm = Realm.getInstance(config);
     }
 
     public static RealmController with(Fragment fragment) {

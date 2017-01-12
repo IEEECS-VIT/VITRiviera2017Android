@@ -13,6 +13,8 @@ import com.ieeecsvit.riviera17android.utility.Consts;
 import com.ieeecsvit.riviera17android.utility.Preferences;
 import com.ieeecsvit.riviera17android.utility.UtilityMethods;
 
+import io.realm.RealmConfiguration;
+
 public class SplashActivity extends AppCompatActivity {
 
 
