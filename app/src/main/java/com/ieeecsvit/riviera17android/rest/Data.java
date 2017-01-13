@@ -3,6 +3,7 @@ package com.ieeecsvit.riviera17android.rest;
 import android.app.Activity;
 import android.os.AsyncTask;
 
+import com.ieeecsvit.riviera17android.RealmConfig;
 import com.ieeecsvit.riviera17android.RealmController;
 import com.ieeecsvit.riviera17android.models.Event;
 import com.ieeecsvit.riviera17android.models.Events;
@@ -67,7 +68,7 @@ public class Data {
             Call<Events> eventsCall = apiInterface.getEventNames();
             try {
                 List<Event> events = eventsCall.execute().body().events;
-                Realm realm = Realm.getDefaultInstance();
+                Realm realm = Realm.getInstance(RealmConfig.getInstance());
                 realm.beginTransaction();
                 realm.delete(Event.class);
                 realm.commitTransaction();

@@ -22,6 +22,7 @@ import android.view.View;
 import com.ieeecsvit.riviera17android.EventCoordinatorsFragment;
 import com.ieeecsvit.riviera17android.EventDetailsFragment;
 import com.ieeecsvit.riviera17android.R;
+import com.ieeecsvit.riviera17android.RealmController;
 import com.ieeecsvit.riviera17android.models.Event;
 import com.ieeecsvit.riviera17android.models.PerEventResponse;
 import com.ieeecsvit.riviera17android.rest.ApiClient;
@@ -66,9 +67,8 @@ public class EventActivity extends AppCompatActivity {
         }
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), this, id);
-        Realm.init(this);
 
-        final Realm realm = Realm.getDefaultInstance();
+        final Realm realm = RealmController.with(this).getRealm();
 
         ApiInterface apiInterface = new ApiClient().getClient(this).create(ApiInterface.class);
         Call<PerEventResponse> perEventResponseCall = apiInterface.getEvent(id);

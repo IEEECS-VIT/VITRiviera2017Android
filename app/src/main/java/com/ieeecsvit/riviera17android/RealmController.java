@@ -17,10 +17,8 @@ public class RealmController {
 
     private RealmController(Application application) {
         Realm.init(application);
-        RealmConfiguration config = new RealmConfiguration.Builder()
-                .deleteRealmIfMigrationNeeded()
-                .build();
-        realm = Realm.getInstance(config);
+
+        realm = Realm.getInstance(RealmConfig.getInstance());
     }
 
     public static RealmController with(Fragment fragment) {

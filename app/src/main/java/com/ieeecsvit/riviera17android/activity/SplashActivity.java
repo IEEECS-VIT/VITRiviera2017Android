@@ -31,11 +31,11 @@ public class SplashActivity extends AppCompatActivity {
                 .onRelativeLayout(relativeLayout).
                 setTransitionDuration(2500).start();
 
-        RealmController.with(this);
-
         if(Preferences.getPrefs(Consts.LOGGED_IN_PREF, this).equals("notfound")){
             Preferences.setPrefs(Consts.LOGGED_IN_PREF, "0", this);
         }
+
+        RealmController.with(this);
 
         if(UtilityMethods.isNetworkAvailable()){
             Data.updateEvents(this, new Data.UpdateCallback() {
@@ -54,7 +54,5 @@ public class SplashActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-
     }
-
 }
